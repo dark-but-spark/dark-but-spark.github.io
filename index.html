@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>暗烨の首页</title>
+    <link rel="stylesheet" href="assets/css/index.css">
+
+</head>
+
+<body>
+    
+    <div class="layout">
+        <div class="layout_header" >
+            <h1>暗烨の首页</h1>
+        </div>
+        <div class="layout_center" id="layout_center">
+            <div class="center_left" id="center_left">
+                <div class="left_content">
+                    <h2>导航</h2>
+                    <ul>
+                        <li><a href="https://www.github.com">博客</a></li>
+
+                </div>
+            </div>
+            <div class="center_right" id="center_right">
+                <div class="right_content">
+                    <h2>欢迎来到我的个人主页</h2>
+                    <p>这里是暗烨的个人主页，欢迎访问！</p>
+                    <p>你可以在这里找到我的博客、项目和其他信息。</p>
+                    <p>如果你有任何问题或建议，请随时联系我。</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/index.js"></script>
+
+    <!-- mouse-firework -->
+    <script src="https://cdn.jsdelivr.net/npm/mouse-firework@latest/dist/index.umd.js"></script>
+    <script>
+        firework({
+            excludeElements: ["a"],
+            particles: [
+                {
+                    shape: "circle",
+                    move: "emit",
+                    easing: "easeOutExpo",
+                    colors: [
+                        "rgba(255,182,185,.9)",
+                        "rgba(250,227,217,.9)",
+                        "rgba(187,222,214,.9)",
+                        "rgba(138,198,209,.9)",
+                    ],
+                    number: 30,
+                    duration: [1200, 1800],
+                    shapeOptions: {
+                        radius: [16, 32],
+                    },
+                },
+            ],
+        });
+    </script>
+
+
+
+</body>
+
+</html>
