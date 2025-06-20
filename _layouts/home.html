@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/assets/css/home.css">
+
+    {{ page.head }}
+</head>
+
+<body>
+    {% include right_buttons.html %}
+    {% include header.html title="暗烨の首页" %}
+    <div class="layout_center" id="layout_center">
+        <div class="center_left" id="center_left">
+            
+            <div class="left_content">
+                <h2>导航</h2>
+                <ul>
+                    <li><a href="https://www.github.com">博客</a></li>
+
+            </div>
+        </div>
+        <div class="center_right" id="center_right">
+            {{ content }}
+        </div>
+    </div>
+    <!-- {% include metingJS.html %} -->
+
+    <script src="assets/js/home.js"></script>
+    {% include mouse_firework.html %}
+    {% include xf-musicplayer.html %}
+</body>
+
+</html>
