@@ -5,6 +5,7 @@
 }
 
 .layout_center {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -23,3 +24,4 @@
     background-color: #f1f1f1;
     padding: 10px;
 }
+
