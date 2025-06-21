@@ -8,3 +8,9 @@ head:
 <p>这里是暗烨的个人主页，欢迎访问！</p>
 <p>你可以在这里找到我的博客、项目和其他信息。</p>
 <p>如果你有任何问题或建议，请随时联系我。</p>
+<!-- 
+{% for post in site.posts %}
+    {% include posts_article.html  %}
+{% endfor %} -->
+
+{% include posts_article.html reverse=true %}
