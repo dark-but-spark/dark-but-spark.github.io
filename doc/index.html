@@ -10,7 +10,10 @@ head:
 <p>如果你有任何问题或建议，请随时联系我。</p>
 <!-- 
 {% for post in site.posts %}
-    {% include posts_article.html  %}
+    {% include posts_article.html  title="test" content="shjdhhdasd" %}
 {% endfor %} -->
-
-{% include posts_article.html reverse=true %}
+<div class="menu" style="display: flex; flex-direction: column; gap: 10px;">
+{% include posts_article.html reverse=false title="test" content="shjdhhdasd" %}
+{% include posts_article.html reverse=true title="test2" content="shjdhhd222asd" %}
+    
+</div>

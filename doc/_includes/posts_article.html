@@ -1,15 +1,8 @@
 
     <link rel="stylesheet" href="/assets/css/posts_article.css">
-<div id="posts_article" class="posts-article">
-        <img src="{{ include.image | default: '/assets/images/default-image.jpg' }}" 
-    alt="{{ include.title | default: 'Default Title' }}" 
-    class="image">
-    <div class="content">
-        <h2>{{ include.title | default: 'Default Title' }}</h2>
-        <p>{{ include.content | default: 'Default content goes here.' }}</p>
-    </div>
+    <div class="posts_intro" style="posts_intro" >
     {% if include.reverse %}
-    <img src="{{ include.image | default: '/assets/images/default-image.jpg' }}" 
+    <img src="/assets/images/default-image.jpg" 
     alt="{{ include.title | default: 'Default Title' }}" 
     class="image">
     <div class="content">
@@ -23,12 +16,13 @@
         <p>{{ include.content | default: 'Default content goes here.' }}</p>
     </div>
 
-    <img src="{{ include.image | default: '/assets/images/default-image.jpg' }}"
+    <img src="/assets/images/default-image.jpg"
     alt="{{ include.title | default: 'Default Title' }}"
     class="image:reverse">
 
     {% endif %}
     <script src="/assets/js/posts_article.js"></script>
+    </div>
 
 </div>
 
