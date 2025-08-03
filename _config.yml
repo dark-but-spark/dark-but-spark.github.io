@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 暗烨の小屋
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
+author: 暗烨
 language: en
 timezone: ''
 
@@ -101,4 +101,30 @@ theme: reimu
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: https://github.com/dark-but-spark/dark-but-spark.github.io.git
+  branch: gh-pages
+
+feed:
+  enable: true
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
+  icon: icon.png
+  autodiscovery: true
+  template:
+
+markdown_it_plus:
+  html: true
+  xhtmlOut: true
+  breaks: true
+  langPrefix:
+  linkify: true
+  typographer:
+  quotes: “”‘’
+  rawLaTeX: false # newly added

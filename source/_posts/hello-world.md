@@ -1,38 +1,37 @@
----
 title: Hello World
+tags:
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-## Quick Start
-
-### Create a new post
-
-``` bash
-$ hexo new "My New Post"
+这是我的第一篇文章。
+作为这个博客的测试文章。
+欢迎访问我的博客。
+如果你看到这篇文章，说明一切正常。
+ 
+``` cpp
+#include <iostream>
+using namespace std;
+int main() {
+    cout << "Hello, World!" << endl;
+    return 0;
+}
 ```
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+$
+x=\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+$
 
-### Run server
+$
+\bar x=\frac{1}{n}\sum_{i=1}^{n}x_i
+$
 
-``` bash
-$ hexo server
-```
+$
+A=\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+$
 
-More info: [Server](https://hexo.io/docs/server.html)
+$
+\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
+$
 
-### Generate static files
-
-``` bash
-$ hexo generate
-```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
