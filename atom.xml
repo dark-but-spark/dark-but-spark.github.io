@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-08-10T14:21:56.951Z</updated>
+  <updated>2025-08-10T15:33:48.601Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/2025/08/04/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/calculate/"/>
     <id>http://example.com/2025/08/04/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/calculate/</id>
     <published>2025-08-04T06:29:29.473Z</published>
-    <updated>2025-08-10T14:21:56.951Z</updated>
+    <updated>2025-08-10T15:33:48.601Z</updated>
     
     
       
@@ -45,7 +45,7 @@
     <link href="http://example.com/2025/08/04/hello-world/"/>
     <id>http://example.com/2025/08/04/hello-world/</id>
     <published>2025-08-03T17:56:42.742Z</published>
-    <updated>2025-08-10T13:54:03.401Z</updated>
+    <updated>2025-08-10T15:41:00.465Z</updated>
     
     
       
