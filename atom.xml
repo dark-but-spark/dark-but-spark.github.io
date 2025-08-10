@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>暗烨の小屋</title>
+  <icon>http://example.com/icon.png</icon>
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2025-08-10T14:21:56.951Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>暗烨</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>22 单摆的设计与研究实验 (test)</title>
+    <link href="http://example.com/2025/08/04/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/calculate/"/>
+    <id>http://example.com/2025/08/04/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/calculate/</id>
+    <published>2025-08-04T06:29:29.473Z</published>
+    <updated>2025-08-10T14:21:56.951Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;22-单摆的设计与研究实验&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#22-单摆的设计与研究实验&quot;&gt;&lt;/a&gt; 22 单摆的设计与研究实验&lt;/h1&gt;
+&lt;h4 id=&quot;初始化部分不用阅读-直接跳过&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="others" scheme="http://example.com/tags/others/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/2025/08/04/hello-world/"/>
+    <id>http://example.com/2025/08/04/hello-world/</id>
+    <published>2025-08-03T17:56:42.742Z</published>
+    <updated>2025-08-10T13:54:03.401Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;这是我的第一篇文章。&lt;br /&gt;
+作为这个博客的测试文章。&lt;br /&gt;
+欢迎访问我的博客。&lt;br /&gt;
+如果你看到这篇文章，说明一切正常。&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    
+    <category term="others" scheme="http://example.com/tags/others/"/>
+    
+  </entry>
+  
+</feed>
