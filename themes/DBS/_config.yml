@@ -133,9 +133,9 @@ social:
   # steam: https://steamcommunity.com/id/yourname
 
 widgets:
-  # - category
+  - category
   # - tag
-  # - tagcloud
+  - tagcloud
   # - archive
   # - recent_posts
 
@@ -241,7 +241,7 @@ math:
             processEscapes: true,
             processEnvironments: true,
             autoload: { color: [], colorv2: ["color"] },
-            packages: { "[+]": ["noerrors"] },
+            packages: { "[+]": ["noerrors","cjk"] },
           },
         options:
           {
@@ -250,7 +250,7 @@ math:
             ignoreHtmlClass: "tex2jax_ignore",
             processHtmlClass: "tex2jax_process",
           },
-        loader: { load: ["input/asciimath", "[tex]/noerrors"] },
+        loader: { load: ["input/asciimath", "[tex]/noerrors", "[tex]/cjk"] },
       }
 
 # mermaid url https://github.com/knsv/mermaid
@@ -625,7 +625,7 @@ player:
     options:
       audio: []
       fixed:
-      autoplay: true
+      autoplay: false
       loop: all
       order: random
       preload: auto
@@ -643,7 +643,7 @@ player:
       server: netease
       type: playlist
       auto:
-      autoplay: true
+      autoplay: false
       order: random
       list-folded: true
       preload: auto

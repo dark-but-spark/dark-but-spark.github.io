@@ -6,3 +6,7 @@ node_modules/
 public/
 .deploy*/
 _multiconfig.yml
+logs/
+markdown_output/
+.deploy_git/
+.vscode/

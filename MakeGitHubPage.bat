@@ -1,1 +1,3 @@
-hexo generate --deploy
+@echo off
+call hexo clean
+call hexo generate --deploy
