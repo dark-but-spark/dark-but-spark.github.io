@@ -1,0 +1,1149 @@
+
+  <!DOCTYPE html>
+  <html lang="en"  
+    
+      data-theme-mode="auto"
+    
+  >
+  <head>
+  
+  <meta charset="utf-8">
+  
+
+  
+
+  
+
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_0khxww3tj3q9';window.REIMU_CONFIG.clipboard_tips = {"success":{"en":"Copy successfully (*^▽^*)","zh-CN":"复制成功 (*^▽^*)","zh-TW":"複製成功 (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ","zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","zh-TW":"複製失敗 (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = 'All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://example.com';</script>
+  
+  <title>
+    11 脉搏、语音及图像信号的傅里叶分析 |
+    
+    暗烨の小屋
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media&#x3D;&#39;all&#39;">
+  
+  
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_0khxww3tj3q9.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  
+  
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+  
+  
+    <meta name="description" content="11 脉搏、语音及图像信号的傅里叶分析  实验目的  了解常见的信号的傅里叶级数表示。 了解周期信号如脉搏信号、语音信号及图像信号的傅里叶级数表示。 掌握傅里叶级数的计算方法。 了解傅里叶级数的意义和应用。   实验原理  傅里叶级数 傅里叶级数是将一个周期函数表示为一组正弦和余弦函数的线性组合。对于周期为TTT的函数f(t)f(t)f(t)，其傅里叶级数表示为： f(t)&#x3D;a0+∑n&#x3D;1∞[a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="11 脉搏、语音及图像信号的傅里叶分析">
+<meta property="og:url" content="http://example.com/2025/03/11/PHY102B/11/index.html">
+<meta property="og:site_name" content="暗烨の小屋">
+<meta property="og:description" content="11 脉搏、语音及图像信号的傅里叶分析  实验目的  了解常见的信号的傅里叶级数表示。 了解周期信号如脉搏信号、语音信号及图像信号的傅里叶级数表示。 掌握傅里叶级数的计算方法。 了解傅里叶级数的意义和应用。   实验原理  傅里叶级数 傅里叶级数是将一个周期函数表示为一组正弦和余弦函数的线性组合。对于周期为TTT的函数f(t)f(t)f(t)，其傅里叶级数表示为： f(t)&#x3D;a0+∑n&#x3D;1∞[a">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/1.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/2.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/2.2.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/3.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/4.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/5.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/6.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/7.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/8.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/9.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/10.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/11.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/12.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/13.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/14.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/15.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/16.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/17.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/18.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/19.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/20.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/21.PNG">
+<meta property="og:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/22.PNG">
+<meta property="article:published_time" content="2025-03-11T04:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-25T08:19:00.011Z">
+<meta property="article:author" content="暗烨">
+<meta property="article:tag" content="物理实验">
+<meta property="article:tag" content="信号处理">
+<meta property="article:tag" content="傅里叶分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2025/03/11/PHY102B/11/imgs/1.PNG">
+  
+  
+    <link rel="alternate" href="/atom.xml" title="暗烨の小屋" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload&#x3D;null;this.rel&#x3D;&#39;stylesheet&#39;" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL&#x2F;toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx&#x2F;1oA&#x2F;0l8ysE" crossorigin="anonymous">
+  
+    
+      
+        
+<link rel="stylesheet" href="https://npm.webcache.cn/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l&#x2F;9On385z&#x2F;&#x2F;&#x2F;+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+
+      
+    
+  
+  
+  
+  
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+  
+  
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.0/dist/aos.css" integrity="sha384-4NN3fZ5AokFyHuoihl7A9qWaCt+HsAtOaUsXwJGRb4&#x2F;SMBtFr2vcNSHR5E8dg0Wk" crossorigin="anonymous">
+
+  
+  
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/aplayer@1.10.1/dist/APlayer.min.css" integrity="sha384-tLMkTWh2pfXNWGFlUS0w1TFtRG5xZ9lPWFOooj+vDDLIL+xBGQU&#x2F;voDBY5XE2lVh" crossorigin="anonymous">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+    
+    
+  <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+        
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+        
+      </div>
+      
+      
+        
+      
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var startLoading = () => {
+      time = Date.now();
+      document.getElementById('loader').classList.remove("loading");
+    }
+    var endLoading = () => {
+      if (!time) {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loader').classList.add("loading");
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          document.body.style.overflow = 'auto';
+          document.getElementById('loader').classList.add("loading");
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    document.getElementById('loader').addEventListener('click', endLoading);
+  </script>
+
+<div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+</div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav">
+    
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <a class="main-nav-link" href="/">Home</a>
+        </span>
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <a class="main-nav-link" href="/archives">Archives</a>
+        </span>
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <a class="main-nav-link" href="/about">About</a>
+        </span>
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <a class="main-nav-link" href="/friend">Friend</a>
+        </span>
+      
+    
+    <a id="main-nav-toggle" class="nav-icon"></a>
+  </nav>
+  <nav id="sub-nav">
+    
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" target="_blank"></a>
+    
+    
+    
+  </nav>
+  
+</div>
+<header id="header">
+  
+    
+      
+        <picture>
+          
+        </picture>
+        
+          <img crossorigin="anonymous" fetchpriority="high" src="/images/banner.webp" alt="11 脉搏、语音及图像信号的傅里叶分析">
+        
+      
+    
+  
+  <div id="header-outer">
+    <div id="header-title">
+      
+        
+        
+          <a href="/" id="logo">
+            <h1 data-aos="slide-up">11 脉搏、语音及图像信号的傅里叶分析</h1>
+          </a>
+        
+      
+      
+        
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+          
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+        <div id="content" class="sidebar-left"  >
+          <aside id="sidebar">
+  
+  
+  
+    <meting-js
+      theme="var(--color-link)"
+      id="544580967"
+      server="netease"
+      type="playlist"
+      
+      
+      autoplay="false"
+      loop="all"
+      order="random"
+      preload="auto"
+      
+      mutex="true"
+      list-folded="true"
+      
+    ></meting-js>
+  
+  <div class="sidebar-wrapper wrap-sticky">
+    <div class="sidebar-wrap" data-aos="fade-up">
+      
+        
+          <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#11-%E8%84%89%E6%90%8F-%E8%AF%AD%E9%9F%B3%E5%8F%8A%E5%9B%BE%E5%83%8F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text"> 11 脉搏、语音及图像信号的傅里叶分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="toc-number">1.1.</span> <span class="toc-text"> 实验目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E5%8E%9F%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text"> 实验原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 傅里叶级数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%A2%E4%BF%A1%E5%8F%B7"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 方波信号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E6%B3%A2"><span class="toc-number">1.2.3.</span> <span class="toc-text"> 三角波</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">1.2.4.</span> <span class="toc-text"> 结论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BB%AA%E5%99%A8"><span class="toc-number">1.3.</span> <span class="toc-text"> 实验仪器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9%E5%8F%8A%E6%95%B0%E6%8D%AE"><span class="toc-number">1.4.</span> <span class="toc-text"> 实验内容及数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E4%BF%A1%E5%8F%B7%E5%A4%96%E6%8E%A5"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 标准信号&#x2F;外接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E4%BF%A1%E5%8F%B7%E5%86%85%E6%8E%A5"><span class="toc-number">1.4.2.</span> <span class="toc-text"> 标准信号&#x2F;内接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%89%E6%90%8F%E4%BF%A1%E5%8F%B7"><span class="toc-number">1.4.3.</span> <span class="toc-text"> 脉搏信号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E9%9F%B3%E4%BF%A1%E5%8F%B7"><span class="toc-number">1.4.4.</span> <span class="toc-text"> 语音信号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E4%BF%A1%E5%8F%B7"><span class="toc-number">1.4.5.</span> <span class="toc-text"> 图像信号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="toc-number">1.5.</span> <span class="toc-text"> 数据处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%9B%BE-1-%E5%92%8C%E5%9B%BE-2%E5%88%97%E4%B8%BE%E5%B7%AE%E5%BC%82%E4%B9%8B%E5%A4%84%E5%B9%B6%E5%88%86%E6%9E%90%E5%8E%9F%E5%9B%A0%E5%92%8C%E6%8C%87%E5%87%BA%E5%87%8F%E5%B0%8F%E5%B7%AE%E5%BC%82%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.5.1.</span> <span class="toc-text"> 比较图 1 和图 2，列举差异之处，并分析原因和指出减小差异的方法。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%9B%BE-3-%E5%92%8C%E5%9B%BE-4%E5%88%97%E4%B8%BE%E5%B7%AE%E5%BC%82%E4%B9%8B%E5%A4%84%E5%B9%B6%E5%88%86%E6%9E%90%E5%8E%9F%E5%9B%A0%E5%92%8C%E6%8C%87%E5%87%BA%E5%87%8F%E5%B0%8F%E5%B7%AE%E5%BC%82%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.5.2.</span> <span class="toc-text"> 比较图 3 和图 4，列举差异之处，并分析原因和指出减小差异的方法。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%9B%BE-5-%E4%B8%AD%E7%9B%B8%E5%AF%B9%E5%BC%BA%E5%BA%A6%E6%A0%8F%E6%8C%87%E5%87%BA%E5%AE%9E%E9%AA%8C%E9%A2%91%E8%B0%B1%E7%89%B9%E5%BE%81%E4%B8%8E%E7%90%86%E8%AE%BA%E9%A2%84%E6%B5%8B%E7%9A%84%E5%BC%82%E5%90%8C%E5%B9%B6%E5%88%86"><span class="toc-number">1.5.3.</span> <span class="toc-text"> 比较图 5 中“相对强度”栏，指出实验频谱特征与理论预测的异同，并分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%9B%BE-5-%E4%B8%AD%E6%97%B6%E5%9F%9F%E5%9B%BE%E5%92%8C%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%90%88%E6%88%90%E5%9B%BE%E5%88%97%E4%B8%BE%E5%BC%82%E5%90%8C%E5%B9%B6%E5%88%86%E6%9E%90%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.5.4.</span> <span class="toc-text"> 比较图 5 中“时域图”和低通滤波“合成图”，列举异同，并分析原因。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%9B%BE-6-%E4%B8%AD%E6%97%B6%E5%9F%9F%E5%9B%BE%E5%92%8C%E9%AB%98%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%90%88%E6%88%90%E5%9B%BE%E5%88%97%E4%B8%BE%E5%BC%82%E5%90%8C%E5%B9%B6%E5%88%86%E6%9E%90%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.5.5.</span> <span class="toc-text"> 比较图 6 中“时域图”和高通滤波“合成图”，列举异同，并分析原因.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%9B%BE-7-%E4%B8%AD%E7%9B%B8%E5%AF%B9%E5%BC%BA%E5%BA%A6%E6%A0%8F%E6%8C%87%E5%87%BA%E5%AE%9E%E9%AA%8C%E9%A2%91%E8%B0%B1%E7%89%B9%E5%BE%81%E4%B8%8E%E7%90%86%E8%AE%BA%E9%A2%84%E6%B5%8B%E7%9A%84%E5%BC%82%E5%90%8C%E5%B9%B6%E5%88%86%E6%9E%90%E5%8E%9F%E5%9B%A0%E6%AF%94%E8%BE%83%E5%9B%BE-4-%E5%92%8C%E5%9B%BE-5-%E7%9B%B8%E5%AF%B9%E5%BC%BA%E5%BA%A6%E6%A0%8F%E4%B8%AD%E9%A2%91%E7%8E%87%E5%92%8C%E5%B9%85%E5%80%BC%E7%9A%84%E6%AF%94%E4%BE%8B%E5%85%B3%E7%B3%BB"><span class="toc-number">1.5.6.</span> <span class="toc-text"> 比较图 7 中“相对强度”栏，指出实验频谱特征与理论预测的异同，并分析原因，比较图 4 和图 5 “相对强度”栏中，频率和幅值的比例关系。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%9B%BE7%E4%B8%AD%E6%97%B6%E5%9F%9F%E5%9B%BE%E5%92%8C%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%90%88%E6%88%90%E5%9B%BE%E5%88%97%E4%B8%BE%E5%BC%82%E5%90%8C%E5%B9%B6%E5%88%86%E6%9E%90%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.5.7.</span> <span class="toc-text"> 比较图7中“时域图”和低通滤波“合成图”，列举异同，并分析原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%9B%BE-8-%E4%B8%AD%E6%97%B6%E5%9F%9F%E5%9B%BE%E5%92%8C%E9%AB%98%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%90%88%E6%88%90%E5%9B%BE%E5%88%97%E4%B8%BE%E5%BC%82%E5%90%8C%E5%B9%B6%E5%88%86%E6%9E%90%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.5.8.</span> <span class="toc-text"> 比较图 8 中“时域图”和高通滤波“合成图”，列举异同，并分析原因。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%BD%95%E4%B8%AD%E5%BF%83%E9%A2%91%E7%8E%87f_1-f_2%E5%B9%B6%E6%AF%94%E8%BE%83f_1-f_2%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-number">1.5.9.</span> <span class="toc-text"> 记录中心频率f1、f2f_1、f_2f1​、f2​，并比较f1、f2f_1、f_2f1​、f2​的变化。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%8E%9F%E5%9B%BE%E7%89%87%E5%92%8C%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%9B%BE%E5%88%97%E4%B8%BE%E5%BC%82%E5%90%8C%E5%B9%B6%E5%88%86%E6%9E%90%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.5.10.</span> <span class="toc-text"> 比较“原图片”和“低通滤波图”，列举异同并分析原因。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%8E%9F%E5%9B%BE%E7%89%87%E5%92%8C%E9%AB%98%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%9B%BE%E5%88%97%E4%B8%BE%E5%BC%82%E5%90%8C%E5%B9%B6%E5%88%86%E6%9E%90%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.5.11.</span> <span class="toc-text"> 比较“原图片”和“高通滤波图”，列举异同并分析原因。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AF%E5%B7%AE%E5%88%86%E6%9E%90"><span class="toc-number">1.6.</span> <span class="toc-text"> 误差分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E8%AE%BA"><span class="toc-number">1.7.</span> <span class="toc-text"> 实验结论</span></a></li></ol></li></ol>
+      
+  </div>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="暗烨" class="lazyload">
+  <div class="sidebar-author-name">暗烨</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">13</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">1</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">13</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="Friend"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Friend</div>
+      </div>
+    
+  
+</div>
+</div>
+        
+      
+      
+        
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+        
+      
+    </div>
+  </div>
+
+  <div class="sidebar-widget">
+  
+  </div>
+  
+</aside>
+
+          <section id="main"><article id="post-PHY102B/11" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link" data-aos="zoom-in">
+    <time datetime="2025-03-11T04:00:00.000Z" itemprop="datePublished">2025-03-11</time>
+    <time style="display: none;" id="post-update-time">2025-08-25</time>
+  </span>
+</div>
+
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/" data-aos="zoom-in">基础物理实验</a>
+  </div>
+
+
+    </div>
+    <div class="hr-line"></div>
+    
+
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <h1 id="11-脉搏-语音及图像信号的傅里叶分析"><a class="markdownIt-Anchor" href="#11-脉搏-语音及图像信号的傅里叶分析"></a> 11 脉搏、语音及图像信号的傅里叶分析</h1>
+<h2 id="实验目的"><a class="markdownIt-Anchor" href="#实验目的"></a> 实验目的</h2>
+<ol>
+<li>了解常见的信号的傅里叶级数表示。</li>
+<li>了解周期信号如脉搏信号、语音信号及图像信号的傅里叶级数表示。</li>
+<li>掌握傅里叶级数的计算方法。</li>
+<li>了解傅里叶级数的意义和应用。</li>
+</ol>
+<h2 id="实验原理"><a class="markdownIt-Anchor" href="#实验原理"></a> 实验原理</h2>
+<h3 id="傅里叶级数"><a class="markdownIt-Anchor" href="#傅里叶级数"></a> 傅里叶级数</h3>
+<p>傅里叶级数是将一个周期函数表示为一组正弦和余弦函数的线性组合。对于周期为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span>的函数<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span>，其傅里叶级数表示为：</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>a</mi><mn>0</mn></msub><mo>+</mo><munderover><mo>∑</mo><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><mi mathvariant="normal">∞</mi></munderover><mo stretchy="false">[</mo><msub><mi>a</mi><mi>n</mi></msub><mi>cos</mi><mo>⁡</mo><mo stretchy="false">(</mo><mfrac><mrow><mn>2</mn><mi>π</mi><mi>n</mi><mi>t</mi></mrow><mi>T</mi></mfrac><mo stretchy="false">)</mo><mo>+</mo><msub><mi>b</mi><mi>n</mi></msub><mi>sin</mi><mo>⁡</mo><mo stretchy="false">(</mo><mfrac><mrow><mn>2</mn><mi>π</mi><mi>n</mi><mi>t</mi></mrow><mi>T</mi></mfrac><mo stretchy="false">)</mo><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f(t) = a_0 + \sum_{n=1}^{\infty} [a_n \cos(\frac{2\pi nt}{T}) + b_n \sin(\frac{2\pi nt}{T})]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.9185em;vertical-align:-1.2671em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6514em;"><span style="top:-1.8829em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∞</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2671em;"><span></span></span></span></span></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">cos</span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mord mathnormal">πn</span><span class="mord mathnormal">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">sin</span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mord mathnormal">πn</span><span class="mord mathnormal">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">)]</span></span></span></span></span></p>
+<p>其中，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">a_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>是常数项，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">a_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>和<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">b_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>是傅里叶系数，表示函数在不同频率下的幅度和相位。傅里叶系数的计算公式为：</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>a</mi><mn>0</mn></msub><mo>=</mo><mfrac><mn>1</mn><mi>T</mi></mfrac><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mi>f</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mi>d</mi><mi>t</mi><mspace linebreak="newline"></mspace><msub><mi>a</mi><mi>n</mi></msub><mo>=</mo><mfrac><mn>2</mn><mi>T</mi></mfrac><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mi>f</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mi>cos</mi><mo>⁡</mo><mo stretchy="false">(</mo><mfrac><mrow><mn>2</mn><mi>π</mi><mi>n</mi><mi>t</mi></mrow><mi>T</mi></mfrac><mo stretchy="false">)</mo><mi>d</mi><mi>t</mi><mspace linebreak="newline"></mspace><msub><mi>b</mi><mi>n</mi></msub><mo>=</mo><mfrac><mn>2</mn><mi>T</mi></mfrac><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mi>f</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mi>sin</mi><mo>⁡</mo><mo stretchy="false">(</mo><mfrac><mrow><mn>2</mn><mi>π</mi><mi>n</mi><mi>t</mi></mrow><mi>T</mi></mfrac><mo stretchy="false">)</mo><mi>d</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">a_0 = \frac{1}{T} \int_0^T f(t) dt\\
+a_n = \frac{2}{T} \int_0^T f(t) \cos(\frac{2\pi nt}{T}) dt\\
+b_n = \frac{2}{T} \int_0^T f(t) \sin(\frac{2\pi nt}{T}) dt
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.5032em;vertical-align:-0.9119em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.5912em;"><span style="top:-1.7881em;margin-left:-0.4445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span><span style="top:-3.8129em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9119em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mord mathnormal">d</span><span class="mord mathnormal">t</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.5032em;vertical-align:-0.9119em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.5912em;"><span style="top:-1.7881em;margin-left:-0.4445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span><span style="top:-3.8129em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9119em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">cos</span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mord mathnormal">πn</span><span class="mord mathnormal">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">)</span><span class="mord mathnormal">d</span><span class="mord mathnormal">t</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.5032em;vertical-align:-0.9119em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.5912em;"><span style="top:-1.7881em;margin-left:-0.4445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span><span style="top:-3.8129em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9119em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">sin</span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mord mathnormal">πn</span><span class="mord mathnormal">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">)</span><span class="mord mathnormal">d</span><span class="mord mathnormal">t</span></span></span></span></span></p>
+<h3 id="方波信号"><a class="markdownIt-Anchor" href="#方波信号"></a> 方波信号</h3>
+<p>对于方波信号，</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.36em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>A</mi><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>0</mn><mo>≤</mo><mi>t</mi><mo>&lt;</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>T</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mi>A</mi><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>T</mi><mo>≤</mo><mi>t</mi><mo>&lt;</mo><mi>T</mi></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">f(t) =
+\begin{cases}
+A, &amp; 0 \leq t &lt; \frac{1}{2}T \\
+-A, &amp; \frac{1}{2}T \leq t &lt; T \\
+\end{cases}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:3em;vertical-align:-1.25em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="mpunct">,</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">−</span><span class="mord mathnormal">A</span><span class="mpunct">,</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:1em;"></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>其傅里叶级数表示为：</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mrow><mn>4</mn><mi>A</mi></mrow><mi>π</mi></mfrac><munderover><mo>∑</mo><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><mi mathvariant="normal">∞</mi></munderover><mfrac><mn>1</mn><mrow><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mi>sin</mi><mo>⁡</mo><mo stretchy="false">(</mo><mfrac><mrow><mn>2</mn><mi>π</mi><mo stretchy="false">(</mo><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mi>t</mi></mrow><mi>T</mi></mfrac><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(t) = \frac{4A}{\pi} \sum_{n=1}^{\infty} \frac{1}{2n-1} \sin(\frac{2\pi(2n-1)t}{T})
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.9185em;vertical-align:-1.2671em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">4</span><span class="mord mathnormal">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6514em;"><span style="top:-1.8829em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∞</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2671em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">sin</span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="mopen">(</span><span class="mord">2</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mord mathnormal">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">)</span></span></span></span></span></p>
+<p>其中，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>是方波的幅度，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span>是方波的周期。</p>
+<h3 id="三角波"><a class="markdownIt-Anchor" href="#三角波"></a> 三角波</h3>
+<p>对于三角波信号，</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.36em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mfrac><mrow><mn>4</mn><mi>A</mi></mrow><mi>T</mi></mfrac><mi>t</mi><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mi>T</mi><mo>≤</mo><mi>t</mi><mo>&lt;</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mi>T</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>2</mn><mi>A</mi><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mfrac><mrow><mn>2</mn><mi>t</mi></mrow><mi>T</mi></mfrac><mo stretchy="false">)</mo><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mfrac><mn>1</mn><mn>4</mn></mfrac><mi>T</mi><mo>≤</mo><mi>t</mi><mo>&lt;</mo><mfrac><mn>3</mn><mn>4</mn></mfrac><mi>T</mi></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">f(t) =
+\begin{cases}
+\frac{4A}{T} t, &amp;-\frac{1}{4}T \leq t &lt; \frac{1}{4}T \\
+2A(1-\frac{2t}{T}), &amp; \frac{1}{4}T \leq t &lt; \frac{3}{4}T \\
+\end{cases}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:3em;vertical-align:-1.25em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8723em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span><span class="mord mathnormal mtight">A</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathnormal">t</span><span class="mpunct">,</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">2</span><span class="mord mathnormal">A</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">)</span><span class="mpunct">,</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:1em;"></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">−</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>其傅里叶级数表示为：</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mrow><mn>8</mn><mi>A</mi></mrow><msup><mi>π</mi><mn>2</mn></msup></mfrac><munderover><mo>∑</mo><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><mi mathvariant="normal">∞</mi></munderover><mfrac><mrow><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><mrow><mo stretchy="false">(</mo><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow></mfrac><mi>cos</mi><mo>⁡</mo><mo stretchy="false">(</mo><mfrac><mrow><mn>2</mn><mi>π</mi><mo stretchy="false">(</mo><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mi>t</mi></mrow><mi>T</mi></mfrac><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(t) = \frac{8A}{\pi^2} \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{(2n-1)^2} \cos(\frac{2\pi (2n-1)t}{T})
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.9185em;vertical-align:-1.2671em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">8</span><span class="mord mathnormal">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6514em;"><span style="top:-1.8829em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∞</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2671em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4911em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mopen">(</span><span class="mord">2</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mopen">(</span><span class="mord">−</span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">cos</span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="mopen">(</span><span class="mord">2</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mord mathnormal">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">)</span></span></span></span></span></p>
+<p>其中，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>是三角波的幅度，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span>是三角波的周期。</p>
+<h3 id="结论"><a class="markdownIt-Anchor" href="#结论"></a> 结论</h3>
+<p>由上述式子可知，任意周期信号都可以用无限多次不同频率的波叠加而成，且频率越高，振幅越小。当振幅小到一定程度时，可以忽略，将信号变成有限次的叠加，实现信号压缩存储，去噪声等应用。</p>
+<h2 id="实验仪器"><a class="markdownIt-Anchor" href="#实验仪器"></a> 实验仪器</h2>
+<p>脉搏语音实验仪器，数字信号发生器，信号加法器，电脑</p>
+<h2 id="实验内容及数据"><a class="markdownIt-Anchor" href="#实验内容及数据"></a> 实验内容及数据</h2>
+<h3 id="标准信号外接"><a class="markdownIt-Anchor" href="#标准信号外接"></a> 标准信号/外接</h3>
+<ol>
+<li>利用数字信号发生器分别产生<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mi>H</mi><mi>z</mi><mtext>，</mtext><mn>300</mn><mi>H</mi><mi>z</mi><mtext>，</mtext><mn>500</mn><mi>H</mi><mi>z</mi></mrow><annotation encoding="application/x-tex">100Hz，300Hz，500Hz</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">100</span><span class="mord mathnormal" style="margin-right:0.04398em;">Hz</span><span class="mord cjk_fallback">，</span><span class="mord">300</span><span class="mord mathnormal" style="margin-right:0.04398em;">Hz</span><span class="mord cjk_fallback">，</span><span class="mord">500</span><span class="mord mathnormal" style="margin-right:0.04398em;">Hz</span></span></span></span>的位相相同正弦信号，调整振幅比为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>:</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>:</mo><mfrac><mn>1</mn><mn>5</mn></mfrac></mrow><annotation encoding="application/x-tex">1:\frac{1}{3}:\frac{1}{5}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">5</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>,进行加法后输入傅里叶分析仪，观察记录波形。</li>
+</ol>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\1.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图1 信号发生器合成方波</center>
+</div>
+<ol start="2">
+<li>利用数字信号发生器产生方波，输入到傅里叶分析仪，观察记录波形。</li>
+</ol>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\2.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图2 信号发生器输出方波</center>
+</div>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\2.2.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图2-2 信号发生器输出方波并对三个最大强度的频率进行合成</center>
+</div>
+<ol start="3">
+<li>利用数字信号发生器分别产生<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>200</mn><mi>H</mi><mi>z</mi><mtext>，</mtext><mn>600</mn><mi>H</mi><mi>z</mi><mtext>，</mtext><mn>1000</mn><mi>H</mi><mi>z</mi></mrow><annotation encoding="application/x-tex">200Hz，600Hz，1000Hz</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">200</span><span class="mord mathnormal" style="margin-right:0.04398em;">Hz</span><span class="mord cjk_fallback">，</span><span class="mord">600</span><span class="mord mathnormal" style="margin-right:0.04398em;">Hz</span><span class="mord cjk_fallback">，</span><span class="mord">1000</span><span class="mord mathnormal" style="margin-right:0.04398em;">Hz</span></span></span></span>的正弦信号，保证<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>600</mn><mi>H</mi><mi>z</mi></mrow><annotation encoding="application/x-tex">600Hz</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">600</span><span class="mord mathnormal" style="margin-right:0.04398em;">Hz</span></span></span></span>相位相差<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>180</mn><mi mathvariant="normal">°</mi></mrow><annotation encoding="application/x-tex">180\degree</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">180°</span></span></span></span>，调整振幅比为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>:</mo><mfrac><mn>1</mn><mn>9</mn></mfrac><mo>:</mo><mfrac><mn>1</mn><mn>25</mn></mfrac></mrow><annotation encoding="application/x-tex">1:\frac{1}{9}:\frac{1}{25}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">9</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">25</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>,进行加法后输入傅里叶分析仪，观察记录波形。并与数字信号发生器产生的三角波比较。</li>
+</ol>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\3.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图3 信号发生器合成三角波</center>
+</div>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\4.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图4 信号发生器输出三角波</center>
+</div>
+<h3 id="标准信号内接"><a class="markdownIt-Anchor" href="#标准信号内接"></a> 标准信号/内接</h3>
+<ol>
+<li>利用傅里叶分析仪产生方波，分别进行低通滤波与高通滤波</li>
+</ol>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\5.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图5 内置方波信号的分解和低通滤波</center>
+</div>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\6.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图6 内置方波信号的分解和高通滤波</center>
+</div>
+2. 利用傅里叶分析仪产生三角波，分别进行低通滤波与高通滤波
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\7.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图7 内置三角波信号的分解和低通滤波</center>
+</div>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\8.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图8 内置三角波信号的分解和高通滤波</center>
+</div>
+<h3 id="脉搏信号"><a class="markdownIt-Anchor" href="#脉搏信号"></a> 脉搏信号</h3>
+<ol>
+<li>利用傅里叶分析仪的脉冲信号模块与光电测试仪测试自己的脉搏波信号。</li>
+<li>选择完整周期进行分析，测量中心频率<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">f_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>。<br />
+测量得<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>1</mn></msub><mo>=</mo><mn>1.5</mn><mi>H</mi><mi>z</mi></mrow><annotation encoding="application/x-tex">f_1=1.5Hz</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">1.5</span><span class="mord mathnormal" style="margin-right:0.04398em;">Hz</span></span></span></span></li>
+</ol>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\9.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图9 脉搏信号</center>
+</div>
+<ol start="3">
+<li>深呼吸后重复上述实验，测量中心频率<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">f_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>并比较。<br />
+测量得<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>2</mn></msub><mo>=</mo><mn>1.7</mn><mi>H</mi><mi>z</mi><mo>&gt;</mo><msub><mi>f</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">f_2=1.7Hz&gt;f_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord">1.7</span><span class="mord mathnormal" style="margin-right:0.04398em;">Hz</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
+</ol>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\10.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图10 深呼吸后的脉搏信号</center>
+</div>
+<h3 id="语音信号"><a class="markdownIt-Anchor" href="#语音信号"></a> 语音信号</h3>
+<ol>
+<li>利用傅里叶分析仪的语音信号模块与麦克风测试自己的语音信号,进行傅里叶分析。</li>
+</ol>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\11.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图11 语音信号</center>
+</div>
+<ol start="2">
+<li>二次采集，采集相同和不同的元音信号，记录频谱分布。</li>
+</ol>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\12.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图12 语音a的识别</center>
+</div>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\13.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图13 语音i的识别</center>
+</div>
+<ol start="3">
+<li>采集一段长语音信号，观察傅里叶分析的实时频谱变化</li>
+</ol>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\14.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图14 长时语音</center>
+</div>
+<h3 id="图像信号"><a class="markdownIt-Anchor" href="#图像信号"></a> 图像信号</h3>
+<p>运用傅里叶分析仪分析图片“双缝”、“彩色十字”、“光”、“箭头”。分别选择低通和高通滤波器，记录所用参数与图片。</p>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\15.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图15 双缝图片低通滤波</center>
+</div>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\16.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图16 双缝图片高通滤波</center>
+</div>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\17.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图17 彩色十字图片低通滤波</center>
+</div>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\18.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图18 彩色十字图片高通滤波</center>
+</div>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\19.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图19 光字图片低通滤波</center>
+</div>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\20.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图20 光字图片高通滤波</center>
+</div>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\21.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图21 箭头图片低通滤波</center>
+</div>
+<div style="margin-bottom: 1px">
+<img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src=".\imgs\22.PNG">
+</div>
+<div style="margin-bottom: 20px;">
+<center style="font-size:12px;color:#C0C0C0;padding=2px">图22 箭头图片高通滤波</center>
+</div>
+<h2 id="数据处理"><a class="markdownIt-Anchor" href="#数据处理"></a> 数据处理</h2>
+<h3 id="比较图-1-和图-2列举差异之处并分析原因和指出减小差异的方法"><a class="markdownIt-Anchor" href="#比较图-1-和图-2列举差异之处并分析原因和指出减小差异的方法"></a> 比较图 1 和图 2，列举差异之处，并分析原因和指出减小差异的方法。</h3>
+<p>  图1中对合成波进行傅里叶分析并选频后形状基本不变，但消除了环境噪声造成的影响，形状有点方波的样子，但在强度较高时波动较大。图2-2中对方波进行傅里叶分析后如果选择前三大强度的频率合成后，与图1相似。在图2中，随着选频增多，合成后与方波逐渐接近。为了消除差异，应选择更多的频率进行合成。</p>
+<h3 id="比较图-3-和图-4列举差异之处并分析原因和指出减小差异的方法"><a class="markdownIt-Anchor" href="#比较图-3-和图-4列举差异之处并分析原因和指出减小差异的方法"></a> 比较图 3 和图 4，列举差异之处，并分析原因和指出减小差异的方法。</h3>
+<p>  图3对合成波进行傅里叶分析并选频后形状基本不变，但消除了环境噪声造成的影响，形状接近三角波，但较为圆润。图4进行傅里叶分析后如果选择较大强度的部分，合成后与图3相似，随着选频增多，合成后与三角波逐渐接近。为了消除差异，应选择更多的频率进行合成。</p>
+<h3 id="比较图-5-中相对强度栏指出实验频谱特征与理论预测的异同并分"><a class="markdownIt-Anchor" href="#比较图-5-中相对强度栏指出实验频谱特征与理论预测的异同并分"></a> 比较图 5 中“相对强度”栏，指出实验频谱特征与理论预测的异同，并分</h3>
+<p>析原因，比较图 2 和图 5“相对强度”栏中，频率和幅值的比例关系。<br />
+ 同：图5中频域图中较大强度的部分，强度随着频率增加而减弱。强度较大的波频率接近<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>:</mo><mn>3</mn><mo>:</mo><mn>5</mn><mo>:</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">1:3:5:...</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.1056em;"></span><span class="mord">...</span></span></span></span>,振幅接近<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>:</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>:</mo><mfrac><mn>1</mn><mn>5</mn></mfrac><mo>:</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">1:{1\over3}:{1\over5}:...</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">5</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.1056em;"></span><span class="mord">...</span></span></span></span>，与理论结果基本相似。<br />
+ 异：仍然存在一些偶数频率的波存在。<br />
+ 原因：1.在选择周期的左右端点时与零点位置存在部分偏差，需要移动初相位校准，导致产生偶数频率。2.环境中存在电磁噪声。3.仪器误差。<br />
+ 频率幅值:图5（图6）强度较大的波频率接近<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>:</mo><mn>3</mn><mo>:</mo><mn>5...</mn></mrow><annotation encoding="application/x-tex">1:3:5...</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5...</span></span></span></span>,振幅接近<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>:</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>:</mo><mfrac><mn>1</mn><mn>5</mn></mfrac><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">1:{1\over3}:{1\over5}...</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">5</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mord">...</span></span></span></span>，与理论结果基本相似。</p>
+<h3 id="比较图-5-中时域图和低通滤波合成图列举异同并分析原因"><a class="markdownIt-Anchor" href="#比较图-5-中时域图和低通滤波合成图列举异同并分析原因"></a> 比较图 5 中“时域图”和低通滤波“合成图”，列举异同，并分析原因。</h3>
+<p> 同：大致形状相同，合成图可以大致表示时域图的形状，周期相同。<br />
+ 异：在最高强度位置，合成图上下波动较大，细节与时域图差别较大。<br />
+ 原因：低通滤波只能保存图像变化不大的部分，对变化较大的部分无法完全展示。</p>
+<h3 id="比较图-6-中时域图和高通滤波合成图列举异同并分析原因"><a class="markdownIt-Anchor" href="#比较图-6-中时域图和高通滤波合成图列举异同并分析原因"></a> 比较图 6 中“时域图”和高通滤波“合成图”，列举异同，并分析原因.</h3>
+<p> 同：在方波处于较大值时波动和值较大，周期相同。<br />
+ 异：图像几乎没有关联，合成图基本无法还原回时域图，图像尖锐。<br />
+ 原因：高通滤波只会保存图像中的部分细节，对突变反应明显，但无法记录大致形状。</p>
+<h3 id="比较图-7-中相对强度栏指出实验频谱特征与理论预测的异同并分析原因比较图-4-和图-5-相对强度栏中频率和幅值的比例关系"><a class="markdownIt-Anchor" href="#比较图-7-中相对强度栏指出实验频谱特征与理论预测的异同并分析原因比较图-4-和图-5-相对强度栏中频率和幅值的比例关系"></a> 比较图 7 中“相对强度”栏，指出实验频谱特征与理论预测的异同，并分析原因，比较图 4 和图 5 “相对强度”栏中，频率和幅值的比例关系。</h3>
+<p> 同：频率幅值与理论预测大致相同。<br />
+ 异：仍然存在一些误差，或者一些异常频率。<br />
+ 原因：1.在选择周期的左右端点时与零点位置存在部分偏差，需要移动初相位校准。2.环境中存在电磁噪声。3.仪器误差。<br />
+ 频率幅值：图4强度较大的波频率接近<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>:</mo><mn>3</mn><mo>:</mo><mn>5</mn><mo>:</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">1:3:5:...</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.1056em;"></span><span class="mord">...</span></span></span></span>,振幅接近<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>:</mo><mfrac><mn>1</mn><msup><mn>3</mn><mn>2</mn></msup></mfrac><mo>:</mo><mfrac><mn>1</mn><msup><mn>5</mn><mn>2</mn></msup></mfrac><mo>:</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">1:{1\over3^2}:{1\over5^2}:...</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7463em;"><span style="top:-2.786em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mtight">5</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7463em;"><span style="top:-2.786em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.1056em;"></span><span class="mord">...</span></span></span></span>，图5（图6）强度较大的波频率接近<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>:</mo><mn>3</mn><mo>:</mo><mn>5</mn><mo>:</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">1:3:5:...</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.1056em;"></span><span class="mord">...</span></span></span></span>,振幅接近<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>:</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>:</mo><mfrac><mn>1</mn><mn>5</mn></mfrac><mo>:</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">1:{1\over3}:{1\over5}:...</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">5</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.1056em;"></span><span class="mord">...</span></span></span></span>。</p>
+<h3 id="比较图7中时域图和低通滤波合成图列举异同并分析原因"><a class="markdownIt-Anchor" href="#比较图7中时域图和低通滤波合成图列举异同并分析原因"></a> 比较图7中“时域图”和低通滤波“合成图”，列举异同，并分析原因</h3>
+<p> 同：大致形状相同，合成图可以大致表示时域图的形状，周期相同。<br />
+ 异：合成图的峰值不够尖锐，整体较圆润。<br />
+ 原因：低通滤波只能保存图像变化不大的部分，对变化较大的部分无法完全展示。</p>
+<h3 id="比较图-8-中时域图和高通滤波合成图列举异同并分析原因"><a class="markdownIt-Anchor" href="#比较图-8-中时域图和高通滤波合成图列举异同并分析原因"></a> 比较图 8 中“时域图”和高通滤波“合成图”，列举异同，并分析原因。</h3>
+<p> 同：在三角波处于较大值时波动和值较大，周期相同。<br />
+ 异：图像几乎没有关联，合成图基本无法还原回时域图，图像尖锐。<br />
+ 原因：高通滤波只会保存图像中的部分细节，对突变反应明显，但无法记录大致形状。</p>
+<h3 id="记录中心频率f_1-f_2并比较f_1-f_2的变化"><a class="markdownIt-Anchor" href="#记录中心频率f_1-f_2并比较f_1-f_2的变化"></a> 记录中心频率<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>1</mn></msub><mtext>、</mtext><msub><mi>f</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">f_1、f_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">、</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，并比较<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>1</mn></msub><mtext>、</mtext><msub><mi>f</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">f_1、f_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">、</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的变化。</h3>
+<p> 测量得<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mn>1</mn><mo>=</mo><mn>1.5</mn><mi>H</mi><mi>z</mi></mrow><annotation encoding="application/x-tex">f1=1.5Hz</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">1.5</span><span class="mord mathnormal" style="margin-right:0.04398em;">Hz</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mn>2</mn><mo>=</mo><mn>1.7</mn><mi>H</mi><mi>z</mi><mo>&gt;</mo><mi>f</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">f2=1.7Hz&gt;f1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord">1.7</span><span class="mord mathnormal" style="margin-right:0.04398em;">Hz</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord">1</span></span></span></span>。单次深呼吸后脉搏频率增加，心跳加快。<br />
+ 原因：单次深呼吸无法消解实验员的紧张情绪。</p>
+<h3 id="比较原图片和低通滤波图列举异同并分析原因"><a class="markdownIt-Anchor" href="#比较原图片和低通滤波图列举异同并分析原因"></a> 比较“原图片”和“低通滤波图”，列举异同并分析原因。</h3>
+<p> 同：原图片和低通滤波图的形状相似，所表达的内容大致相同。<br />
+ 异：低通滤波图的细节部分被模糊化，对于边缘模糊较明显，去除了大量的图片噪声，整体观感较为奶化。<br />
+ 原因：低通滤波器只保留了图像中频率较低的部分，去除了高频部分，导致图片的信息丢失，只保留大概样貌，但细节部分模糊。</p>
+<h3 id="比较原图片和高通滤波图列举异同并分析原因"><a class="markdownIt-Anchor" href="#比较原图片和高通滤波图列举异同并分析原因"></a> 比较“原图片”和“高通滤波图”，列举异同并分析原因。</h3>
+<p> 同：原图片和高通滤波图的形状相似，所表达的内容大致相同。<br />
+ 异：高通滤波图的细节部分被放大化，对于边缘清晰度较明显，保留了大量的图片噪声，整体观感较为清晰。<br />
+ 原因：高通滤波器只保留了图像中频率较高的部分，去除了低频部分，导致图片的信息丢失，只保留细节部分，但大致形状明显。</p>
+<h2 id="误差分析"><a class="markdownIt-Anchor" href="#误差分析"></a> 误差分析</h2>
+<ol>
+<li>仪器采样的限制，仪器和计算精度限制，选取周期时存在误差。</li>
+<li>周围的电磁干扰，测量脉搏时环境光的影响，测量语音时周围噪声与回声的影响。</li>
+</ol>
+<h2 id="实验结论"><a class="markdownIt-Anchor" href="#实验结论"></a> 实验结论</h2>
+<ol>
+<li>通过傅里叶分析仪对脉搏、语音和图像信号进行傅里叶分析，得到了相应的频谱图，了解了傅里叶分析的过程。</li>
+<li>了解了傅里叶分析后选取低频滤波与高频滤波的结果，通过实验体验低频滤波保留大体结构，高频滤波保存细节。</li>
+<li>学会了运用傅里叶分析进行周期信号的分析与压缩。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/" rel="tag">信号处理</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%88%86%E6%9E%90/" rel="tag">傅里叶分析</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/" rel="tag">物理实验</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+  <nav id="article-nav" data-aos="fade-up">
+    
+      
+      <div class="article-nav-link-wrap article-nav-link-left">
+        
+          
+          
+            <img data-src="/covers/a28.webp" data-sizes="auto" alt="17 密立根油滴实验" class="lazyload">
+          
+        
+        <a href="/2025/03/18/PHY102B/17/"></a>
+        <div class="article-nav-caption">Newer</div>
+        <h3 class="article-nav-title">
+          
+            17 密立根油滴实验
+          
+        </h3>
+      </div>
+    
+    
+    
+    <div class="article-nav-link-wrap article-nav-link-right">
+      
+        
+        
+          <img data-src="/covers/a18.webp" data-sizes="auto" alt="22 单摆测量重力加速度" class="lazyload">
+        
+      
+      <a href="/2025/03/04/PHY102B/22/"></a>
+      <div class="article-nav-caption">Older</div>
+      <h3 class="article-nav-title">
+        
+          22 单摆测量重力加速度
+        
+      </h3>
+    </div>
+    
+  </nav>
+
+
+</article>
+
+
+
+
+
+
+
+
+
+
+</section>
+        </div>
+        <footer id="footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    
+    <div>
+      <span class="icon-copyright"></span>
+      
+      
+      
+        2025
+      
+      <span class="footer-info-sep rotate"></span>
+      暗烨
+    </div>
+    
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener external nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+    
+    
+      <div>
+        <span class="icon-brush"></span>
+        26.5k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        02:01
+      </div>
+    
+    
+    
+    
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+    
+  </div>
+</footer>
+
+        
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav">
+  <div class="sidebar-wrap">
+    
+      
+        <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#11-%E8%84%89%E6%90%8F-%E8%AF%AD%E9%9F%B3%E5%8F%8A%E5%9B%BE%E5%83%8F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text"> 11 脉搏、语音及图像信号的傅里叶分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="toc-number">1.1.</span> <span class="toc-text"> 实验目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E5%8E%9F%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text"> 实验原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 傅里叶级数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%A2%E4%BF%A1%E5%8F%B7"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 方波信号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E6%B3%A2"><span class="toc-number">1.2.3.</span> <span class="toc-text"> 三角波</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">1.2.4.</span> <span class="toc-text"> 结论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BB%AA%E5%99%A8"><span class="toc-number">1.3.</span> <span class="toc-text"> 实验仪器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9%E5%8F%8A%E6%95%B0%E6%8D%AE"><span class="toc-number">1.4.</span> <span class="toc-text"> 实验内容及数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E4%BF%A1%E5%8F%B7%E5%A4%96%E6%8E%A5"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 标准信号&#x2F;外接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E4%BF%A1%E5%8F%B7%E5%86%85%E6%8E%A5"><span class="toc-number">1.4.2.</span> <span class="toc-text"> 标准信号&#x2F;内接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%89%E6%90%8F%E4%BF%A1%E5%8F%B7"><span class="toc-number">1.4.3.</span> <span class="toc-text"> 脉搏信号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E9%9F%B3%E4%BF%A1%E5%8F%B7"><span class="toc-number">1.4.4.</span> <span class="toc-text"> 语音信号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E4%BF%A1%E5%8F%B7"><span class="toc-number">1.4.5.</span> <span class="toc-text"> 图像信号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="toc-number">1.5.</span> <span class="toc-text"> 数据处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%9B%BE-1-%E5%92%8C%E5%9B%BE-2%E5%88%97%E4%B8%BE%E5%B7%AE%E5%BC%82%E4%B9%8B%E5%A4%84%E5%B9%B6%E5%88%86%E6%9E%90%E5%8E%9F%E5%9B%A0%E5%92%8C%E6%8C%87%E5%87%BA%E5%87%8F%E5%B0%8F%E5%B7%AE%E5%BC%82%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.5.1.</span> <span class="toc-text"> 比较图 1 和图 2，列举差异之处，并分析原因和指出减小差异的方法。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%9B%BE-3-%E5%92%8C%E5%9B%BE-4%E5%88%97%E4%B8%BE%E5%B7%AE%E5%BC%82%E4%B9%8B%E5%A4%84%E5%B9%B6%E5%88%86%E6%9E%90%E5%8E%9F%E5%9B%A0%E5%92%8C%E6%8C%87%E5%87%BA%E5%87%8F%E5%B0%8F%E5%B7%AE%E5%BC%82%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.5.2.</span> <span class="toc-text"> 比较图 3 和图 4，列举差异之处，并分析原因和指出减小差异的方法。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%9B%BE-5-%E4%B8%AD%E7%9B%B8%E5%AF%B9%E5%BC%BA%E5%BA%A6%E6%A0%8F%E6%8C%87%E5%87%BA%E5%AE%9E%E9%AA%8C%E9%A2%91%E8%B0%B1%E7%89%B9%E5%BE%81%E4%B8%8E%E7%90%86%E8%AE%BA%E9%A2%84%E6%B5%8B%E7%9A%84%E5%BC%82%E5%90%8C%E5%B9%B6%E5%88%86"><span class="toc-number">1.5.3.</span> <span class="toc-text"> 比较图 5 中“相对强度”栏，指出实验频谱特征与理论预测的异同，并分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%9B%BE-5-%E4%B8%AD%E6%97%B6%E5%9F%9F%E5%9B%BE%E5%92%8C%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%90%88%E6%88%90%E5%9B%BE%E5%88%97%E4%B8%BE%E5%BC%82%E5%90%8C%E5%B9%B6%E5%88%86%E6%9E%90%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.5.4.</span> <span class="toc-text"> 比较图 5 中“时域图”和低通滤波“合成图”，列举异同，并分析原因。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%9B%BE-6-%E4%B8%AD%E6%97%B6%E5%9F%9F%E5%9B%BE%E5%92%8C%E9%AB%98%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%90%88%E6%88%90%E5%9B%BE%E5%88%97%E4%B8%BE%E5%BC%82%E5%90%8C%E5%B9%B6%E5%88%86%E6%9E%90%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.5.5.</span> <span class="toc-text"> 比较图 6 中“时域图”和高通滤波“合成图”，列举异同，并分析原因.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%9B%BE-7-%E4%B8%AD%E7%9B%B8%E5%AF%B9%E5%BC%BA%E5%BA%A6%E6%A0%8F%E6%8C%87%E5%87%BA%E5%AE%9E%E9%AA%8C%E9%A2%91%E8%B0%B1%E7%89%B9%E5%BE%81%E4%B8%8E%E7%90%86%E8%AE%BA%E9%A2%84%E6%B5%8B%E7%9A%84%E5%BC%82%E5%90%8C%E5%B9%B6%E5%88%86%E6%9E%90%E5%8E%9F%E5%9B%A0%E6%AF%94%E8%BE%83%E5%9B%BE-4-%E5%92%8C%E5%9B%BE-5-%E7%9B%B8%E5%AF%B9%E5%BC%BA%E5%BA%A6%E6%A0%8F%E4%B8%AD%E9%A2%91%E7%8E%87%E5%92%8C%E5%B9%85%E5%80%BC%E7%9A%84%E6%AF%94%E4%BE%8B%E5%85%B3%E7%B3%BB"><span class="toc-number">1.5.6.</span> <span class="toc-text"> 比较图 7 中“相对强度”栏，指出实验频谱特征与理论预测的异同，并分析原因，比较图 4 和图 5 “相对强度”栏中，频率和幅值的比例关系。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%9B%BE7%E4%B8%AD%E6%97%B6%E5%9F%9F%E5%9B%BE%E5%92%8C%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%90%88%E6%88%90%E5%9B%BE%E5%88%97%E4%B8%BE%E5%BC%82%E5%90%8C%E5%B9%B6%E5%88%86%E6%9E%90%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.5.7.</span> <span class="toc-text"> 比较图7中“时域图”和低通滤波“合成图”，列举异同，并分析原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%9B%BE-8-%E4%B8%AD%E6%97%B6%E5%9F%9F%E5%9B%BE%E5%92%8C%E9%AB%98%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%90%88%E6%88%90%E5%9B%BE%E5%88%97%E4%B8%BE%E5%BC%82%E5%90%8C%E5%B9%B6%E5%88%86%E6%9E%90%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.5.8.</span> <span class="toc-text"> 比较图 8 中“时域图”和高通滤波“合成图”，列举异同，并分析原因。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%BD%95%E4%B8%AD%E5%BF%83%E9%A2%91%E7%8E%87f_1-f_2%E5%B9%B6%E6%AF%94%E8%BE%83f_1-f_2%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-number">1.5.9.</span> <span class="toc-text"> 记录中心频率f1、f2f_1、f_2f1​、f2​，并比较f1、f2f_1、f_2f1​、f2​的变化。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%8E%9F%E5%9B%BE%E7%89%87%E5%92%8C%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%9B%BE%E5%88%97%E4%B8%BE%E5%BC%82%E5%90%8C%E5%B9%B6%E5%88%86%E6%9E%90%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.5.10.</span> <span class="toc-text"> 比较“原图片”和“低通滤波图”，列举异同并分析原因。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%8E%9F%E5%9B%BE%E7%89%87%E5%92%8C%E9%AB%98%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%9B%BE%E5%88%97%E4%B8%BE%E5%BC%82%E5%90%8C%E5%B9%B6%E5%88%86%E6%9E%90%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.5.11.</span> <span class="toc-text"> 比较“原图片”和“高通滤波图”，列举异同并分析原因。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AF%E5%B7%AE%E5%88%86%E6%9E%90"><span class="toc-number">1.6.</span> <span class="toc-text"> 误差分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E8%AE%BA"><span class="toc-number">1.7.</span> <span class="toc-text"> 实验结论</span></a></li></ol></li></ol>
+      
+  </div>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="暗烨" class="lazyload">
+  <div class="sidebar-author-name">暗烨</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">13</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">1</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">13</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="Friend"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Friend</div>
+      </div>
+    
+  
+</div>
+</div>
+      
+    
+  </div>
+  
+    
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+    
+  
+</nav>
+
+    </div>
+    
+    
+    
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+  
+<script src="https://npm.webcache.cn/material-theme@1.0.0/dist/material-theme.umd.js" integrity="sha384-vLev0II0HKFaxkcm+&#x2F;7kX5IGwVFBASkGchU311wmU&#x2F;veIj2bB0UcBkQbW6yw2asK" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+
+
+
+
+
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.1.1/dist/index.umd.js" integrity="sha384-8LyaidD9GPxQQgLJO&#x2F;WRw&#x2F;O2h3BoNq&#x2F;ApI&#x2F;ecpvM6RsrCz2qP2ppBXUKihP4V&#x2F;2d" crossorigin="anonymous"></script>
+
+  <script>
+    window.firework && window.firework(JSON.parse('{"excludeElements":["a"],"particles":[{"shape":"circle","move":"emit","easing":"easeOutExpo","colors":["rgba(255,182,185,.9)","rgba(250,227,217,.9)","rgba(187,222,214,.9)","rgba(138,198,209,.9)"],"number":30,"duration":[1200,1800],"shapeOptions":{"radius":[16,32]}}]}'))
+  </script>
+
+
+
+
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+    
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "暗烨",
+          title: "11 脉搏、语音及图像信号的傅里叶分析",
+          url: "http://example.com/2025/03/11/PHY102B/11/",
+          excerpt: "",
+          description: "",
+          stripContent: " 11 脉搏、语音及图像信号的傅里叶分析  实验目的  了解常见的信号的傅里叶级数表示。 了解周期信号如脉搏信号、语音信号及图像信号的傅里叶级数表示。 掌握傅里叶级数的计算方法。 了解傅里叶级数的意义和应用。   实验原理  傅里叶级数 傅里叶级数是将一个周期函数表示为一组正弦和余弦函数的线性组合。对于周期为TTT的函数f(t)f(t)f(t)，其傅里叶级数表示为： f(t)=a0+∑n=1∞[ancos⁡(2πntT)+bnsin⁡(2πntT)]f(t) = a_0 + \sum_{n=1}",
+          date: "Tue Mar 11 2025 12:00:00 GMT+0800",
+          updated: "Mon Aug 25 2025 16:19:00 GMT+0800",
+          cover: "/images/banner.webp",
+        };
+      </script>
+       
+    
+    
+      
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+        
+      
+    
+    
+      <script type="module" data-pjax>
+        const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+        
+        const pswp = () => {
+          if (_$$('.article-entry a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-entry',
+              children: 'a.article-gallery-item',
+              pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+            }).init();
+          }
+          if(_$$('.article-gallery a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-gallery',
+              children: 'a.article-gallery-item',
+              pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+            }).init();
+          }
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script>
+      
+        
+
+
+
+
+
+
+
+
+      
+    
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.9.0' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+  
+
+
+
+  
+<script src="https://npm.webcache.cn/aplayer@1.10.1/dist/APlayer.min.js" integrity="sha384-gdGYZwHnfJM54evoZhpO0s6ZF5BQiybkiyW7VXr+h5UfruuRL&#x2F;aORyw+5+HZoU6e" crossorigin="anonymous"></script>
+
+  
+
+
+
+  
+  <script>
+    var isMobile = window.matchMedia('(max-width: 959px)').matches;
+    if (isMobile) {
+      const meting = _$('meting-js');
+      if (meting) {
+        meting.setAttribute('fixed', 'true');
+        const aside = meting.parentNode;
+        if (aside?.tagName === 'ASIDE') {
+          aside.removeChild(meting);
+          document.body.appendChild(meting);
+        }
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/meting@2.0.1/dist/Meting.min.js" integrity="sha384-ASVlpKF80A22OXTK3tfEjZm1EL6uFMKIC4p8+0maanw1S&#x2F;IyB+Y4JG+ZDU7GpKE8" crossorigin="anonymous"></script>
+
+
+
+
+    
+  </body>
+  </html>
+
