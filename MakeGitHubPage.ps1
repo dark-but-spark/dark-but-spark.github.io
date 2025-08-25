@@ -9,6 +9,10 @@ function Write-Log {
     Write-Host $Text
     Add-Content -Path $logPath -Value $Text -Encoding UTF8
 }
+if(!(Get-Command hexo -ErrorAction SilentlyContinue)) {
+    Write-Log "hexo not found"
+    exit
+}
 
 Write-Log "==== Hexo Clean ===="
 hexo clean 2>&1 | ForEach-Object { Write-Log $_ }
