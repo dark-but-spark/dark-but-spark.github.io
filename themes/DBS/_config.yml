@@ -329,7 +329,7 @@ waline:
     - nick
     - mail
   wordLimit: 0
-  pageSize: 10
+  pageSize: 25
   pageview: true
 
 # https://twikoo.js.org

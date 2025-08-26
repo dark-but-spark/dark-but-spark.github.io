@@ -1,0 +1,9 @@
+- name: 22 单摆测量重力加速度
+  url: https://github.com/dark-but-spark/PHY104BExperiments-of-Fundamental-Physics/tree/main/22%E5%8D%95%E6%91%86%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E7%A0%94%E7%A9%B6%E5%AE%9E%E9%AA%8C
+  desc: 前往代码仓库
+  image: https://avatars.githubusercontent.com/u/9919?s=200&v=4
+- name: 计算器
+  url: https://github.com/dark-but-spark/PHY104BExperiments-of-Fundamental-Physics/blob/main/22%E5%8D%95%E6%91%86%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E7%A0%94%E7%A9%B6%E5%AE%9E%E9%AA%8C/calculator.ipynb
+  desc: 前往计算代码
+  image: https://jupyter.org/assets/homepage/main-logo.svg
+  
