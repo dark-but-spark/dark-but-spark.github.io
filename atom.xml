@@ -43,34 +43,6 @@
   </entry>
   
   <entry>
-    <title>22 单摆的设计与研究实验 (test)</title>
-    <link href="http://example.com/2025/08/04/PHY104B/calculate/"/>
-    <id>http://example.com/2025/08/04/PHY104B/calculate/</id>
-    <published>2025-08-04T06:29:29.473Z</published>
-    <updated>2025-08-25T08:43:41.777Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;22-单摆的设计与研究实验&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#22-单摆的设计与研究实验&quot;&gt;&lt;/a&gt; 22 单摆的设计与研究实验&lt;/h1&gt;
-&lt;h4 id=&quot;初始化部分不用阅读-直接跳过&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="基础物理实验" scheme="http://example.com/categories/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
-    
-    
-    <category term="物理实验" scheme="http://example.com/tags/%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
-    
-    <category term="单摆" scheme="http://example.com/tags/%E5%8D%95%E6%91%86/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Hello World</title>
     <link href="http://example.com/2025/08/04/hello-world/"/>
     <id>http://example.com/2025/08/04/hello-world/</id>
@@ -214,6 +186,36 @@
   </entry>
   
   <entry>
+    <title>19 固体杨氏模量 计算器</title>
+    <link href="http://example.com/2025/04/01/PHY104BCalculator/19/"/>
+    <id>http://example.com/2025/04/01/PHY104BCalculator/19/</id>
+    <published>2025-04-01T04:00:00.000Z</published>
+    <updated>2025-08-26T02:21:38.449Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;19-固体杨氏模量-计算器&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#19-固体杨氏模量-计算器&quot;&gt;&lt;/a&gt; 19 固体杨氏模量 计算器&lt;/h1&gt;
+&lt;div class=&quot;friend-wrap&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="基础物理实验" scheme="http://example.com/categories/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
+    
+    
+    <category term="物理实验" scheme="http://example.com/tags/%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
+    
+    <category term="固体杨氏模量" scheme="http://example.com/tags/%E5%9B%BA%E4%BD%93%E6%9D%A8%E6%B0%8F%E6%A8%A1%E9%87%8F/"/>
+    
+    <category term="计算器" scheme="http://example.com/tags/%E8%AE%A1%E7%AE%97%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
     <title>19 固体杨氏模量(95pts)</title>
     <link href="http://example.com/2025/04/01/PHY104B/19/"/>
     <id>http://example.com/2025/04/01/PHY104B/19/</id>
@@ -324,6 +326,66 @@
     <category term="信号处理" scheme="http://example.com/tags/%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/"/>
     
     <category term="傅里叶分析" scheme="http://example.com/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>21 随机误差的分布规律 计算器</title>
+    <link href="http://example.com/2025/03/04/PHY104BCalculator/21/"/>
+    <id>http://example.com/2025/03/04/PHY104BCalculator/21/</id>
+    <published>2025-03-04T04:00:00.000Z</published>
+    <updated>2025-08-26T01:46:35.817Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;21-时间测量中随机误差的分布规律-计算器&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#21-时间测量中随机误差的分布规律-计算器&quot;&gt;&lt;/a&gt; 21 时间测量中随机误差的分布规律 计算器&lt;/h1&gt;
+&lt;div</summary>
+        
+      
+    
+    
+    
+    <category term="基础物理实验" scheme="http://example.com/categories/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
+    
+    
+    <category term="物理实验" scheme="http://example.com/tags/%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
+    
+    <category term="计算器" scheme="http://example.com/tags/%E8%AE%A1%E7%AE%97%E5%99%A8/"/>
+    
+    <category term="随机误差" scheme="http://example.com/tags/%E9%9A%8F%E6%9C%BA%E8%AF%AF%E5%B7%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>22 单摆的设计与研究实验 计算器</title>
+    <link href="http://example.com/2025/03/04/PHY104BCalculator/22/"/>
+    <id>http://example.com/2025/03/04/PHY104BCalculator/22/</id>
+    <published>2025-03-04T04:00:00.000Z</published>
+    <updated>2025-08-26T01:46:59.256Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;22-单摆的设计与研究实验-计算器&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#22-单摆的设计与研究实验-计算器&quot;&gt;&lt;/a&gt; 22 单摆的设计与研究实验 计算器&lt;/h1&gt;
+&lt;div class=&quot;friend-wrap&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="基础物理实验" scheme="http://example.com/categories/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
+    
+    
+    <category term="物理实验" scheme="http://example.com/tags/%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
+    
+    <category term="计算器" scheme="http://example.com/tags/%E8%AE%A1%E7%AE%97%E5%99%A8/"/>
+    
+    <category term="单摆" scheme="http://example.com/tags/%E5%8D%95%E6%91%86/"/>
     
   </entry>
   

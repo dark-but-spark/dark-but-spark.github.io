@@ -1,0 +1,945 @@
+
+  <!DOCTYPE html>
+  <html lang="en"  
+    
+      data-theme-mode="auto"
+    
+  >
+  <head>
+  
+  <meta charset="utf-8">
+  
+
+  
+
+  
+
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_0khxww3tj3q9';window.REIMU_CONFIG.clipboard_tips = {"success":{"en":"Copy successfully (*^▽^*)","zh-CN":"复制成功 (*^▽^*)","zh-TW":"複製成功 (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ","zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","zh-TW":"複製失敗 (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = 'All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://example.com';</script>
+  
+  <title>
+    21 随机误差的分布规律 计算器 |
+    
+    暗烨の小屋
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media&#x3D;&#39;all&#39;">
+  
+  
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_0khxww3tj3q9.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  
+  
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+  
+  
+    <meta name="description" content="21 时间测量中随机误差的分布规律 计算器                                                                21 时间测量中随机误差的分布规律                        前往代码仓库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="21 随机误差的分布规律 计算器">
+<meta property="og:url" content="http://example.com/2025/03/04/PHY104BCalculator/21/index.html">
+<meta property="og:site_name" content="暗烨の小屋">
+<meta property="og:description" content="21 时间测量中随机误差的分布规律 计算器                                                                21 时间测量中随机误差的分布规律                        前往代码仓库">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/9919?s=200&v=4">
+<meta property="og:image" content="https://jupyter.org/assets/homepage/main-logo.svg">
+<meta property="og:image" content="http://example.com/2025/03/04/PHY104BCalculator/21/calculator_files/calculator_11_0.png">
+<meta property="og:image" content="http://example.com/2025/03/04/PHY104BCalculator/21/calculator_files/calculator_11_1.png">
+<meta property="article:published_time" content="2025-03-04T04:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-26T01:46:35.817Z">
+<meta property="article:author" content="暗烨">
+<meta property="article:tag" content="物理实验">
+<meta property="article:tag" content="计算器">
+<meta property="article:tag" content="随机误差">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/9919?s=200&v=4">
+  
+  
+    <link rel="alternate" href="/atom.xml" title="暗烨の小屋" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload&#x3D;null;this.rel&#x3D;&#39;stylesheet&#39;" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL&#x2F;toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx&#x2F;1oA&#x2F;0l8ysE" crossorigin="anonymous">
+  
+    
+      
+        
+<link rel="stylesheet" href="https://npm.webcache.cn/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l&#x2F;9On385z&#x2F;&#x2F;&#x2F;+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+
+      
+    
+  
+  
+  
+  
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+  
+  
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.0/dist/aos.css" integrity="sha384-4NN3fZ5AokFyHuoihl7A9qWaCt+HsAtOaUsXwJGRb4&#x2F;SMBtFr2vcNSHR5E8dg0Wk" crossorigin="anonymous">
+
+  
+  
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/aplayer@1.10.1/dist/APlayer.min.css" integrity="sha384-tLMkTWh2pfXNWGFlUS0w1TFtRG5xZ9lPWFOooj+vDDLIL+xBGQU&#x2F;voDBY5XE2lVh" crossorigin="anonymous">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+    
+    
+  <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+        
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+        
+      </div>
+      
+      
+        
+      
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var startLoading = () => {
+      time = Date.now();
+      document.getElementById('loader').classList.remove("loading");
+    }
+    var endLoading = () => {
+      if (!time) {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loader').classList.add("loading");
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          document.body.style.overflow = 'auto';
+          document.getElementById('loader').classList.add("loading");
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    document.getElementById('loader').addEventListener('click', endLoading);
+  </script>
+
+<div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+</div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav">
+    
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <a class="main-nav-link" href="/">Home</a>
+        </span>
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <a class="main-nav-link" href="/archives">Archives</a>
+        </span>
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <a class="main-nav-link" href="/about">About</a>
+        </span>
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <a class="main-nav-link" href="/friend">Friend</a>
+        </span>
+      
+    
+    <a id="main-nav-toggle" class="nav-icon"></a>
+  </nav>
+  <nav id="sub-nav">
+    
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" target="_blank"></a>
+    
+    
+    
+  </nav>
+  
+</div>
+<header id="header">
+  
+    
+      
+        <picture>
+          
+        </picture>
+        
+          <img crossorigin="anonymous" fetchpriority="high" src="/images/banner.webp" alt="21 随机误差的分布规律 计算器">
+        
+      
+    
+  
+  <div id="header-outer">
+    <div id="header-title">
+      
+        
+        
+          <a href="/" id="logo">
+            <h1 data-aos="slide-up">21 随机误差的分布规律 计算器</h1>
+          </a>
+        
+      
+      
+        
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+          
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+        <div id="content" class="sidebar-left"  >
+          <aside id="sidebar">
+  
+  
+  
+    <meting-js
+      theme="var(--color-link)"
+      id="544580967"
+      server="netease"
+      type="playlist"
+      
+      
+      autoplay="false"
+      loop="all"
+      order="random"
+      preload="auto"
+      
+      mutex="true"
+      list-folded="true"
+      
+    ></meting-js>
+  
+  <div class="sidebar-wrapper wrap-sticky">
+    <div class="sidebar-wrap" data-aos="fade-up">
+      
+        
+          <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#21-%E6%97%B6%E9%97%B4%E6%B5%8B%E9%87%8F%E4%B8%AD%E9%9A%8F%E6%9C%BA%E8%AF%AF%E5%B7%AE%E7%9A%84%E5%88%86%E5%B8%83%E8%A7%84%E5%BE%8B-%E8%AE%A1%E7%AE%97%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text"> 21 时间测量中随机误差的分布规律 计算器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%83%A8%E5%88%86%E4%B8%8D%E7%94%A8%E9%98%85%E8%AF%BB-%E7%9B%B4%E6%8E%A5%E8%B7%B3%E8%BF%87"><span class="toc-number">1.1.</span> <span class="toc-text"> 初始化部分（不用阅读 直接跳过）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E9%83%A8%E5%88%86"><span class="toc-number">1.2.</span> <span class="toc-text"> 读取部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text"> 基础数据处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%88%86%E6%AE%B5-%E7%BB%9F%E8%AE%A1%E9%A2%91%E7%8E%87"><span class="toc-number">1.4.</span> <span class="toc-text"> 计算分段 统计频率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1%CF%83%E5%88%86%E5%B8%83"><span class="toc-number">1.5.</span> <span class="toc-text"> 统计σ分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%BB%E5%9B%BE"><span class="toc-number">1.6.</span> <span class="toc-text"> 画图</span></a></li></ol></li></ol>
+      
+  </div>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="暗烨" class="lazyload">
+  <div class="sidebar-author-name">暗烨</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">15</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">1</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">14</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="Friend"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Friend</div>
+      </div>
+    
+  
+</div>
+</div>
+        
+      
+      
+        
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+        
+      
+    </div>
+  </div>
+
+  <div class="sidebar-widget">
+  
+  </div>
+  
+</aside>
+
+          <section id="main"><article id="post-PHY104BCalculator/21" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link" data-aos="zoom-in">
+    <time datetime="2025-03-04T04:00:00.000Z" itemprop="datePublished">2025-03-04</time>
+    <time style="display: none;" id="post-update-time">2025-08-26</time>
+  </span>
+</div>
+
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/" data-aos="zoom-in">基础物理实验</a>
+  </div>
+
+
+    </div>
+    <div class="hr-line"></div>
+    
+
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <h1 id="21-时间测量中随机误差的分布规律-计算器"><a class="markdownIt-Anchor" href="#21-时间测量中随机误差的分布规律-计算器"></a> 21 时间测量中随机误差的分布规律 计算器</h1>
+<div class="friend-wrap" data-aos="zoom-in"><div class="friend-item-wrap">
+    <a href="https://github.com/dark-but-spark/PHY104BExperiments-of-Fundamental-Physics/tree/main/21%E6%97%B6%E9%97%B4%E6%B5%8B%E9%87%8F%E4%B8%AD%E9%9A%8F%E6%9C%BA%E8%AF%AF%E5%B7%AE%E7%9A%84%E5%88%86%E5%B8%83%E8%A7%84%E5%BE%8B" rel="noopener external nofollow noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+          <img data-src="https://avatars.githubusercontent.com/u/9919?s=200&v=4" data-sizes="auto" alt="21 时间测量中随机误差的分布规律" class="lazyload">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">
+          21 时间测量中随机误差的分布规律 
+      </div>
+      <div class="friend-desc">
+        前往代码仓库
+      </div>
+    </div>
+  </div><div class="friend-item-wrap">
+    <a href="https://github.com/dark-but-spark/PHY104BExperiments-of-Fundamental-Physics/blob/main/21%E6%97%B6%E9%97%B4%E6%B5%8B%E9%87%8F%E4%B8%AD%E9%9A%8F%E6%9C%BA%E8%AF%AF%E5%B7%AE%E7%9A%84%E5%88%86%E5%B8%83%E8%A7%84%E5%BE%8B/calculator.ipynb" rel="noopener external nofollow noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+          <img data-src="https://jupyter.org/assets/homepage/main-logo.svg" data-sizes="auto" alt="计算器" class="lazyload">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">
+          计算器 
+      </div>
+      <div class="friend-desc">
+        前往计算代码
+      </div>
+    </div>
+  </div></div>
+<h2 id="初始化部分不用阅读-直接跳过"><a class="markdownIt-Anchor" href="#初始化部分不用阅读-直接跳过"></a> 初始化部分（不用阅读 直接跳过）</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">matplotlib.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>] <span class="comment"># 用黑体显示中文</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">toMarkdown</span>(<span class="params">x,e</span>): <span class="comment"># 将数字转换为Markdown格式的科学计数法 精度格式为e</span></span><br><span class="line">    s=<span class="built_in">format</span>(x,e)</span><br><span class="line">    l=s.split(<span class="string">&#x27;e&#x27;</span>)</span><br><span class="line">    l[<span class="number">1</span>]=<span class="built_in">str</span>(<span class="built_in">int</span>(l[<span class="number">1</span>]))</span><br><span class="line">    <span class="keyword">if</span>(l[<span class="number">1</span>]== <span class="string">&#x27;0&#x27;</span>):</span><br><span class="line">        <span class="keyword">return</span> l[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> l[<span class="number">0</span>]+<span class="string">&#x27;\\times10^&#123;&#x27;</span>+l[<span class="number">1</span>]+<span class="string">&#x27;&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line">accuracy=<span class="string">&quot;.2e&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="读取部分"><a class="markdownIt-Anchor" href="#读取部分"></a> 读取部分</h2>
+<p>请将你的数据放在同目录下的<code>data.txt</code>文件中，格式如下：<br />
+每一行一个数据(应该有200行)，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">2.94</span><br><span class="line">2.82</span><br><span class="line">3.06</span><br><span class="line">2.94</span><br><span class="line">...</span><br><span class="line">2.96</span><br><span class="line">3.18 </span><br><span class="line">3.03</span><br></pre></td></tr></table></figure>
+<p>输出为10个一行的表格</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">f=<span class="built_in">open</span>(<span class="string">&#x27;data.txt&#x27;</span>,<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">a=[]</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">   a.append(<span class="built_in">float</span>(line))</span><br><span class="line">f.close()</span><br><span class="line">n=<span class="built_in">len</span>(a)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">format</span>(a[i],<span class="string">&quot;.2f&quot;</span>),end=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span>(i%<span class="number">10</span>==<span class="number">9</span>):</span><br><span class="line">        <span class="built_in">print</span>()</span><br></pre></td></tr></table></figure>
+<pre><code>2.94 2.82 3.06 2.94 2.93 3.06 3.10 3.00 3.06 3.18 
+2.97 3.06 3.13 3.00 3.03 3.22 3.25 3.06 3.18 3.25 
+2.93 3.22 3.06 3.00 3.25 3.07 3.12 3.18 3.06 3.25 
+3.09 2.93 3.00 2.97 2.97 3.22 3.06 3.03 3.16 2.91 
+2.97 2.94 2.97 3.03 2.88 3.16 3.12 3.10 3.03 3.19 
+3.12 2.90 3.00 3.15 3.10 3.12 2.97 3.28 3.28 3.12 
+3.00 2.85 2.97 3.22 3.25 3.12 3.16 3.16 2.88 2.92 
+3.18 3.12 2.97 2.89 2.79 2.94 3.22 2.81 3.10 2.97 
+3.03 2.97 3.25 2.97 2.90 3.06 3.13 3.09 3.23 3.16 
+3.28 3.12 2.89 3.16 3.09 3.18 3.09 3.10 3.18 2.93 
+3.04 3.15 3.10 3.00 3.16 3.03 2.94 2.96 2.90 3.10 
+3.16 3.00 3.06 3.06 3.19 3.03 3.10 2.94 3.03 3.06 
+2.91 2.97 3.07 3.24 3.03 3.12 3.22 3.25 3.00 3.16 
+3.00 3.22 3.13 3.22 3.43 2.99 2.88 3.23 3.19 3.19 
+2.91 2.76 3.03 3.10 3.13 3.28 3.13 3.00 3.37 3.16 
+3.25 3.00 3.16 2.91 3.30 2.88 3.31 3.03 3.25 3.03 
+3.13 3.06 3.19 3.09 3.28 3.06 3.28 3.25 2.97 3.28 
+3.03 3.18 3.03 3.25 3.25 3.32 3.13 3.24 3.47 3.03 
+3.03 3.22 3.31 2.94 3.16 3.48 2.87 3.04 3.28 3.22 
+3.06 3.35 3.22 3.00 3.37 3.25 3.34 2.96 3.18 3.03 
+</code></pre>
+<h2 id="基础数据处理"><a class="markdownIt-Anchor" href="#基础数据处理"></a> 基础数据处理</h2>
+<p>计算平均值、标准差等统计量，并输出结果。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">a_bar=<span class="built_in">round</span>(np.mean(a),<span class="number">2</span>)</span><br><span class="line">a_max=<span class="built_in">round</span>(<span class="built_in">max</span>(a),<span class="number">2</span>)</span><br><span class="line">a_min=<span class="built_in">round</span>(<span class="built_in">min</span>(a),<span class="number">2</span>)</span><br><span class="line">a_std=<span class="built_in">round</span>(np.std(a,ddof=<span class="number">1</span>),<span class="number">4</span>)</span><br><span class="line">a_var=<span class="built_in">round</span>(np.var(a,ddof=<span class="number">1</span>),<span class="number">4</span>)</span><br><span class="line">R=<span class="built_in">round</span>(a_max-a_min,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;平均值: &quot;</span>,a_bar)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;最大值: &quot;</span>,a_max)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;最小值: &quot;</span>,a_min)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;标准差: &quot;</span>,a_std)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;方差: &quot;</span>,a_var)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;极差: &quot;</span>,R)</span><br></pre></td></tr></table></figure>
+<pre><code>平均值:  3.09
+最大值:  3.48
+最小值:  2.76
+标准差:  0.1352
+方差:  0.0183
+极差:  0.72
+</code></pre>
+<h2 id="计算分段-统计频率"><a class="markdownIt-Anchor" href="#计算分段-统计频率"></a> 计算分段 统计频率</h2>
+<p>计算分段统计频率，输出分段区间、频数、频率、频率密度和概率密度函数值。</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mover accent="true"><mi>x</mi><mo>ˉ</mo></mover><mo separator="true">,</mo><mi>σ</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mn>1</mn><mrow><msqrt><mrow><mn>2</mn><mi>π</mi></mrow></msqrt><mi>σ</mi></mrow></mfrac><msup><mi>e</mi><mrow><mo>−</mo><mfrac><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><mover accent="true"><mi>x</mi><mo>ˉ</mo></mover><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><mrow><mn>2</mn><msup><mi>σ</mi><mn>2</mn></msup></mrow></mfrac></mrow></msup></mrow><annotation encoding="application/x-tex">P(x,\bar x,\sigma) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\bar x)^2}{2\sigma^2}} 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">x</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.2591em;vertical-align:-0.93em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.2028em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9072em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.03588em;">π</span></span></span><span style="top:-2.8672em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1328em;"><span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.93em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.3291em;"><span style="top:-3.4534em;margin-right:0.05em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.251em;"><span style="top:-2.5062em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9384em;"><span style="top:-2.9384em;margin-right:0.1em;"><span class="pstrut" style="height:2.6444em;"></span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.2255em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.5021em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">x</span><span class="mbin mtight">−</span><span class="mord accent mtight"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-2.5678em;"><span class="pstrut" style="height:2.5678em;"></span><span class="mord mathnormal mtight">x</span></span><span style="top:-2.5678em;"><span class="pstrut" style="height:2.5678em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord mtight">ˉ</span></span></span></span></span></span></span><span class="mclose mtight"><span class="mclose mtight">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.0484em;"><span style="top:-3.0484em;margin-right:0.1em;"><span class="pstrut" style="height:2.6444em;"></span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4938em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(Markdown)</span><br><span class="line">$$ P(x,\bar x,\sigma) = \frac&#123;1&#125;&#123;\sqrt&#123;2\pi&#125;\sigma&#125;e^&#123;-\frac&#123;(x-\bar x)^2&#125;&#123;2\sigma^2&#125;&#125; $$</span><br></pre></td></tr></table></figure>
+<p>调节下面的<code>N</code>值来改变分段数目，默认是14段。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">P</span>(<span class="params">x,x_bar,sigma</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>/(math.sqrt(<span class="number">2</span>*math.pi)*sigma)*math.exp(-(x-x_bar)**<span class="number">2</span>/(<span class="number">2</span>*(sigma**<span class="number">2</span>)))</span><br><span class="line"></span><br><span class="line">N=<span class="number">12</span></span><br><span class="line">b=[<span class="number">0</span>]*N</span><br><span class="line">r=R/N<span class="comment"># 每段的范围</span></span><br><span class="line">b[<span class="number">0</span>]=a_min+r/<span class="number">2</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;[&quot;</span>,<span class="built_in">format</span>(b[<span class="number">0</span>]-r/<span class="number">2</span>,<span class="string">&#x27;.2f&#x27;</span>),<span class="string">&quot;,&quot;</span>,<span class="built_in">format</span>(b[<span class="number">0</span>]+r/<span class="number">2</span>,<span class="string">&#x27;.2f&#x27;</span>),<span class="string">&#x27;],&#x27;</span>,end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,N):</span><br><span class="line">    b[i]=b[i-<span class="number">1</span>]+r</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;(&quot;</span>,<span class="built_in">format</span>(b[i]-r/<span class="number">2</span>,<span class="string">&#x27;.2f&#x27;</span>),<span class="string">&quot;,&quot;</span>,<span class="built_in">format</span>(b[i]+r/<span class="number">2</span>,<span class="string">&#x27;.2f&#x27;</span>),<span class="string">&#x27;],&#x27;</span>,end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;\n一共<span class="subst">&#123;N&#125;</span>段，每段长度为<span class="subst">&#123;r:<span class="number">.2</span>f&#125;</span>&quot;</span>)</span><br><span class="line">cnt=[<span class="number">0</span>]*N</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">        <span class="keyword">if</span> b[j]-r/<span class="number">2</span>&lt;a[i]&lt;=b[j]+r/<span class="number">2</span>:</span><br><span class="line">            cnt[j]+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> b[j]-r/<span class="number">2</span>==a[i] <span class="keyword">and</span> j==<span class="number">0</span>:</span><br><span class="line">            cnt[j]+=<span class="number">1</span></span><br><span class="line">            </span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;普通格式：&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;区间  频数  频率 频率密度 概率密度函数值&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;(&quot;</span>,<span class="built_in">format</span>(b[i]-r/<span class="number">2</span>,<span class="string">&#x27;.2f&#x27;</span>),<span class="string">&quot;,&quot;</span>,<span class="built_in">format</span>(b[i]+r/<span class="number">2</span>,<span class="string">&#x27;.2f&#x27;</span>), <span class="comment">#范围</span></span><br><span class="line">          <span class="string">&#x27;] &#x27;</span>,cnt[i],  <span class="comment">#频数</span></span><br><span class="line">          <span class="string">&#x27; &#x27;</span>,<span class="built_in">format</span>(cnt[i]/n,<span class="string">&#x27;.2f&#x27;</span>),  <span class="comment">#频率</span></span><br><span class="line">          <span class="string">&#x27; &#x27;</span>,<span class="built_in">format</span>(cnt[i]/(n*r),<span class="string">&#x27;.2f&#x27;</span>), <span class="comment">#频率密度</span></span><br><span class="line">          <span class="string">&#x27; &#x27;</span>,<span class="built_in">format</span>(P(b[i],a_bar,a_std),<span class="string">&#x27;.2f&#x27;</span>)) <span class="comment">#概率密度函数值     </span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Markdown格式：&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;|区间$|$频数$|$频率$|$频率密度$|$概率密度函数值$|&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;|:--:|:--:|:--:|:--:|:--:|&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;|$(&quot;</span>,<span class="built_in">format</span>(b[i]-r/<span class="number">2</span>,<span class="string">&#x27;.2f&#x27;</span>),<span class="string">&quot;,&quot;</span>,<span class="built_in">format</span>(b[i]+r/<span class="number">2</span>,<span class="string">&#x27;.2f&#x27;</span>), <span class="comment">#范围</span></span><br><span class="line">          <span class="string">&#x27;]$|$&#x27;</span>,cnt[i],  <span class="comment">#频数</span></span><br><span class="line">          <span class="string">&#x27;$|$&#x27;</span>,<span class="built_in">format</span>(cnt[i]/n,<span class="string">&#x27;.2f&#x27;</span>),  <span class="comment">#频率</span></span><br><span class="line">          <span class="string">&#x27;$|$&#x27;</span>,<span class="built_in">format</span>(cnt[i]/(n*r),<span class="string">&#x27;.2f&#x27;</span>), <span class="comment">#频率密度</span></span><br><span class="line">          <span class="string">&#x27;$|$&#x27;</span>,<span class="built_in">format</span>(P(b[i],a_bar,a_std),<span class="string">&#x27;.2f&#x27;</span>),<span class="string">&#x27;$|&#x27;</span>) <span class="comment">#概率密度函数值</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code>[ 2.76 , 2.82 ],( 2.82 , 2.88 ],( 2.88 , 2.94 ],( 2.94 , 3.00 ],( 3.00 , 3.06 ],( 3.06 , 3.12 ],( 3.12 , 3.18 ],( 3.18 , 3.24 ],( 3.24 , 3.30 ],( 3.30 , 3.36 ],( 3.36 , 3.42 ],( 3.42 , 3.48 ],
+一共12段，每段长度为0.06
+普通格式：
+区间  频数  频率 频率密度 概率密度函数值
+( 2.76 , 2.82 ]  3   0.01   0.25   0.25
+( 2.82 , 2.88 ]  2   0.01   0.17   0.61
+( 2.88 , 2.94 ]  14   0.07   1.17   1.22
+( 2.94 , 3.00 ]  16   0.08   1.33   1.99
+( 3.00 , 3.06 ]  19   0.10   1.58   2.67
+( 3.06 , 3.12 ]  16   0.08   1.33   2.95
+( 3.12 , 3.18 ]  21   0.10   1.75   2.67
+( 3.18 , 3.24 ]  18   0.09   1.50   1.99
+( 3.24 , 3.30 ]  22   0.11   1.83   1.22
+( 3.30 , 3.36 ]  5   0.03   0.42   0.61
+( 3.36 , 3.42 ]  2   0.01   0.17   0.25
+( 3.42 , 3.48 ]  3   0.01   0.25   0.09
+Markdown格式：
+|区间$|$频数$|$频率$|$频率密度$|$概率密度函数值$|
+|:--:|:--:|:--:|:--:|:--:|
+|$( 2.76 , 2.82 ]$|$ 3 $|$ 0.01 $|$ 0.25 $|$ 0.25 $|
+|$( 2.82 , 2.88 ]$|$ 2 $|$ 0.01 $|$ 0.17 $|$ 0.61 $|
+|$( 2.88 , 2.94 ]$|$ 14 $|$ 0.07 $|$ 1.17 $|$ 1.22 $|
+|$( 2.94 , 3.00 ]$|$ 16 $|$ 0.08 $|$ 1.33 $|$ 1.99 $|
+|$( 3.00 , 3.06 ]$|$ 19 $|$ 0.10 $|$ 1.58 $|$ 2.67 $|
+|$( 3.06 , 3.12 ]$|$ 16 $|$ 0.08 $|$ 1.33 $|$ 2.95 $|
+|$( 3.12 , 3.18 ]$|$ 21 $|$ 0.10 $|$ 1.75 $|$ 2.67 $|
+|$( 3.18 , 3.24 ]$|$ 18 $|$ 0.09 $|$ 1.50 $|$ 1.99 $|
+|$( 3.24 , 3.30 ]$|$ 22 $|$ 0.11 $|$ 1.83 $|$ 1.22 $|
+|$( 3.30 , 3.36 ]$|$ 5 $|$ 0.03 $|$ 0.42 $|$ 0.61 $|
+|$( 3.36 , 3.42 ]$|$ 2 $|$ 0.01 $|$ 0.17 $|$ 0.25 $|
+|$( 3.42 , 3.48 ]$|$ 3 $|$ 0.01 $|$ 0.25 $|$ 0.09 $|
+</code></pre>
+<h2 id="统计σ分布"><a class="markdownIt-Anchor" href="#统计σ分布"></a> 统计σ分布</h2>
+<p>输出结果 1σ、2σ、3σ的分布情况。<br />
+A类不确定度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sigm=[<span class="number">0</span>]*<span class="number">4</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">4</span>):</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">abs</span>(a[i]-a_bar)&lt;=j*a_std):</span><br><span class="line">            sigm[j]+=<span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;σ分布：&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;σ 频数 频率&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">4</span>):</span><br><span class="line">    <span class="built_in">print</span>(i,sigm[i],sigm[i]/n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;A类不确定度:&#x27;</span>,a_std*<span class="number">1.96</span>/(n**<span class="number">0.5</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>σ分布：
+σ 频数 频率
+1 133 0.665
+2 192 0.96
+3 200 1.0
+A类不确定度: 0.018737764016018555
+</code></pre>
+<h2 id="画图"><a class="markdownIt-Anchor" href="#画图"></a> 画图</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#折线图</span></span><br><span class="line">p=[P(b[i],a_bar,a_std) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N)]</span><br><span class="line">freq=[cnt[i]/(n*r) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N)]</span><br><span class="line">plt.bar(b,freq,width=<span class="number">0.05</span>)</span><br><span class="line">plt.plot(b,p,color=<span class="string">&#x27;red&#x27;</span>,label=<span class="string">&#x27;正态分布曲线&#x27;</span>,marker=<span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;时间/s&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;概率密度/s^-1&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;概率密度直方图与正态分布曲线的对比&#x27;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br><span class="line"><span class="comment">#曲线图</span></span><br><span class="line">plt.bar(b,freq,width=<span class="number">0.05</span>)</span><br><span class="line">plt.scatter(b,p,color=<span class="string">&#x27;red&#x27;</span>,marker=<span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">x=np.arange(a_min,a_max,<span class="number">0.01</span>)</span><br><span class="line">y=[P(x,a_bar,a_std) <span class="keyword">for</span> x <span class="keyword">in</span> x]</span><br><span class="line">plt.plot(x,y, color=<span class="string">&#x27;red&#x27;</span>,label=<span class="string">&#x27;正态分布曲线&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;时间/s&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;概率密度/s^-1&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;概率密度直方图与正态分布曲线的对比&#x27;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="calculator_files/calculator_11_0.png" alt="png" /></p>
+<p><img src="calculator_files/calculator_11_1.png" alt="png" /></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/" rel="tag">物理实验</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E5%99%A8/" rel="tag">计算器</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E6%9C%BA%E8%AF%AF%E5%B7%AE/" rel="tag">随机误差</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+  <nav id="article-nav" data-aos="fade-up">
+    
+      
+      <div class="article-nav-link-wrap article-nav-link-left">
+        
+          
+          
+            <img data-src="/covers/a23.png" data-sizes="auto" alt="11 脉搏、语音及图像信号的傅里叶分析(86pts)" class="lazyload">
+          
+        
+        <a href="/2025/03/11/PHY104B/11/"></a>
+        <div class="article-nav-caption">Newer</div>
+        <h3 class="article-nav-title">
+          
+            11 脉搏、语音及图像信号的傅里叶分析(86pts)
+          
+        </h3>
+      </div>
+    
+    
+    
+    <div class="article-nav-link-wrap article-nav-link-right">
+      
+        
+        
+          <img data-src="/covers/a8.webp" data-sizes="auto" alt="22 单摆的设计与研究实验 计算器" class="lazyload">
+        
+      
+      <a href="/2025/03/04/PHY104BCalculator/22/"></a>
+      <div class="article-nav-caption">Older</div>
+      <h3 class="article-nav-title">
+        
+          22 单摆的设计与研究实验 计算器
+        
+      </h3>
+    </div>
+    
+  </nav>
+
+
+</article>
+
+
+
+
+
+
+
+
+
+
+</section>
+        </div>
+        <footer id="footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    
+    <div>
+      <span class="icon-copyright"></span>
+      
+      
+      
+        2025
+      
+      <span class="footer-info-sep rotate"></span>
+      暗烨
+    </div>
+    
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener external nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+    
+    
+      <div>
+        <span class="icon-brush"></span>
+        30.9k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        02:23
+      </div>
+    
+    
+    
+    
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+    
+  </div>
+</footer>
+
+        
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav">
+  <div class="sidebar-wrap">
+    
+      
+        <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#21-%E6%97%B6%E9%97%B4%E6%B5%8B%E9%87%8F%E4%B8%AD%E9%9A%8F%E6%9C%BA%E8%AF%AF%E5%B7%AE%E7%9A%84%E5%88%86%E5%B8%83%E8%A7%84%E5%BE%8B-%E8%AE%A1%E7%AE%97%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text"> 21 时间测量中随机误差的分布规律 计算器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%83%A8%E5%88%86%E4%B8%8D%E7%94%A8%E9%98%85%E8%AF%BB-%E7%9B%B4%E6%8E%A5%E8%B7%B3%E8%BF%87"><span class="toc-number">1.1.</span> <span class="toc-text"> 初始化部分（不用阅读 直接跳过）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E9%83%A8%E5%88%86"><span class="toc-number">1.2.</span> <span class="toc-text"> 读取部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text"> 基础数据处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%88%86%E6%AE%B5-%E7%BB%9F%E8%AE%A1%E9%A2%91%E7%8E%87"><span class="toc-number">1.4.</span> <span class="toc-text"> 计算分段 统计频率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1%CF%83%E5%88%86%E5%B8%83"><span class="toc-number">1.5.</span> <span class="toc-text"> 统计σ分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%BB%E5%9B%BE"><span class="toc-number">1.6.</span> <span class="toc-text"> 画图</span></a></li></ol></li></ol>
+      
+  </div>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="暗烨" class="lazyload">
+  <div class="sidebar-author-name">暗烨</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">15</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">1</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">14</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="Friend"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Friend</div>
+      </div>
+    
+  
+</div>
+</div>
+      
+    
+  </div>
+  
+    
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+    
+  
+</nav>
+
+    </div>
+    
+    
+    
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+  
+<script src="https://npm.webcache.cn/material-theme@1.0.0/dist/material-theme.umd.js" integrity="sha384-vLev0II0HKFaxkcm+&#x2F;7kX5IGwVFBASkGchU311wmU&#x2F;veIj2bB0UcBkQbW6yw2asK" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+
+
+
+
+
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.1.1/dist/index.umd.js" integrity="sha384-8LyaidD9GPxQQgLJO&#x2F;WRw&#x2F;O2h3BoNq&#x2F;ApI&#x2F;ecpvM6RsrCz2qP2ppBXUKihP4V&#x2F;2d" crossorigin="anonymous"></script>
+
+  <script>
+    window.firework && window.firework(JSON.parse('{"excludeElements":["a"],"particles":[{"shape":"circle","move":"emit","easing":"easeOutExpo","colors":["rgba(255,182,185,.9)","rgba(250,227,217,.9)","rgba(187,222,214,.9)","rgba(138,198,209,.9)"],"number":30,"duration":[1200,1800],"shapeOptions":{"radius":[16,32]}}]}'))
+  </script>
+
+
+
+
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+    
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "暗烨",
+          title: "21 随机误差的分布规律 计算器",
+          url: "http://example.com/2025/03/04/PHY104BCalculator/21/",
+          excerpt: "",
+          description: "",
+          stripContent: " 21 时间测量中随机误差的分布规律 计算器                                                                21 时间测量中随机误差的分布规律                        前往代码仓库                                                                              计算器                        前往计算代码      ",
+          date: "Tue Mar 04 2025 12:00:00 GMT+0800",
+          updated: "Tue Aug 26 2025 09:46:35 GMT+0800",
+          cover: "/images/banner.webp",
+        };
+      </script>
+       
+    
+    
+      
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+        
+      
+    
+    
+      <script type="module" data-pjax>
+        const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+        
+        const pswp = () => {
+          if (_$$('.article-entry a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-entry',
+              children: 'a.article-gallery-item',
+              pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+            }).init();
+          }
+          if(_$$('.article-gallery a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-gallery',
+              children: 'a.article-gallery-item',
+              pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+            }).init();
+          }
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script>
+      
+        
+
+
+
+
+
+
+
+
+      
+    
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.9.0' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+  
+
+
+
+  
+<script src="https://npm.webcache.cn/aplayer@1.10.1/dist/APlayer.min.js" integrity="sha384-gdGYZwHnfJM54evoZhpO0s6ZF5BQiybkiyW7VXr+h5UfruuRL&#x2F;aORyw+5+HZoU6e" crossorigin="anonymous"></script>
+
+  
+
+
+
+  
+  <script>
+    var isMobile = window.matchMedia('(max-width: 959px)').matches;
+    if (isMobile) {
+      const meting = _$('meting-js');
+      if (meting) {
+        meting.setAttribute('fixed', 'true');
+        const aside = meting.parentNode;
+        if (aside?.tagName === 'ASIDE') {
+          aside.removeChild(meting);
+          document.body.appendChild(meting);
+        }
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/meting@2.0.1/dist/Meting.min.js" integrity="sha384-ASVlpKF80A22OXTK3tfEjZm1EL6uFMKIC4p8+0maanw1S&#x2F;IyB+Y4JG+ZDU7GpKE8" crossorigin="anonymous"></script>
+
+
+
+
+    
+  </body>
+  </html>
+
