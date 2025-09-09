@@ -8,16 +8,16 @@ theme_config_check: false
 menu:
   - name: home
     url: /
-    icon: # default use taichi icon, you can use a hexadecimal representation of fontawesome or icon_font, like 'f0c1'
+    # icon: f015 # default use taichi icon, you can use a hexadecimal representation of fontawesome or icon_font, like 'f0c1'
   - name: archives
     url: /archives
-    icon:
+    # icon: f03a
   - name: about
     url: /about
-    icon:
+    # icon: f007
   - name: friend
     url: /friend
-    icon:
+    # icon: f500
 
 banner: "/images/banner.webp" # which means themes/reimu/source/images/banner.webp
 # You can also write it in the form of the following url
