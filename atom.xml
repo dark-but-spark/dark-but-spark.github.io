@@ -238,9 +238,9 @@
     
     <category term="物理实验" scheme="http://example.com/tags/%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
     
-    <category term="计算器" scheme="http://example.com/tags/%E8%AE%A1%E7%AE%97%E5%99%A8/"/>
-    
     <category term="固体杨氏模量" scheme="http://example.com/tags/%E5%9B%BA%E4%BD%93%E6%9D%A8%E6%B0%8F%E6%A8%A1%E9%87%8F/"/>
+    
+    <category term="计算器" scheme="http://example.com/tags/%E8%AE%A1%E7%AE%97%E5%99%A8/"/>
     
   </entry>
   
@@ -382,9 +382,9 @@
     
     <category term="物理实验" scheme="http://example.com/tags/%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
     
-    <category term="随机误差" scheme="http://example.com/tags/%E9%9A%8F%E6%9C%BA%E8%AF%AF%E5%B7%AE/"/>
-    
     <category term="计算器" scheme="http://example.com/tags/%E8%AE%A1%E7%AE%97%E5%99%A8/"/>
+    
+    <category term="随机误差" scheme="http://example.com/tags/%E9%9A%8F%E6%9C%BA%E8%AF%AF%E5%B7%AE/"/>
     
   </entry>
   
@@ -471,6 +471,37 @@
     <category term="物理实验" scheme="http://example.com/tags/%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
     
     <category term="单摆" scheme="http://example.com/tags/%E5%8D%95%E6%91%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2025年春季学期introduction</title>
+    <link href="http://example.com/2025/03/03/README2025Spring/"/>
+    <id>http://example.com/2025/03/03/README2025Spring/</id>
+    <published>2025-03-02T16:00:00.000Z</published>
+    <updated>2025-09-09T06:38:41.462Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;hi-there&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#hi-there&quot;&gt;&lt;/a&gt; Hi there 👋&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🔭 I’m currently working on</summary>
+        
+      
+    
+    
+    
+    <category term="主页历史" scheme="http://example.com/categories/%E4%B8%BB%E9%A1%B5%E5%8E%86%E5%8F%B2/"/>
+    
+    
+    <category term="主页历史" scheme="http://example.com/tags/%E4%B8%BB%E9%A1%B5%E5%8E%86%E5%8F%B2/"/>
+    
+    <category term="生活" scheme="http://example.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+    <category term="个人简介" scheme="http://example.com/tags/%E4%B8%AA%E4%BA%BA%E7%AE%80%E4%BB%8B/"/>
     
   </entry>
   
