@@ -45,7 +45,7 @@ marked:
   prependRoot: true
   postAsset: true
 relative_link: false
-future: true
+future: false
 syntax_highlighter: highlight.js
 highlight:
   line_number: true
