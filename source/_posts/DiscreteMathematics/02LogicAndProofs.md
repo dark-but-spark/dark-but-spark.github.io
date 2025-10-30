@@ -1,6 +1,6 @@
 ---
-title: "1.Logic and Proofs"
-date: 2024-09-16 8:00:00
+title: "离散数学 1.Logic and Proofs"
+date: 2025-09-16 8:00:00
 categories: 离散数学
 tags: [离散数学]
 ---

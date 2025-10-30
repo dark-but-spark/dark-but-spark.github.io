@@ -1,5 +1,5 @@
 ---
-title: "Lecture 2 Algorithm Analysis"
+title: "DSAA 2 Algorithm Analysis"
 date: 2025-09-16 8:00:00
 categories: 数据结构与算法
 tags: [DSAA, 数据结构与算法]

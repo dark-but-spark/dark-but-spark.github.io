@@ -1,5 +1,5 @@
 ---
-title: Lecture 1 DSAA Introduction
+title: DSAA 1 Introduction
 date: 2025-09-09 8:00:00
 categories: 数据结构与算法
 tags: [DSAA, 数据结构与算法]

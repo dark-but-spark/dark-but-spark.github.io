@@ -1,5 +1,5 @@
 ---
-title: "Lecture 3 Sorting Algorithms"
+title: "DSAA 3 Sorting Algorithms"
 date: 2025-09-23 8:00:00
 categories: 数据结构与算法
 tags: [DSAA, 数据结构与算法]
