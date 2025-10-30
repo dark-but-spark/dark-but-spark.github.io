@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-10-17T14:10:15.292Z</updated>
+  <updated>2025-10-30T14:29:02.581Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2.Limit and Continuity</title>
+    <title>高等数学 2.Limit and Continuity</title>
     <link href="http://example.com/2025/10/17/AdvancedMath/2/"/>
     <id>http://example.com/2025/10/17/AdvancedMath/2/</id>
     <published>2025-10-17T04:00:00.000Z</published>
-    <updated>2025-10-17T14:10:15.292Z</updated>
+    <updated>2025-10-30T14:29:02.581Z</updated>
     
     
       
@@ -44,11 +44,11 @@
   </entry>
   
   <entry>
-    <title>3.Derivatives</title>
+    <title>高等数学 3.Derivatives</title>
     <link href="http://example.com/2025/10/17/AdvancedMath/3/"/>
     <id>http://example.com/2025/10/17/AdvancedMath/3/</id>
     <published>2025-10-17T04:00:00.000Z</published>
-    <updated>2025-10-17T14:14:03.236Z</updated>
+    <updated>2025-10-30T14:29:06.898Z</updated>
     
     
       
@@ -72,11 +72,11 @@
   </entry>
   
   <entry>
-    <title>4.Applications of Derivatives</title>
+    <title>高等数学 4.Applications of Derivatives</title>
     <link href="http://example.com/2025/10/17/AdvancedMath/4/"/>
     <id>http://example.com/2025/10/17/AdvancedMath/4/</id>
     <published>2025-10-17T04:00:00.000Z</published>
-    <updated>2025-10-17T14:55:13.047Z</updated>
+    <updated>2025-10-30T14:29:11.492Z</updated>
     
     
       
@@ -99,11 +99,57 @@
   </entry>
   
   <entry>
-    <title>Lecture 3 Sorting Algorithms</title>
+    <title>工程概率与统计 3.Joint Distributions(至3.2)</title>
+    <link href="http://example.com/2025/10/14/STA219/Chapter3_joint/"/>
+    <id>http://example.com/2025/10/14/STA219/Chapter3_joint/</id>
+    <published>2025-10-14T04:00:00.000Z</published>
+    <updated>2025-10-30T14:26:18.454Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;chapter-3-joint-distributions&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#chapter-3-joint-distributions&quot;&gt;&lt;/a&gt; Chapter 3 - Joint</summary>
+        
+      
+    
+    
+    
+    <category term="工程概率与统计" scheme="http://example.com/categories/%E5%B7%A5%E7%A8%8B%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A1/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>工程概率与统计 2.Random Variables and Distributions</title>
+    <link href="http://example.com/2025/09/27/STA219/Chapter2_random/"/>
+    <id>http://example.com/2025/09/27/STA219/Chapter2_random/</id>
+    <published>2025-09-27T04:00:00.000Z</published>
+    <updated>2025-10-30T14:26:22.883Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;chapter-2-random-variables-and-distributions&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="工程概率与统计" scheme="http://example.com/categories/%E5%B7%A5%E7%A8%8B%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A1/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DSAA 3 Sorting Algorithms</title>
     <link href="http://example.com/2025/09/23/DSAA/L3Sorting/"/>
     <id>http://example.com/2025/09/23/DSAA/L3Sorting/</id>
     <published>2025-09-23T00:00:00.000Z</published>
-    <updated>2025-10-13T16:18:26.908Z</updated>
+    <updated>2025-10-30T14:28:13.906Z</updated>
     
     
       
@@ -126,11 +172,34 @@
   </entry>
   
   <entry>
-    <title>Lecture 2 Algorithm Analysis</title>
+    <title>工程概率与统计 1.Basic Ideas in Probability</title>
+    <link href="http://example.com/2025/09/20/STA219/Chapter1_basic/"/>
+    <id>http://example.com/2025/09/20/STA219/Chapter1_basic/</id>
+    <published>2025-09-20T04:00:00.000Z</published>
+    <updated>2025-10-30T14:26:36.155Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;chapter-1-basic-ideas-in-probability&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#chapter-1-basic-ideas-in-probability&quot;&gt;&lt;/a&gt; Chapter 1:</summary>
+        
+      
+    
+    
+    
+    <category term="工程概率与统计" scheme="http://example.com/categories/%E5%B7%A5%E7%A8%8B%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A1/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DSAA 2 Algorithm Analysis</title>
     <link href="http://example.com/2025/09/16/DSAA/L2AlgorithmAnalysis/"/>
     <id>http://example.com/2025/09/16/DSAA/L2AlgorithmAnalysis/</id>
     <published>2025-09-16T00:00:00.000Z</published>
-    <updated>2025-10-13T12:01:42.424Z</updated>
+    <updated>2025-10-30T14:28:07.045Z</updated>
     
     
       
@@ -153,11 +222,37 @@
   </entry>
   
   <entry>
-    <title>Lecture 1 DSAA Introduction</title>
+    <title>离散数学 1.Logic and Proofs</title>
+    <link href="http://example.com/2025/09/16/DiscreteMathematics/02LogicAndProofs/"/>
+    <id>http://example.com/2025/09/16/DiscreteMathematics/02LogicAndProofs/</id>
+    <published>2025-09-16T00:00:00.000Z</published>
+    <updated>2025-10-30T14:29:48.307Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;logic-and-proofs&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#logic-and-proofs&quot;&gt;&lt;/a&gt; Logic and Proofs&lt;/h1&gt;
+&lt;h2 id=&quot;logic&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="离散数学" scheme="http://example.com/categories/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="离散数学" scheme="http://example.com/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DSAA 1 Introduction</title>
     <link href="http://example.com/2025/09/09/DSAA/L1Introduction/"/>
     <id>http://example.com/2025/09/09/DSAA/L1Introduction/</id>
     <published>2025-09-09T00:00:00.000Z</published>
-    <updated>2025-10-13T11:25:15.038Z</updated>
+    <updated>2025-10-30T14:28:26.646Z</updated>
     
     
       
@@ -262,11 +357,11 @@
   </entry>
   
   <entry>
-    <title>02 热电偶特性及其应用(93pts)</title>
+    <title>基础物理实验 02 热电偶特性及其应用(93pts)</title>
     <link href="http://example.com/2025/05/06/PHY104B/02/"/>
     <id>http://example.com/2025/05/06/PHY104B/02/</id>
     <published>2025-05-06T04:00:00.000Z</published>
-    <updated>2025-08-25T18:11:22.575Z</updated>
+    <updated>2025-10-30T14:26:51.815Z</updated>
     
     
       
@@ -290,11 +385,11 @@
   </entry>
   
   <entry>
-    <title>03 示波器的原理及其应用(98pts)</title>
+    <title>基础物理实验 03 示波器的原理及其应用(98pts)</title>
     <link href="http://example.com/2025/04/22/PHY104B/03/"/>
     <id>http://example.com/2025/04/22/PHY104B/03/</id>
     <published>2025-04-22T04:00:00.000Z</published>
-    <updated>2025-08-25T18:11:22.565Z</updated>
+    <updated>2025-10-30T14:26:55.842Z</updated>
     
     
       
@@ -320,11 +415,11 @@
   </entry>
   
   <entry>
-    <title>10 迈克尔逊干涉仪(89pts)</title>
+    <title>基础物理实验 10 迈克尔逊干涉仪(89pts)</title>
     <link href="http://example.com/2025/04/15/PHY104B/10/"/>
     <id>http://example.com/2025/04/15/PHY104B/10/</id>
     <published>2025-04-15T04:00:00.000Z</published>
-    <updated>2025-08-25T18:11:22.565Z</updated>
+    <updated>2025-10-30T14:27:07.502Z</updated>
     
     
       
@@ -348,11 +443,11 @@
   </entry>
   
   <entry>
-    <title>07 分光计的调整与使用(97pts)</title>
+    <title>基础物理实验 07 分光计的调整与使用(97pts)</title>
     <link href="http://example.com/2025/04/08/PHY104B/07/"/>
     <id>http://example.com/2025/04/08/PHY104B/07/</id>
     <published>2025-04-08T04:00:00.000Z</published>
-    <updated>2025-08-25T18:11:22.565Z</updated>
+    <updated>2025-10-30T14:26:59.407Z</updated>
     
     
       
@@ -378,11 +473,11 @@
   </entry>
   
   <entry>
-    <title>19 固体杨氏模量(95pts)</title>
+    <title>基础物理实验 19 固体杨氏模量(95pts)</title>
     <link href="http://example.com/2025/04/01/PHY104B/19/"/>
     <id>http://example.com/2025/04/01/PHY104B/19/</id>
     <published>2025-04-01T04:00:00.000Z</published>
-    <updated>2025-08-25T18:11:22.565Z</updated>
+    <updated>2025-10-30T14:27:20.575Z</updated>
     
     
       
@@ -436,11 +531,11 @@
   </entry>
   
   <entry>
-    <title>09 氢氘原子光谱(90pts)</title>
+    <title>基础物理实验 09 氢氘原子光谱(90pts)</title>
     <link href="http://example.com/2025/03/25/PHY104B/09/"/>
     <id>http://example.com/2025/03/25/PHY104B/09/</id>
     <published>2025-03-25T04:00:00.000Z</published>
-    <updated>2025-08-25T18:11:22.570Z</updated>
+    <updated>2025-10-30T14:27:02.930Z</updated>
     
     
       
@@ -460,120 +555,6 @@
     <category term="物理实验" scheme="http://example.com/tags/%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
     
     <category term="光谱" scheme="http://example.com/tags/%E5%85%89%E8%B0%B1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>17 密立根油滴实验(94pts)</title>
-    <link href="http://example.com/2025/03/18/PHY104B/17/"/>
-    <id>http://example.com/2025/03/18/PHY104B/17/</id>
-    <published>2025-03-18T04:00:00.000Z</published>
-    <updated>2025-08-25T18:11:22.570Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;17-密立根油滴实验94pts&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#17-密立根油滴实验94pts&quot;&gt;&lt;/a&gt; 17 密立根油滴实验(94pts)&lt;/h1&gt;
-&lt;div class=&quot;friend-wrap&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="基础物理实验" scheme="http://example.com/categories/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
-    
-    
-    <category term="物理实验" scheme="http://example.com/tags/%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
-    
-    <category term="密立根油滴实验" scheme="http://example.com/tags/%E5%AF%86%E7%AB%8B%E6%A0%B9%E6%B2%B9%E6%BB%B4%E5%AE%9E%E9%AA%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>11 脉搏、语音及图像信号的傅里叶分析(86pts)</title>
-    <link href="http://example.com/2025/03/11/PHY104B/11/"/>
-    <id>http://example.com/2025/03/11/PHY104B/11/</id>
-    <published>2025-03-11T04:00:00.000Z</published>
-    <updated>2025-08-25T18:11:22.570Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;11-脉搏-语音及图像信号的傅里叶分析86pts&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#11-脉搏-语音及图像信号的傅里叶分析86pts&quot;&gt;&lt;/a&gt; 11 脉搏、语音及图像信号的傅里叶分析(86pts)&lt;/h1&gt;
-&lt;div</summary>
-        
-      
-    
-    
-    
-    <category term="基础物理实验" scheme="http://example.com/categories/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
-    
-    
-    <category term="物理实验" scheme="http://example.com/tags/%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
-    
-    <category term="信号处理" scheme="http://example.com/tags/%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/"/>
-    
-    <category term="傅里叶分析" scheme="http://example.com/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%88%86%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>21 随机误差的分布规律(82.5pts)</title>
-    <link href="http://example.com/2025/03/04/PHY104B/21/"/>
-    <id>http://example.com/2025/03/04/PHY104B/21/</id>
-    <published>2025-03-04T04:00:00.000Z</published>
-    <updated>2025-08-25T18:11:22.570Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;21-时间测量中随机误差的分布规律825pts&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#21-时间测量中随机误差的分布规律825pts&quot;&gt;&lt;/a&gt; 21 时间测量中随机误差的分布规律(82.5pts)&lt;/h1&gt;
-&lt;div</summary>
-        
-      
-    
-    
-    
-    <category term="基础物理实验" scheme="http://example.com/categories/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
-    
-    
-    <category term="物理实验" scheme="http://example.com/tags/%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
-    
-    <category term="随机误差" scheme="http://example.com/tags/%E9%9A%8F%E6%9C%BA%E8%AF%AF%E5%B7%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>22 单摆测量重力加速度(82.5pts)</title>
-    <link href="http://example.com/2025/03/04/PHY104B/22/"/>
-    <id>http://example.com/2025/03/04/PHY104B/22/</id>
-    <published>2025-03-04T04:00:00.000Z</published>
-    <updated>2025-08-25T18:11:22.570Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;22-单摆测量重力加速度825pts&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#22-单摆测量重力加速度825pts&quot;&gt;&lt;/a&gt; 22 单摆测量重力加速度(82.5pts)&lt;/h1&gt;
-&lt;div</summary>
-        
-      
-    
-    
-    
-    <category term="基础物理实验" scheme="http://example.com/categories/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
-    
-    
-    <category term="物理实验" scheme="http://example.com/tags/%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/"/>
-    
-    <category term="单摆" scheme="http://example.com/tags/%E5%8D%95%E6%91%86/"/>
     
   </entry>
   
