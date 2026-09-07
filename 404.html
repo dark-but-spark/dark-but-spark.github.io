@@ -79,7 +79,7 @@
 
   
   
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.0.0"></head>
 
 <body>
   
@@ -307,6 +307,54 @@
 
 
 
+
+<!-- Random Cover Script - Only for posts without fixed cover -->
+<script data-pjax>
+  (function() {
+    'use strict';
+    var covers = ["/covers/a1.png","/covers/a10.webp","/covers/a11.png","/covers/a12.webp","/covers/a13.webp","/covers/a14.webp","/covers/a15.png","/covers/a16.webp","/covers/a17.webp","/covers/a18.webp","/covers/a19.webp","/covers/a2.webp","/covers/a20.webp","/covers/a22.webp","/covers/a23.png","/covers/a24.webp","/covers/a25.png","/covers/a26.webp","/covers/a27.png","/covers/a28.webp","/covers/a3.png","/covers/a4.webp","/covers/a5.png","/covers/a6.webp","/covers/a7.png","/covers/a8.webp","/covers/a9.webp"];
+    if (!covers || covers.length === 0) return;
+
+    function randomizeCover(img) {
+      // Only randomize if the image doesn't have a data-fixed-cover attribute
+      if (img.hasAttribute('data-fixed-cover')) return;
+
+      var randomIndex = Math.floor(Math.random() * covers.length);
+      var randomCover = covers[randomIndex];
+
+      if (img.hasAttribute('data-src')) {
+        img.setAttribute('data-src', randomCover);
+      }
+      if (img.hasAttribute('src') && img.src) {
+        img.src = randomCover;
+      }
+    }
+
+    function randomizeAllCovers() {
+      // Post list covers (only those without fixed cover)
+      var postCovers = document.querySelectorAll('.post-cover-left img.lazyload:not([data-fixed-cover]), .post-cover-right img.lazyload:not([data-fixed-cover])');
+      postCovers.forEach(randomizeCover);
+
+      // Navigation covers (only those without fixed cover)
+      var navCovers = document.querySelectorAll('.article-nav-link-wrap img.lazyload:not([data-fixed-cover])');
+      navCovers.forEach(randomizeCover);
+
+      // Category covers (only those without fixed cover)
+      var categoryCovers = document.querySelectorAll('.post-categories-cover img.lazyload:not([data-fixed-cover])');
+      categoryCovers.forEach(randomizeCover);
+    }
+
+    // Run on page load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', randomizeAllCovers);
+    } else {
+      randomizeAllCovers();
+    }
+
+    // Run on pjax navigation
+    document.addEventListener('pjax:complete', randomizeAllCovers);
+  })();
+</script>
   
 </body>
 </html>

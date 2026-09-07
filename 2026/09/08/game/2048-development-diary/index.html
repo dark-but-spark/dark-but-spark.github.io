@@ -1,0 +1,932 @@
+
+  <!DOCTYPE html>
+  <html lang="en"  
+    
+      data-theme-mode="auto"
+    
+  >
+  <head>
+  
+  <meta charset="utf-8">
+  
+
+  
+
+  
+
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_0khxww3tj3q9';window.REIMU_CONFIG.clipboard_tips = {"success":{"en":"Copy successfully (*^▽^*)","zh-CN":"复制成功 (*^▽^*)","zh-TW":"複製成功 (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ","zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","zh-TW":"複製失敗 (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = 'All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://example.com';</script>
+  
+  <title>
+    2048 游戏 Hexo 适配开发日记 |
+    
+    暗烨の小屋
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media&#x3D;&#39;all&#39;">
+  
+  
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_0khxww3tj3q9.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  
+  
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+  
+  
+    <meta name="description" content="记录 2048 游戏嵌入 Hexo 博客时遇到的渲染、主题和布局问题，以及最后的修复过程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2048 游戏 Hexo 适配开发日记">
+<meta property="og:url" content="http://example.com/2026/09/08/game/2048-development-diary/index.html">
+<meta property="og:site_name" content="暗烨の小屋">
+<meta property="og:description" content="记录 2048 游戏嵌入 Hexo 博客时遇到的渲染、主题和布局问题，以及最后的修复过程。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-09-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-07T18:31:26.886Z">
+<meta property="article:author" content="暗烨">
+<meta property="article:tag" content="2048">
+<meta property="article:tag" content="Debug">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="alternate" href="/atom.xml" title="暗烨の小屋" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload&#x3D;null;this.rel&#x3D;&#39;stylesheet&#39;" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL&#x2F;toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx&#x2F;1oA&#x2F;0l8ysE" crossorigin="anonymous">
+  
+    
+      
+        
+<link rel="stylesheet" href="https://npm.webcache.cn/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l&#x2F;9On385z&#x2F;&#x2F;&#x2F;+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+
+      
+    
+  
+  
+  
+  
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+  
+  
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.0/dist/aos.css" integrity="sha384-4NN3fZ5AokFyHuoihl7A9qWaCt+HsAtOaUsXwJGRb4&#x2F;SMBtFr2vcNSHR5E8dg0Wk" crossorigin="anonymous">
+
+  
+  
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/aplayer@1.10.1/dist/APlayer.min.css" integrity="sha384-tLMkTWh2pfXNWGFlUS0w1TFtRG5xZ9lPWFOooj+vDDLIL+xBGQU&#x2F;voDBY5XE2lVh" crossorigin="anonymous">
+
+  
+  
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+  <body>
+    
+    
+  <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+        
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+        
+      </div>
+      
+      
+        
+      
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var startLoading = () => {
+      time = Date.now();
+      document.getElementById('loader').classList.remove("loading");
+    }
+    var endLoading = () => {
+      if (!time) {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loader').classList.add("loading");
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          document.body.style.overflow = 'auto';
+          document.getElementById('loader').classList.add("loading");
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    document.getElementById('loader').addEventListener('click', endLoading);
+  </script>
+
+<div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+</div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav">
+    
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <a class="main-nav-link" href="/">Home</a>
+        </span>
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <a class="main-nav-link" href="/archives">Archives</a>
+        </span>
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <a class="main-nav-link" href="/about">About</a>
+        </span>
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <a class="main-nav-link" href="/friend">Friend</a>
+        </span>
+      
+    
+    <a id="main-nav-toggle" class="nav-icon"></a>
+  </nav>
+  <nav id="sub-nav">
+    
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" target="_blank"></a>
+    
+    
+    
+  </nav>
+  
+</div>
+<header id="header">
+  
+    
+      
+        <picture>
+          
+        </picture>
+        
+          <img crossorigin="anonymous" fetchpriority="high" src="/images/banner.webp" alt="2048 游戏 Hexo 适配开发日记">
+        
+      
+    
+  
+  <div id="header-outer">
+    <div id="header-title">
+      
+        
+        
+          <a href="/" id="logo">
+            <h1 data-aos="slide-up">2048 游戏 Hexo 适配开发日记</h1>
+          </a>
+        
+      
+      
+        
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+          
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+        <div id="content" class="sidebar-left"  >
+          <aside id="sidebar">
+  
+  
+  
+    <meting-js
+      theme="var(--color-link)"
+      id="544580967"
+      server="netease"
+      type="playlist"
+      
+      
+      autoplay="false"
+      loop="all"
+      order="random"
+      preload="auto"
+      
+      mutex="true"
+      list-folded="true"
+      
+    ></meting-js>
+  
+  <div class="sidebar-wrapper wrap-sticky">
+    <div class="sidebar-wrap" data-aos="fade-up">
+      
+        
+          <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2048-%E6%B8%B8%E6%88%8F-hexo-%E9%80%82%E9%85%8D%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text"> 2048 游戏 Hexo 适配开发日记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E6%A6%82%E8%A7%88"><span class="toc-number">1.1.</span> <span class="toc-text"> 任务概览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%9B%9E%E5%90%88%E7%9B%B4%E6%8E%A5%E7%B2%98%E8%B4%B4%E5%BD%93%E7%84%B6%E4%B8%8D%E8%A1%8C"><span class="toc-number">1.2.</span> <span class="toc-text"> 第一回合：直接粘贴，当然不行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bug-1css-%E7%B1%BB%E5%90%8D%E5%AF%B9%E4%B8%8D%E4%B8%8A"><span class="toc-number">1.2.1.</span> <span class="toc-text"> Bug #1：CSS 类名对不上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bug-2%E6%A0%87%E9%A2%98%E5%92%8C%E8%83%8C%E6%99%AF%E9%87%8D%E5%A4%8D"><span class="toc-number">1.2.2.</span> <span class="toc-text"> Bug #2：标题和背景重复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bug-3%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F%E6%B1%A1%E6%9F%93"><span class="toc-number">1.2.3.</span> <span class="toc-text"> Bug #3：全局样式污染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bug-4%E7%BB%93%E6%9D%9F%E5%BC%B9%E7%AA%97%E5%AE%9A%E4%BD%8D%E9%94%99%E8%AF%AF"><span class="toc-number">1.2.4.</span> <span class="toc-text"> Bug #4：结束弹窗定位错误</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%9B%9E%E5%90%88%E5%B0%9D%E8%AF%95%E4%B8%93%E7%94%A8%E6%B8%B8%E6%88%8F%E5%B8%83%E5%B1%80"><span class="toc-number">1.3.</span> <span class="toc-text"> 第二回合：尝试专用游戏布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%9B%9E%E5%90%88%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E4%BF%9D%E5%91%BD"><span class="toc-number">1.4.</span> <span class="toc-text"> 第三回合：命名空间保命</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%9B%9E%E5%90%88markdown-%E6%8A%8A%E6%B8%B8%E6%88%8F%E5%8F%98%E6%88%90%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">1.5.</span> <span class="toc-text"> 第四回合：Markdown 把游戏变成代码块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E5%9B%9E%E5%90%88%E4%B8%BB%E9%A2%98%E5%AF%BC%E8%88%AA%E7%9A%84%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5"><span class="toc-number">1.6.</span> <span class="toc-text"> 第五回合：主题导航的边界情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E5%9B%9E%E5%90%88%E5%8F%AA%E4%BF%9D%E7%95%99%E5%8F%AF%E8%BF%90%E8%A1%8C%E7%89%88%E6%9C%AC"><span class="toc-number">1.7.</span> <span class="toc-text"> 第六回合：只保留可运行版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA-bug%E7%A9%BA%E8%A1%8C%E8%AE%A9%E6%96%B9%E5%9D%97%E5%8F%98%E5%A4%A7%E5%8F%98%E5%B0%8F"><span class="toc-number">1.8.</span> <span class="toc-text"> 最后一个 Bug：空行让方块变大变小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E5%92%8C%E5%8A%A0%E8%BD%BD%E6%96%B9%E9%9D%A2%E7%9A%84%E5%AE%9E%E9%99%85%E4%BC%98%E5%8C%96"><span class="toc-number">1.9.</span> <span class="toc-text"> 性能和加载方面的实际优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%85%88%E7%BB%98%E5%88%B6%E7%BB%93%E6%9E%84%E5%86%8D%E5%90%AF%E5%8A%A8%E9%80%BB%E8%BE%91"><span class="toc-number">1.9.1.</span> <span class="toc-text"> 1. 先绘制结构，再启动逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BC%93%E5%AD%98-dom-%E8%8A%82%E7%82%B9"><span class="toc-number">1.9.2.</span> <span class="toc-text"> 2. 缓存 DOM 节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%87%8F%E5%B0%91%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">1.9.3.</span> <span class="toc-text"> 3. 减少不必要的序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BF%9D%E7%95%99-css-%E5%8A%A8%E7%94%BB"><span class="toc-number">1.9.4.</span> <span class="toc-text"> 4. 保留 CSS 动画</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-number">1.10.</span> <span class="toc-text"> 当前文件结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E9%AA%8C%E8%AF%81"><span class="toc-number">1.11.</span> <span class="toc-text"> 最终验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD"><span class="toc-number">1.12.</span> <span class="toc-text"> 经验教训</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">1.13.</span> <span class="toc-text"> 结语</span></a></li></ol></li></ol>
+      
+  </div>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="暗烨" class="lazyload">
+  <div class="sidebar-author-name">暗烨</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">30</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">10</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">34</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="Friend"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Friend</div>
+      </div>
+    
+  
+</div>
+</div>
+        
+      
+      
+        
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+        
+      
+    </div>
+  </div>
+
+  <div class="sidebar-widget">
+  
+  </div>
+  
+</aside>
+
+          <section id="main"><article id="post-game/2048/2048-development-diary" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link" data-aos="zoom-in">
+    <time datetime="2026-09-07T16:00:00.000Z" itemprop="datePublished">2026-09-08</time>
+    <time style="display: none;" id="post-update-time">2026-09-08</time>
+  </span>
+</div>
+
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" data-aos="zoom-in">游戏开发</a>
+  </div>
+
+
+    </div>
+    <div class="hr-line"></div>
+    
+
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <h1 id="2048-游戏-hexo-适配开发日记"><a class="markdownIt-Anchor" href="#2048-游戏-hexo-适配开发日记"></a> 2048 游戏 Hexo 适配开发日记</h1>
+<blockquote>
+<p>“为什么一个简单的 HTML 游戏，放进博客以后就开始翻车？”——一个被 Markdown 解析器折磨过的 AI</p>
+</blockquote>
+<p>这篇就是原 <code>game/README.md</code> 那段简介的完整版。README 已经合并到这里，后续只维护这一篇。简单说：Markdown 和 HTML 混在一起确实很容易变成地狱，不过把问题拆成“源码、Hexo 渲染、主题模板、浏览器执行”四层以后，事情就没有那么玄学了喔～</p>
+<h2 id="任务概览"><a class="markdownIt-Anchor" href="#任务概览"></a> 任务概览</h2>
+<p>目标很直接：把经典 2048 嵌进博客，保留导航、主题样式和文章结构，同时让游戏真的能玩。</p>
+<ul>
+<li>预期难度：⭐⭐（不就是粘贴一段 HTML 吗？）</li>
+<li>实际难度：⭐⭐⭐⭐⭐（Markdown 解析器：你再说一遍？）</li>
+<li>主要工具：<code>hexo clean</code>、<code>hexo generate</code>、<code>curl</code>、浏览器 DevTools</li>
+<li>最终状态：✅ 只保留 <code>2048-playable</code>，页面可运行</li>
+</ul>
+<h2 id="第一回合直接粘贴当然不行"><a class="markdownIt-Anchor" href="#第一回合直接粘贴当然不行"></a> 第一回合：直接粘贴，当然不行</h2>
+<p>最早尝试的是独立 HTML 文件和 Markdown 文章两条路。独立 HTML 可以运行，但没有博客导航；Markdown 文章看起来更像博客，却遇到了一串问题。</p>
+<h3 id="bug-1css-类名对不上"><a class="markdownIt-Anchor" href="#bug-1css-类名对不上"></a> Bug #1：CSS 类名对不上</h3>
+<p>样式写的是 <code>.rankLabel</code>，HTML 实际使用 <code>.cell</code>，JavaScript 查询到的是空集合。这个错误很朴素，也很有效地提醒了我：先确认命名，再怀疑框架。</p>
+<h3 id="bug-2标题和背景重复"><a class="markdownIt-Anchor" href="#bug-2标题和背景重复"></a> Bug #2：标题和背景重复</h3>
+<p>HTML 自己有一个 <code>2048</code> 标题，主题又会生成文章标题；<code>body</code> 的全局背景和游戏背景也互相叠加。页面不是不能看，只是看起来像两个页面在争夺同一块屏幕。</p>
+<h3 id="bug-3全局样式污染"><a class="markdownIt-Anchor" href="#bug-3全局样式污染"></a> Bug #3：全局样式污染</h3>
+<p>早期版本给 <code>body</code> 加了 <code>height: 100vh</code> 和 <code>overflow: hidden</code>，结果博客滚动条直接消失。游戏需要一个棋盘，不需要接管整篇博客。</p>
+<h3 id="bug-4结束弹窗定位错误"><a class="markdownIt-Anchor" href="#bug-4结束弹窗定位错误"></a> Bug #4：结束弹窗定位错误</h3>
+<p><code>transform: translate()</code> 少了两个参数，弹窗当然不会出现在预期位置。改成 <code>translate(-50%, -50%)</code> 后才老实。</p>
+<p>这一轮的结论：独立页面能跑，文章页面能融入博客，但直接把 HTML 塞进 Markdown 并不可靠。</p>
+<h2 id="第二回合尝试专用游戏布局"><a class="markdownIt-Anchor" href="#第二回合尝试专用游戏布局"></a> 第二回合：尝试专用游戏布局</h2>
+<p>为了避免文章样式干扰，创建了 <code>themes/DBS/layout/game.ejs</code>，希望游戏页面拥有自己的容器和宽度。</p>
+<p>结果主题 partial 很快发出了 <code>post is not defined</code>。<code>header.ejs</code>、<code>footer.ejs</code> 和 <code>after-footer.ejs</code> 都需要文章上下文，不能看到 partial 就随便调用。</p>
+<p>修复方式是显式传递页面对象：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- partial(&#x27;_partial/header&#x27;, &#123;post: page&#125;) %&gt;</span><br><span class="line">&lt;%- partial(&#x27;_partial/footer&#x27;, &#123;post: page&#125;) %&gt;</span><br><span class="line">&lt;%- partial(&#x27;_partial/after-footer&#x27;, &#123;post: page&#125;) %&gt;</span><br></pre></td></tr></table></figure>
+<p>这个布局后来没有成为 2048 的最终方案，但它暴露了主题模板的参数契约。</p>
+<h2 id="第三回合命名空间保命"><a class="markdownIt-Anchor" href="#第三回合命名空间保命"></a> 第三回合：命名空间保命</h2>
+<p>博客主题本身已经有很多 <code>.title</code>、<code>.grid</code>、<code>.cell</code> 和 <code>.btn</code>。于是统一使用 <code>game2048-</code> 前缀：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.cell       -&gt; .game2048-cell</span><br><span class="line">.grid       -&gt; .game2048-grid</span><br><span class="line">.score-box  -&gt; .game2048-score-box</span><br><span class="line">#restart    -&gt; #game2048-restart-btn</span><br></pre></td></tr></table></figure>
+<p>命名空间没有让代码变聪明，但确实让它少惹了很多麻烦。</p>
+<h2 id="第四回合markdown-把游戏变成代码块"><a class="markdownIt-Anchor" href="#第四回合markdown-把游戏变成代码块"></a> 第四回合：Markdown 把游戏变成代码块</h2>
+<p>生成后的 HTML 曾经出现过：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">pre</span>&gt;</span><span class="tag">&lt;<span class="name">code</span>&gt;</span><span class="symbol">&amp;lt;</span>div class=&quot;game2048-grid&quot;<span class="symbol">&amp;gt;</span>...<span class="tag">&lt;/<span class="name">code</span>&gt;</span><span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>原因不是浏览器，也不是 JavaScript，而是 Markdown 解析器把缩进的 HTML 当成了代码块。动态注入曾经绕过了这个问题，但结构很重，排错也不直观。</p>
+<p>最后确认更简单的做法：让嵌入 HTML 不带 Markdown 缩进，并确保渲染器启用 HTML；游戏结构就能按真正的 DOM 输出。</p>
+<h2 id="第五回合主题导航的边界情况"><a class="markdownIt-Anchor" href="#第五回合主题导航的边界情况"></a> 第五回合：主题导航的边界情况</h2>
+<p>文章上下篇导航里还有一个独立问题：<code>get_post_by_lang()</code> 找不到语言版本时会返回 <code>undefined</code>，模板直接读取 <code>.title</code> 就会中止整页生成。</p>
+<p>修复是使用安全回退：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const nextTitle = postByLang &amp;&amp; postByLang.title</span><br><span class="line">  ? postByLang.title</span><br><span class="line">  : (post.next.title || &#x27;(no title)&#x27;);</span><br></pre></td></tr></table></figure>
+<p>调试时必须先分清：是页面没生成、页面没渲染，还是脚本没执行。</p>
+<h2 id="第六回合只保留可运行版本"><a class="markdownIt-Anchor" href="#第六回合只保留可运行版本"></a> 第六回合：只保留可运行版本</h2>
+<p>开发过程中同时存在 <code>2048-playable</code> 和 <code>2048-fixed</code> 两个版本。它们的目标相同，调试路径不同，最后反而造成了版本判断成本。</p>
+<p>最终删除 <code>2048-fixed.md</code>，只保留 <code>2048-playable.md</code>。当前版本采用静态棋盘结构加轻量脚本：</p>
+<ol>
+<li>16 个格子先由 HTML 输出，浏览器首帧可以直接绘制棋盘。</li>
+<li>JavaScript 只负责状态、随机方块、移动、计分和结束判断。</li>
+<li>初始化放到 <code>requestAnimationFrame</code>，让静态内容先显示出来。</li>
+<li>缓存格子节点，避免每次移动重复 <code>querySelector</code>。</li>
+<li>用数组浅拷贝替代 <code>JSON.parse(JSON.stringify(board))</code>。</li>
+</ol>
+<p>这版没有修改主题动画、烟花或全局加载配置。游戏自己的问题，尽量在游戏自己的边界内解决，维护起来轻松很多。</p>
+<h2 id="最后一个-bug空行让方块变大变小"><a class="markdownIt-Anchor" href="#最后一个-bug空行让方块变大变小"></a> 最后一个 Bug：空行让方块变大变小</h2>
+<p>棋盘只设置了四列，没有定义四行。CSS Grid 会根据隐式行轨道重新分配高度，内容变化时就会产生跳动。</p>
+<p>最终 CSS 明确固定四行：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.game2048-grid</span> &#123;</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">4</span>, <span class="built_in">minmax</span>(<span class="number">0</span>, <span class="number">1</span>fr));</span><br><span class="line">  <span class="attribute">grid-template-rows</span>: <span class="built_in">repeat</span>(<span class="number">4</span>, <span class="built_in">minmax</span>(<span class="number">0</span>, <span class="number">1</span>fr));</span><br><span class="line">  <span class="attribute">grid-auto-rows</span>: <span class="number">1</span>fr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同时给单元格加上 <code>min-width: 0</code> 和 <code>min-height: 0</code>，避免内容反过来撑开轨道。以后再看到“方块会动，尺寸也跟着动”，先查 Grid 轨道，不要急着怀疑随机数。</p>
+<h2 id="性能和加载方面的实际优化"><a class="markdownIt-Anchor" href="#性能和加载方面的实际优化"></a> 性能和加载方面的实际优化</h2>
+<p>这次没有改主题公共动画和烟花。2048 本身能做的优化主要有这些：</p>
+<h3 id="1-先绘制结构再启动逻辑"><a class="markdownIt-Anchor" href="#1-先绘制结构再启动逻辑"></a> 1. 先绘制结构，再启动逻辑</h3>
+<p>静态 4 × 4 棋盘直接写入 HTML，避免脚本启动后才创建 16 个节点。脚本在下一帧初始化，首屏更稳定。</p>
+<h3 id="2-缓存-dom-节点"><a class="markdownIt-Anchor" href="#2-缓存-dom-节点"></a> 2. 缓存 DOM 节点</h3>
+<p>初始化时保存 <code>cells</code> 数组，渲染时按索引访问，避免每个格子都执行选择器查询。</p>
+<h3 id="3-减少不必要的序列化"><a class="markdownIt-Anchor" href="#3-减少不必要的序列化"></a> 3. 减少不必要的序列化</h3>
+<p>棋盘只有 16 个数字，使用 <code>row.slice()</code> 就足够复制，没必要反复序列化成 JSON 再解析回来。</p>
+<h3 id="4-保留-css-动画"><a class="markdownIt-Anchor" href="#4-保留-css-动画"></a> 4. 保留 CSS 动画</h3>
+<p>新方块动画由 CSS <code>transform</code> 完成，不用 JavaScript 定时修改位置，浏览器更容易优化。</p>
+<h2 id="当前文件结构"><a class="markdownIt-Anchor" href="#当前文件结构"></a> 当前文件结构</h2>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">source/_posts/game/</span><br><span class="line">└── 2048/</span><br><span class="line">    ├── 2048-playable.md          # 当前唯一的博客游戏版本</span><br><span class="line">    ├── 2048-development-diary.md # 本篇日志，已合并 README</span><br><span class="line">    ├── 2048.html                 # 历史 layout: game 实验</span><br><span class="line">    ├── 2048only.html             # 历史独立 HTML 实验</span><br><span class="line">    └── 2048-standalone.html      # 历史 layout: false 独立页面</span><br></pre></td></tr></table></figure>
+<p>这几个 HTML 文件是调试阶段留下的归档源码。Hexo 不会把 <code>_posts</code> 下的 HTML 当作文章渲染，因此它们不会抢占当前入口；实际发布的游戏页面只有 <code>/2024/06/15/game/2048-playable/</code>。</p>
+<h2 id="最终验证"><a class="markdownIt-Anchor" href="#最终验证"></a> 最终验证</h2>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node_modules\\.bin\\hexo.cmd clean</span><br><span class="line">node_modules\\.bin\\hexo.cmd generate</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>2048-playable</code> 正常生成</li>
+<li><code>2048-fixed</code> 不再生成</li>
+<li><code>game/2048</code> 目录外不再保留 2048 文章或实验文件</li>
+<li>生成 HTML 中不再出现错误的游戏 <code>&lt;pre&gt;&lt;code&gt;</code> 结构</li>
+<li>棋盘固定为 4 × 4，空行不会改变方块尺寸</li>
+<li>键盘移动、重新开始、最高分和结束弹窗继续可用</li>
+</ul>
+<h2 id="经验教训"><a class="markdownIt-Anchor" href="#经验教训"></a> 经验教训</h2>
+<ol>
+<li><strong>Hexo + Markdown + HTML</strong>：看似简单，组合起来就要尊重每一层的规则。</li>
+<li><strong>命名空间很重要</strong>：游戏类名和 ID 加前缀，能省掉大量主题冲突。</li>
+<li><strong>错误要分层定位</strong>：先确认 Hexo 是否生成，再确认 HTML 是否正确，最后才查浏览器脚本。</li>
+<li><strong>不要维护两个最终版本</strong>：能运行的版本只有一个，其他都应该归档或删除。</li>
+<li><strong>简单方案有时更可靠</strong>：静态棋盘加小脚本，比动态注入整棵 DOM 更容易维护。</li>
+</ol>
+<h2 id="结语"><a class="markdownIt-Anchor" href="#结语"></a> 结语</h2>
+<blockquote>
+<p>“代码不会骗人，但 Markdown 解析器有自己的想法。”</p>
+</blockquote>
+<p>这个任务最后没有靠什么神秘技巧解决，靠的是把每个问题放回它所属的层：渲染问题交给 Markdown，模板问题交给主题，尺寸问题交给 CSS，交互问题交给 JavaScript。这样一层一层拆开，2048 终于只是一个 4 × 4 的小游戏了。</p>
+<p>折腾是折腾了点，不过现在它能正常运行，方块也不乱跳，算是值回这几轮 <code>hexo clean</code> 了喔～ 🎮</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/2048/" rel="tag">2048</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Debug/" rel="tag">Debug</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+  <nav id="article-nav" data-aos="fade-up">
+    
+    
+    
+    
+    <div class="article-nav-link-wrap article-nav-link-right">
+      
+        
+        
+          <img data-src="/covers/a27.png" data-sizes="auto" alt="Hello World" class="lazyload">
+        
+      
+      <a href="/2026/08/04/hello-world/"></a>
+      <div class="article-nav-caption">Older</div>
+      <h3 class="article-nav-title">
+        Hello World
+      </h3>
+    </div>
+    
+  </nav>
+
+
+</article>
+
+
+
+
+
+
+
+
+
+
+</section>
+        </div>
+        <footer id="footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    
+    <div>
+      <span class="icon-copyright"></span>
+      
+      
+      
+        2025-2026
+      
+      <span class="footer-info-sep rotate"></span>
+      暗烨
+    </div>
+    
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener external nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+    
+    
+      <div>
+        <span class="icon-brush"></span>
+        57.2k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        04:20
+      </div>
+    
+    
+    
+    
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+    
+  </div>
+</footer>
+
+        
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav">
+  <div class="sidebar-wrap">
+    
+      
+        <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2048-%E6%B8%B8%E6%88%8F-hexo-%E9%80%82%E9%85%8D%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text"> 2048 游戏 Hexo 适配开发日记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E6%A6%82%E8%A7%88"><span class="toc-number">1.1.</span> <span class="toc-text"> 任务概览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%9B%9E%E5%90%88%E7%9B%B4%E6%8E%A5%E7%B2%98%E8%B4%B4%E5%BD%93%E7%84%B6%E4%B8%8D%E8%A1%8C"><span class="toc-number">1.2.</span> <span class="toc-text"> 第一回合：直接粘贴，当然不行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bug-1css-%E7%B1%BB%E5%90%8D%E5%AF%B9%E4%B8%8D%E4%B8%8A"><span class="toc-number">1.2.1.</span> <span class="toc-text"> Bug #1：CSS 类名对不上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bug-2%E6%A0%87%E9%A2%98%E5%92%8C%E8%83%8C%E6%99%AF%E9%87%8D%E5%A4%8D"><span class="toc-number">1.2.2.</span> <span class="toc-text"> Bug #2：标题和背景重复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bug-3%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F%E6%B1%A1%E6%9F%93"><span class="toc-number">1.2.3.</span> <span class="toc-text"> Bug #3：全局样式污染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bug-4%E7%BB%93%E6%9D%9F%E5%BC%B9%E7%AA%97%E5%AE%9A%E4%BD%8D%E9%94%99%E8%AF%AF"><span class="toc-number">1.2.4.</span> <span class="toc-text"> Bug #4：结束弹窗定位错误</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%9B%9E%E5%90%88%E5%B0%9D%E8%AF%95%E4%B8%93%E7%94%A8%E6%B8%B8%E6%88%8F%E5%B8%83%E5%B1%80"><span class="toc-number">1.3.</span> <span class="toc-text"> 第二回合：尝试专用游戏布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%9B%9E%E5%90%88%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E4%BF%9D%E5%91%BD"><span class="toc-number">1.4.</span> <span class="toc-text"> 第三回合：命名空间保命</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%9B%9E%E5%90%88markdown-%E6%8A%8A%E6%B8%B8%E6%88%8F%E5%8F%98%E6%88%90%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">1.5.</span> <span class="toc-text"> 第四回合：Markdown 把游戏变成代码块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E5%9B%9E%E5%90%88%E4%B8%BB%E9%A2%98%E5%AF%BC%E8%88%AA%E7%9A%84%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5"><span class="toc-number">1.6.</span> <span class="toc-text"> 第五回合：主题导航的边界情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E5%9B%9E%E5%90%88%E5%8F%AA%E4%BF%9D%E7%95%99%E5%8F%AF%E8%BF%90%E8%A1%8C%E7%89%88%E6%9C%AC"><span class="toc-number">1.7.</span> <span class="toc-text"> 第六回合：只保留可运行版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA-bug%E7%A9%BA%E8%A1%8C%E8%AE%A9%E6%96%B9%E5%9D%97%E5%8F%98%E5%A4%A7%E5%8F%98%E5%B0%8F"><span class="toc-number">1.8.</span> <span class="toc-text"> 最后一个 Bug：空行让方块变大变小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E5%92%8C%E5%8A%A0%E8%BD%BD%E6%96%B9%E9%9D%A2%E7%9A%84%E5%AE%9E%E9%99%85%E4%BC%98%E5%8C%96"><span class="toc-number">1.9.</span> <span class="toc-text"> 性能和加载方面的实际优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%85%88%E7%BB%98%E5%88%B6%E7%BB%93%E6%9E%84%E5%86%8D%E5%90%AF%E5%8A%A8%E9%80%BB%E8%BE%91"><span class="toc-number">1.9.1.</span> <span class="toc-text"> 1. 先绘制结构，再启动逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BC%93%E5%AD%98-dom-%E8%8A%82%E7%82%B9"><span class="toc-number">1.9.2.</span> <span class="toc-text"> 2. 缓存 DOM 节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%87%8F%E5%B0%91%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">1.9.3.</span> <span class="toc-text"> 3. 减少不必要的序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BF%9D%E7%95%99-css-%E5%8A%A8%E7%94%BB"><span class="toc-number">1.9.4.</span> <span class="toc-text"> 4. 保留 CSS 动画</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-number">1.10.</span> <span class="toc-text"> 当前文件结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E9%AA%8C%E8%AF%81"><span class="toc-number">1.11.</span> <span class="toc-text"> 最终验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD"><span class="toc-number">1.12.</span> <span class="toc-text"> 经验教训</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">1.13.</span> <span class="toc-text"> 结语</span></a></li></ol></li></ol>
+      
+  </div>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="暗烨" class="lazyload">
+  <div class="sidebar-author-name">暗烨</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">30</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">10</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">34</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="Friend"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Friend</div>
+      </div>
+    
+  
+</div>
+</div>
+      
+    
+  </div>
+  
+    
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+    
+  
+</nav>
+
+    </div>
+    
+    
+    
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+  
+<script src="https://npm.webcache.cn/material-theme@1.0.0/dist/material-theme.umd.js" integrity="sha384-vLev0II0HKFaxkcm+&#x2F;7kX5IGwVFBASkGchU311wmU&#x2F;veIj2bB0UcBkQbW6yw2asK" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+
+
+
+
+
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.1.1/dist/index.umd.js" integrity="sha384-8LyaidD9GPxQQgLJO&#x2F;WRw&#x2F;O2h3BoNq&#x2F;ApI&#x2F;ecpvM6RsrCz2qP2ppBXUKihP4V&#x2F;2d" crossorigin="anonymous"></script>
+
+  <script>
+    window.firework && window.firework(JSON.parse('{"excludeElements":["a"],"particles":[{"shape":"circle","move":"emit","easing":"easeOutExpo","colors":["rgba(255,182,185,.9)","rgba(250,227,217,.9)","rgba(187,222,214,.9)","rgba(138,198,209,.9)"],"number":30,"duration":[1200,1800],"shapeOptions":{"radius":[16,32]}}]}'))
+  </script>
+
+
+
+
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+    
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "暗烨",
+          title: "2048 游戏 Hexo 适配开发日记",
+          url: "http://example.com/2026/09/08/game/2048-development-diary/",
+          excerpt: "",
+          description: "记录 2048 游戏嵌入 Hexo 博客时遇到的渲染、主题和布局问题，以及最后的修复过程。",
+          stripContent: " 2048 游戏 Hexo 适配开发日记  “为什么一个简单的 HTML 游戏，放进博客以后就开始翻车？”——一个被 Markdown 解析器折磨过的 AI  这篇就是原 game/README.md 那段简介的完整版。README 已经合并到这里，后续只维护这一篇。简单说：Markdown 和 HTML 混在一起确实很容易变成地狱，不过把问题拆成“源码、Hexo 渲染、主题模板、浏览器执行”四层以后，事情就没有那么玄学了喔～  任务概览 目标很直接：把经典 2048 嵌进博客，保留导航、主题样",
+          date: "Tue Sep 08 2026 00:00:00 GMT+0800",
+          updated: "Tue Sep 08 2026 02:31:26 GMT+0800",
+          cover: "/images/banner.webp",
+        };
+      </script>
+       
+    
+    
+      
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+        
+      
+    
+    
+      <script type="module" data-pjax>
+        const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+        
+        const pswp = () => {
+          if (_$$('.article-entry a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-entry',
+              children: 'a.article-gallery-item',
+              pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+            }).init();
+          }
+          if(_$$('.article-gallery a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-gallery',
+              children: 'a.article-gallery-item',
+              pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+            }).init();
+          }
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script>
+      
+        
+
+
+
+
+
+
+
+
+      
+    
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.9.0' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+  
+
+
+
+  
+<script src="https://npm.webcache.cn/aplayer@1.10.1/dist/APlayer.min.js" integrity="sha384-gdGYZwHnfJM54evoZhpO0s6ZF5BQiybkiyW7VXr+h5UfruuRL&#x2F;aORyw+5+HZoU6e" crossorigin="anonymous"></script>
+
+  
+
+
+
+  
+  <script>
+    var isMobile = window.matchMedia('(max-width: 959px)').matches;
+    if (isMobile) {
+      const meting = _$('meting-js');
+      if (meting) {
+        meting.setAttribute('fixed', 'true');
+        const aside = meting.parentNode;
+        if (aside?.tagName === 'ASIDE') {
+          aside.removeChild(meting);
+          document.body.appendChild(meting);
+        }
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/meting@2.0.1/dist/Meting.min.js" integrity="sha384-ASVlpKF80A22OXTK3tfEjZm1EL6uFMKIC4p8+0maanw1S&#x2F;IyB+Y4JG+ZDU7GpKE8" crossorigin="anonymous"></script>
+
+
+
+
+
+<!-- Random Cover Script - Only for posts without fixed cover -->
+<script data-pjax>
+  (function() {
+    'use strict';
+    var covers = ["/covers/a1.png","/covers/a10.webp","/covers/a11.png","/covers/a12.webp","/covers/a13.webp","/covers/a14.webp","/covers/a15.png","/covers/a16.webp","/covers/a17.webp","/covers/a18.webp","/covers/a19.webp","/covers/a2.webp","/covers/a20.webp","/covers/a22.webp","/covers/a23.png","/covers/a24.webp","/covers/a25.png","/covers/a26.webp","/covers/a27.png","/covers/a28.webp","/covers/a3.png","/covers/a4.webp","/covers/a5.png","/covers/a6.webp","/covers/a7.png","/covers/a8.webp","/covers/a9.webp"];
+    if (!covers || covers.length === 0) return;
+
+    function randomizeCover(img) {
+      // Only randomize if the image doesn't have a data-fixed-cover attribute
+      if (img.hasAttribute('data-fixed-cover')) return;
+
+      var randomIndex = Math.floor(Math.random() * covers.length);
+      var randomCover = covers[randomIndex];
+
+      if (img.hasAttribute('data-src')) {
+        img.setAttribute('data-src', randomCover);
+      }
+      if (img.hasAttribute('src') && img.src) {
+        img.src = randomCover;
+      }
+    }
+
+    function randomizeAllCovers() {
+      // Post list covers (only those without fixed cover)
+      var postCovers = document.querySelectorAll('.post-cover-left img.lazyload:not([data-fixed-cover]), .post-cover-right img.lazyload:not([data-fixed-cover])');
+      postCovers.forEach(randomizeCover);
+
+      // Navigation covers (only those without fixed cover)
+      var navCovers = document.querySelectorAll('.article-nav-link-wrap img.lazyload:not([data-fixed-cover])');
+      navCovers.forEach(randomizeCover);
+
+      // Category covers (only those without fixed cover)
+      var categoryCovers = document.querySelectorAll('.post-categories-cover img.lazyload:not([data-fixed-cover])');
+      categoryCovers.forEach(randomizeCover);
+    }
+
+    // Run on page load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', randomizeAllCovers);
+    } else {
+      randomizeAllCovers();
+    }
+
+    // Run on pjax navigation
+    document.addEventListener('pjax:complete', randomizeAllCovers);
+  })();
+</script>
+    
+  </body>
+  </html>
+

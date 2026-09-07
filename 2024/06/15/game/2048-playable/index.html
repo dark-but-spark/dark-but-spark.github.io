@@ -1,0 +1,843 @@
+
+  <!DOCTYPE html>
+  <html lang="en"  
+    
+      data-theme-mode="auto"
+    
+  >
+  <head>
+  
+  <meta charset="utf-8">
+  
+
+  
+
+  
+
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_0khxww3tj3q9';window.REIMU_CONFIG.clipboard_tips = {"success":{"en":"Copy successfully (*^▽^*)","zh-CN":"复制成功 (*^▽^*)","zh-TW":"複製成功 (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ","zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","zh-TW":"複製失敗 (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = 'All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://example.com';</script>
+  
+  <title>
+    2048 游戏 |
+    
+    暗烨の小屋
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media&#x3D;&#39;all&#39;">
+  
+  
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_0khxww3tj3q9.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  
+  
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+  
+  
+    <meta name="description" content="经典的 2048 数字合并游戏，使用方向键控制方块移动">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2048 游戏">
+<meta property="og:url" content="http://example.com/2024/06/15/game/2048-playable/index.html">
+<meta property="og:site_name" content="暗烨の小屋">
+<meta property="og:description" content="经典的 2048 数字合并游戏，使用方向键控制方块移动">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-06-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-07T18:23:14.641Z">
+<meta property="article:author" content="暗烨">
+<meta property="article:tag" content="2048">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="益智游戏">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="alternate" href="/atom.xml" title="暗烨の小屋" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload&#x3D;null;this.rel&#x3D;&#39;stylesheet&#39;" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL&#x2F;toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx&#x2F;1oA&#x2F;0l8ysE" crossorigin="anonymous">
+  
+    
+      
+        
+<link rel="stylesheet" href="https://npm.webcache.cn/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l&#x2F;9On385z&#x2F;&#x2F;&#x2F;+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+
+      
+    
+  
+  
+  
+  
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+  
+  
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.0/dist/aos.css" integrity="sha384-4NN3fZ5AokFyHuoihl7A9qWaCt+HsAtOaUsXwJGRb4&#x2F;SMBtFr2vcNSHR5E8dg0Wk" crossorigin="anonymous">
+
+  
+  
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/aplayer@1.10.1/dist/APlayer.min.css" integrity="sha384-tLMkTWh2pfXNWGFlUS0w1TFtRG5xZ9lPWFOooj+vDDLIL+xBGQU&#x2F;voDBY5XE2lVh" crossorigin="anonymous">
+
+  
+  
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+  <body>
+    
+    
+  <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+        
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+        
+      </div>
+      
+      
+        
+      
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var startLoading = () => {
+      time = Date.now();
+      document.getElementById('loader').classList.remove("loading");
+    }
+    var endLoading = () => {
+      if (!time) {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loader').classList.add("loading");
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          document.body.style.overflow = 'auto';
+          document.getElementById('loader').classList.add("loading");
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    document.getElementById('loader').addEventListener('click', endLoading);
+  </script>
+
+<div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+</div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav">
+    
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <a class="main-nav-link" href="/">Home</a>
+        </span>
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <a class="main-nav-link" href="/archives">Archives</a>
+        </span>
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <a class="main-nav-link" href="/about">About</a>
+        </span>
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <a class="main-nav-link" href="/friend">Friend</a>
+        </span>
+      
+    
+    <a id="main-nav-toggle" class="nav-icon"></a>
+  </nav>
+  <nav id="sub-nav">
+    
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" target="_blank"></a>
+    
+    
+    
+  </nav>
+  
+</div>
+<header id="header">
+  
+    
+      
+        <picture>
+          
+        </picture>
+        
+          <img crossorigin="anonymous" fetchpriority="high" src="/images/banner.webp" alt="2048 游戏">
+        
+      
+    
+  
+  <div id="header-outer">
+    <div id="header-title">
+      
+        
+        
+          <a href="/" id="logo">
+            <h1 data-aos="slide-up">2048 游戏</h1>
+          </a>
+        
+      
+      
+        
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+          
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+        <div id="content" class="sidebar-left"  >
+          <aside id="sidebar">
+  
+  
+  
+    <meting-js
+      theme="var(--color-link)"
+      id="544580967"
+      server="netease"
+      type="playlist"
+      
+      
+      autoplay="false"
+      loop="all"
+      order="random"
+      preload="auto"
+      
+      mutex="true"
+      list-folded="true"
+      
+    ></meting-js>
+  
+  <div class="sidebar-wrapper wrap-sticky">
+    <div class="sidebar-wrap" data-aos="fade-up">
+      
+        
+          <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#game2048-gameover"><span class="toc-number">1.</span> <span class="toc-text">游戏结束</span></a></li></ol>
+      
+  </div>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="暗烨" class="lazyload">
+  <div class="sidebar-author-name">暗烨</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">30</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">10</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">34</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="Friend"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Friend</div>
+      </div>
+    
+  
+</div>
+</div>
+        
+      
+      
+        
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+        
+      
+    </div>
+  </div>
+
+  <div class="sidebar-widget">
+  
+  </div>
+  
+</aside>
+
+          <section id="main"><article id="post-game/2048/2048-playable" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link" data-aos="zoom-in">
+    <time datetime="2024-06-14T16:00:00.000Z" itemprop="datePublished">2024-06-15</time>
+    <time style="display: none;" id="post-update-time">2026-09-08</time>
+  </span>
+</div>
+
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%B8%B8%E6%88%8F/" data-aos="zoom-in">游戏</a>
+  </div>
+
+
+    </div>
+    <div class="hr-line"></div>
+    
+
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p>经典的 2048 数字合并游戏，在线即可游玩！使用方向键控制方块移动，合并相同数字。</p>
+<span id="more"></span>
+<style>
+.game2048-container{width:100%;max-width:500px;margin:30px auto;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,.2);box-sizing:border-box}.game2048-inner{padding:25px;background:rgba(255,255,255,.95);border-radius:10px}.game2048-header{text-align:center;margin-bottom:20px}.game2048-title{font-size:3em;font-weight:bold;color:#776e65;margin-bottom:10px}.game2048-subtitle{color:#776e65;font-size:.9em}.game2048-scores{display:flex;justify-content:center;gap:15px;margin-bottom:20px}.game2048-score-box{min-width:100px;padding:10px 20px;background:#bbada0;border-radius:5px;color:#fff;text-align:center}.game2048-score-label{font-size:.75em;font-weight:bold;text-transform:uppercase;margin-bottom:5px}.game2048-score-value{font-size:1.5em;font-weight:bold}.game2048-board{width:100%;aspect-ratio:1;background:#bbada0;border-radius:5px;padding:5px;margin-bottom:15px;box-sizing:border-box}.game2048-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(4,minmax(0,1fr));grid-auto-rows:1fr;gap:5px;height:100%;min-height:0}.game2048-cell{display:flex;align-items:center;justify-content:center;min-width:0;min-height:0;background:rgba(238,228,218,.35);border-radius:3px;color:#776e65;font-size:2em;font-weight:bold;transition:transform .15s ease,background-color .15s ease}.game2048-cell[data-value="2"]{background:#eee4da}.game2048-cell[data-value="4"]{background:#ede0c8}.game2048-cell[data-value="8"]{background:#f2b179;color:#f9f6f2}.game2048-cell[data-value="16"]{background:#f59563;color:#f9f6f2}.game2048-cell[data-value="32"]{background:#f67c5f;color:#f9f6f2}.game2048-cell[data-value="64"]{background:#f65e3b;color:#f9f6f2}.game2048-cell[data-value="128"],.game2048-cell[data-value="256"],.game2048-cell[data-value="512"]{background:#edcf72;color:#f9f6f2;font-size:1.8em}.game2048-cell[data-value="1024"],.game2048-cell[data-value="2048"]{background:#edc53f;color:#f9f6f2;font-size:1.5em}.game2048-cell[data-value="2048"]{background:#edc22e;box-shadow:0 0 30px 10px rgba(243,215,116,.55)}@keyframes game2048-pop{0%{transform:scale(0)}50%{transform:scale(1.15)}100%{transform:scale(1)}}.game2048-new-tile{animation:game2048-pop .2s ease-in-out}.game2048-controls{text-align:center}.game2048-btn{padding:12px 30px;background:#8f7a66;color:#f9f6f2;border:0;border-radius:5px;cursor:pointer;font-weight:bold;font-size:1em}.game2048-btn:hover{background:#9f8a76}.game2048-gameover{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.7);z-index:10000}.game2048-gameover-content{padding:40px;background:#fff;border-radius:15px;text-align:center;box-shadow:0 10px 50px rgba(0,0,0,.5)}.game2048-gameover-content h2{font-size:2.5em;color:#776e65;margin:0 0 20px}.game2048-gameover-content p{font-size:1.3em;color:#776e65;margin:0 0 30px}@media(max-width:768px){.game2048-container{margin:20px auto;padding:15px}.game2048-cell{font-size:1.5em}.game2048-title{font-size:2.5em}}@media(max-width:480px){.game2048-cell{font-size:1.2em}.game2048-title{font-size:2em}}
+</style>
+<div class="game2048-container"><div class="game2048-inner"><div class="game2048-header"><div class="game2048-title">2048</div><div class="game2048-subtitle">合并方块，达到 2048！</div></div><div class="game2048-scores"><div class="game2048-score-box"><div class="game2048-score-label">分数</div><div class="game2048-score-value" id="game2048-current-score">0</div></div><div class="game2048-score-box"><div class="game2048-score-label">最高分</div><div class="game2048-score-value" id="game2048-high-score">0</div></div></div><div class="game2048-board"><div class="game2048-grid" id="game2048-grid"><div class="game2048-cell"></div><div class="game2048-cell"></div><div class="game2048-cell"></div><div class="game2048-cell"></div><div class="game2048-cell"></div><div class="game2048-cell"></div><div class="game2048-cell"></div><div class="game2048-cell"></div><div class="game2048-cell"></div><div class="game2048-cell"></div><div class="game2048-cell"></div><div class="game2048-cell"></div><div class="game2048-cell"></div><div class="game2048-cell"></div><div class="game2048-cell"></div><div class="game2048-cell"></div></div></div><div class="game2048-controls"><button class="game2048-btn" id="game2048-restart-btn">重新开始</button></div></div></div><div class="game2048-gameover" id="game2048-gameover"><div class="game2048-gameover-content"><h2>游戏结束</h2><p>最终分数: <span id="game2048-final-score">0</span></p><button class="game2048-btn" id="game2048-restart-gameover-btn">再来一局</button></div></div>
+<script>
+(function(){'use strict';var n=4,key='game2048-highScore',board=[],score=0,grid=document.getElementById('game2048-grid'),cells=Array.from(grid.children),scoreEl=document.getElementById('game2048-current-score'),highEl=document.getElementById('game2048-high-score'),finalEl=document.getElementById('game2048-final-score'),overEl=document.getElementById('game2048-gameover'),high=Number(localStorage.getItem(key)||0);highEl.textContent=high;function blank(){return Array.from({length:n},function(){return[0,0,0,0]})}function add(){var e=[];for(var r=0;r<n;r++)for(var c=0;c<n;c++)if(!board[r][c])e.push(r*n+c);if(!e.length)return;var x=e[Math.floor(Math.random()*e.length)],r=Math.floor(x/n),c=x%n;board[r][c]=Math.random()<.9?2:4;cells[x].classList.add('game2048-new-tile')}function render(){cells.forEach(function(cell,i){var v=board[Math.floor(i/n)][i%n];cell.textContent=v||'';if(v)cell.dataset.value=v;else delete cell.dataset.value});setTimeout(function(){cells.forEach(function(cell){cell.classList.remove('game2048-new-tile')})},200)}function points(v){score+=v;scoreEl.textContent=score;if(score>high){high=score;highEl.textContent=high;localStorage.setItem(key,high)}}function merge(line,left){var old=line.slice(),a=line.filter(Boolean);if(!left)a.reverse();for(var i=0;i<a.length-1;i++)if(a[i]===a[i+1]){a[i]*=2;points(a[i]);a.splice(i+1,1)}while(a.length<n)a.push(0);if(!left)a.reverse();return{line:a,moved:old.some(function(v,i){return v!==a[i]})}}function ended(){for(var r=0;r<n;r++)for(var c=0;c<n;c++){if(!board[r][c])return false;if(c<3&&board[r][c]===board[r][c+1])return false;if(r<3&&board[r][c]===board[r+1][c])return false}return true}function move(dir){var next=board.map(function(row){return row.slice()}),moved=false;if(dir==='ArrowLeft'||dir==='ArrowRight')for(var r=0;r<n;r++){var a=merge(next[r],dir==='ArrowLeft');next[r]=a.line;moved=moved||a.moved}else for(var c=0;c<n;c++){var col=next.map(function(row){return row[c]}),a=merge(col,dir==='ArrowUp');for(var r=0;r<n;r++)next[r][c]=a.line[r];moved=moved||a.moved}if(!moved)return;board=next;add();render();if(ended()){finalEl.textContent=score;overEl.style.display='flex'}}function restart(){board=blank();score=0;scoreEl.textContent=0;overEl.style.display='none';cells.forEach(function(c){c.className='game2048-cell';c.textContent='';delete c.dataset.value});add();add();render()}document.addEventListener('keydown',function(e){if(e.key.indexOf('Arrow')===0){e.preventDefault();move(e.key)}});document.getElementById('game2048-restart-btn').addEventListener('click',restart);document.getElementById('game2048-restart-gameover-btn').addEventListener('click',restart);(window.requestAnimationFrame||function(cb){setTimeout(cb,0)})(restart)}());
+</script>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/2048/" rel="tag">2048</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/%E7%9B%8A%E6%99%BA%E6%B8%B8%E6%88%8F/" rel="tag">益智游戏</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+  <nav id="article-nav" data-aos="fade-up">
+    
+      
+      
+      <div class="article-nav-link-wrap article-nav-link-left">
+        
+          
+          
+            <img data-src="/covers/a18.webp" data-sizes="auto" alt="2025年春季学期introduction" class="lazyload">
+          
+        
+        <a href="/2025/03/03/README2025Spring/"></a>
+        <div class="article-nav-caption">Newer</div>
+        <h3 class="article-nav-title">
+          2025年春季学期introduction
+        </h3>
+      </div>
+    
+    
+  </nav>
+
+
+</article>
+
+
+
+
+
+
+
+
+
+
+</section>
+        </div>
+        <footer id="footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    
+    <div>
+      <span class="icon-copyright"></span>
+      
+      
+      
+        2025-2026
+      
+      <span class="footer-info-sep rotate"></span>
+      暗烨
+    </div>
+    
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener external nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+    
+    
+      <div>
+        <span class="icon-brush"></span>
+        57.2k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        04:20
+      </div>
+    
+    
+    
+    
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+    
+  </div>
+</footer>
+
+        
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav">
+  <div class="sidebar-wrap">
+    
+      
+        <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#game2048-gameover"><span class="toc-number">1.</span> <span class="toc-text">游戏结束</span></a></li></ol>
+      
+  </div>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="暗烨" class="lazyload">
+  <div class="sidebar-author-name">暗烨</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">30</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">10</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">34</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="Friend"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Friend</div>
+      </div>
+    
+  
+</div>
+</div>
+      
+    
+  </div>
+  
+    
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+    
+  
+</nav>
+
+    </div>
+    
+    
+    
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+  
+<script src="https://npm.webcache.cn/material-theme@1.0.0/dist/material-theme.umd.js" integrity="sha384-vLev0II0HKFaxkcm+&#x2F;7kX5IGwVFBASkGchU311wmU&#x2F;veIj2bB0UcBkQbW6yw2asK" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+
+
+
+
+
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.1.1/dist/index.umd.js" integrity="sha384-8LyaidD9GPxQQgLJO&#x2F;WRw&#x2F;O2h3BoNq&#x2F;ApI&#x2F;ecpvM6RsrCz2qP2ppBXUKihP4V&#x2F;2d" crossorigin="anonymous"></script>
+
+  <script>
+    window.firework && window.firework(JSON.parse('{"excludeElements":["a"],"particles":[{"shape":"circle","move":"emit","easing":"easeOutExpo","colors":["rgba(255,182,185,.9)","rgba(250,227,217,.9)","rgba(187,222,214,.9)","rgba(138,198,209,.9)"],"number":30,"duration":[1200,1800],"shapeOptions":{"radius":[16,32]}}]}'))
+  </script>
+
+
+
+
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+    
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "暗烨",
+          title: "2048 游戏",
+          url: "http://example.com/2024/06/15/game/2048-playable/",
+          excerpt: "经典的 2048 数字合并游戏，在线即可游玩！使用方向键控制方块移动，合并相同数字。",
+          description: "经典的 2048 数字合并游戏，使用方向键控制方块移动",
+          stripContent: "经典的 2048 数字合并游戏，在线即可游玩！使用方向键控制方块移动，合并相同数字。   .game2048-container{width:100%;max-width:500px;margin:30px auto;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,.2);box-sizing:border-bo",
+          date: "Sat Jun 15 2024 00:00:00 GMT+0800",
+          updated: "Tue Sep 08 2026 02:23:14 GMT+0800",
+          cover: "/images/banner.webp",
+        };
+      </script>
+       
+    
+    
+      
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+        
+      
+    
+    
+      <script type="module" data-pjax>
+        const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+        
+        const pswp = () => {
+          if (_$$('.article-entry a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-entry',
+              children: 'a.article-gallery-item',
+              pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+            }).init();
+          }
+          if(_$$('.article-gallery a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-gallery',
+              children: 'a.article-gallery-item',
+              pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+            }).init();
+          }
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script>
+      
+        
+
+
+
+
+
+
+
+
+      
+    
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.9.0' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+  
+
+
+
+  
+<script src="https://npm.webcache.cn/aplayer@1.10.1/dist/APlayer.min.js" integrity="sha384-gdGYZwHnfJM54evoZhpO0s6ZF5BQiybkiyW7VXr+h5UfruuRL&#x2F;aORyw+5+HZoU6e" crossorigin="anonymous"></script>
+
+  
+
+
+
+  
+  <script>
+    var isMobile = window.matchMedia('(max-width: 959px)').matches;
+    if (isMobile) {
+      const meting = _$('meting-js');
+      if (meting) {
+        meting.setAttribute('fixed', 'true');
+        const aside = meting.parentNode;
+        if (aside?.tagName === 'ASIDE') {
+          aside.removeChild(meting);
+          document.body.appendChild(meting);
+        }
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/meting@2.0.1/dist/Meting.min.js" integrity="sha384-ASVlpKF80A22OXTK3tfEjZm1EL6uFMKIC4p8+0maanw1S&#x2F;IyB+Y4JG+ZDU7GpKE8" crossorigin="anonymous"></script>
+
+
+
+
+
+<!-- Random Cover Script - Only for posts without fixed cover -->
+<script data-pjax>
+  (function() {
+    'use strict';
+    var covers = ["/covers/a1.png","/covers/a10.webp","/covers/a11.png","/covers/a12.webp","/covers/a13.webp","/covers/a14.webp","/covers/a15.png","/covers/a16.webp","/covers/a17.webp","/covers/a18.webp","/covers/a19.webp","/covers/a2.webp","/covers/a20.webp","/covers/a22.webp","/covers/a23.png","/covers/a24.webp","/covers/a25.png","/covers/a26.webp","/covers/a27.png","/covers/a28.webp","/covers/a3.png","/covers/a4.webp","/covers/a5.png","/covers/a6.webp","/covers/a7.png","/covers/a8.webp","/covers/a9.webp"];
+    if (!covers || covers.length === 0) return;
+
+    function randomizeCover(img) {
+      // Only randomize if the image doesn't have a data-fixed-cover attribute
+      if (img.hasAttribute('data-fixed-cover')) return;
+
+      var randomIndex = Math.floor(Math.random() * covers.length);
+      var randomCover = covers[randomIndex];
+
+      if (img.hasAttribute('data-src')) {
+        img.setAttribute('data-src', randomCover);
+      }
+      if (img.hasAttribute('src') && img.src) {
+        img.src = randomCover;
+      }
+    }
+
+    function randomizeAllCovers() {
+      // Post list covers (only those without fixed cover)
+      var postCovers = document.querySelectorAll('.post-cover-left img.lazyload:not([data-fixed-cover]), .post-cover-right img.lazyload:not([data-fixed-cover])');
+      postCovers.forEach(randomizeCover);
+
+      // Navigation covers (only those without fixed cover)
+      var navCovers = document.querySelectorAll('.article-nav-link-wrap img.lazyload:not([data-fixed-cover])');
+      navCovers.forEach(randomizeCover);
+
+      // Category covers (only those without fixed cover)
+      var categoryCovers = document.querySelectorAll('.post-categories-cover img.lazyload:not([data-fixed-cover])');
+      categoryCovers.forEach(randomizeCover);
+    }
+
+    // Run on page load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', randomizeAllCovers);
+    } else {
+      randomizeAllCovers();
+    }
+
+    // Run on pjax navigation
+    document.addEventListener('pjax:complete', randomizeAllCovers);
+  })();
+</script>
+    
+  </body>
+  </html>
+

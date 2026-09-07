@@ -1,0 +1,1194 @@
+
+  <!DOCTYPE html>
+  <html lang="en"  
+    
+      data-theme-mode="auto"
+    
+  >
+  <head>
+  
+  <meta charset="utf-8">
+  
+
+  
+
+  
+
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_0khxww3tj3q9';window.REIMU_CONFIG.clipboard_tips = {"success":{"en":"Copy successfully (*^▽^*)","zh-CN":"复制成功 (*^▽^*)","zh-TW":"複製成功 (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ","zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","zh-TW":"複製失敗 (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = 'All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://example.com';</script>
+  
+  <title>
+    DNTB 地牢编排师 - Game Jam 开发回顾 |
+    
+    暗烨の小屋
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media&#x3D;&#39;all&#39;">
+  
+  
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_0khxww3tj3q9.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  
+  
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+  
+  
+    <meta name="description" content="记录 DNTB (Dungeon Arranger - Forbidden Keys) 项目两周开发历程，一个基于 Godot 4 的战术 Roguelite 原型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DNTB 地牢编排师 - Game Jam 开发回顾">
+<meta property="og:url" content="http://example.com/2026/07/06/GameJam/DNTB-Project-Review/index.html">
+<meta property="og:site_name" content="暗烨の小屋">
+<meta property="og:description" content="记录 DNTB (Dungeon Arranger - Forbidden Keys) 项目两周开发历程，一个基于 Godot 4 的战术 Roguelite 原型">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/LiaoZiqi-GZFLS?v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/unnameduser5000?v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/dark-but-spark?v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/wentao-DAI?v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/Jaeger0624?v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/Crab-Dave?v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/9919?s=200&v=4">
+<meta property="article:published_time" content="2026-07-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-06T16:00:00.000Z">
+<meta property="article:author" content="暗烨">
+<meta property="article:tag" content="DNTB">
+<meta property="article:tag" content="Game Jam">
+<meta property="article:tag" content="Godot">
+<meta property="article:tag" content="Roguelite">
+<meta property="article:tag" content="游戏开发">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/LiaoZiqi-GZFLS?v=4">
+  
+  
+    <link rel="alternate" href="/atom.xml" title="暗烨の小屋" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload&#x3D;null;this.rel&#x3D;&#39;stylesheet&#39;" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL&#x2F;toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx&#x2F;1oA&#x2F;0l8ysE" crossorigin="anonymous">
+  
+    
+      
+        
+<link rel="stylesheet" href="https://npm.webcache.cn/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l&#x2F;9On385z&#x2F;&#x2F;&#x2F;+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+
+      
+    
+  
+  
+  
+  
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+  
+  
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.0/dist/aos.css" integrity="sha384-4NN3fZ5AokFyHuoihl7A9qWaCt+HsAtOaUsXwJGRb4&#x2F;SMBtFr2vcNSHR5E8dg0Wk" crossorigin="anonymous">
+
+  
+  
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/aplayer@1.10.1/dist/APlayer.min.css" integrity="sha384-tLMkTWh2pfXNWGFlUS0w1TFtRG5xZ9lPWFOooj+vDDLIL+xBGQU&#x2F;voDBY5XE2lVh" crossorigin="anonymous">
+
+  
+  
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+  <body>
+    
+    
+  <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+        
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+        
+      </div>
+      
+      
+        
+      
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var startLoading = () => {
+      time = Date.now();
+      document.getElementById('loader').classList.remove("loading");
+    }
+    var endLoading = () => {
+      if (!time) {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loader').classList.add("loading");
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          document.body.style.overflow = 'auto';
+          document.getElementById('loader').classList.add("loading");
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    document.getElementById('loader').addEventListener('click', endLoading);
+  </script>
+
+<div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+</div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav">
+    
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <a class="main-nav-link" href="/">Home</a>
+        </span>
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <a class="main-nav-link" href="/archives">Archives</a>
+        </span>
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <a class="main-nav-link" href="/about">About</a>
+        </span>
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+             
+              &#xe62b;
+             
+          </div>
+          <a class="main-nav-link" href="/friend">Friend</a>
+        </span>
+      
+    
+    <a id="main-nav-toggle" class="nav-icon"></a>
+  </nav>
+  <nav id="sub-nav">
+    
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" target="_blank"></a>
+    
+    
+    
+  </nav>
+  
+</div>
+<header id="header">
+  
+    <picture></picture>
+    <img crossorigin="anonymous" fetchpriority="high" src="/covers/a10.webp" alt="DNTB 地牢编排师 - Game Jam 开发回顾">
+  
+  <div id="header-outer">
+    <div id="header-title">
+      
+        
+        
+          <a href="/" id="logo">
+            <h1 data-aos="slide-up">DNTB 地牢编排师 - Game Jam 开发回顾</h1>
+          </a>
+        
+      
+      
+        
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+          
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+        <div id="content" class="sidebar-left"  >
+          <aside id="sidebar">
+  
+  
+  
+    <meting-js
+      theme="var(--color-link)"
+      id="544580967"
+      server="netease"
+      type="playlist"
+      
+      
+      autoplay="false"
+      loop="all"
+      order="random"
+      preload="auto"
+      
+      mutex="true"
+      list-folded="true"
+      
+    ></meting-js>
+  
+  <div class="sidebar-wrapper wrap-sticky">
+    <div class="sidebar-wrap" data-aos="fade-up">
+      
+        
+          <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#dntb-%E5%9C%B0%E7%89%A2%E7%BC%96%E6%8E%92%E5%B8%88-game-jam-%E5%BC%80%E5%8F%91%E5%9B%9E%E9%A1%BE"><span class="toc-number">1.</span> <span class="toc-text"> DNTB 地牢编排师 - Game Jam 开发回顾</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text"> 项目概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 基本信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E7%8E%A9%E6%B3%95%E5%88%9B%E6%96%B0"><span class="toc-number">1.2.</span> <span class="toc-text"> 核心玩法创新</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E7%BC%96%E7%A8%8B%E9%94%AE%E4%BD%8D%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 可编程键位系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B4%BE%E7%94%9F%E6%AD%A6%E5%99%A8%E6%8A%80%E8%83%BD"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 派生武器技能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E5%8E%86%E7%A8%8B"><span class="toc-number">1.3.</span> <span class="toc-text"> 开发历程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E6%A0%B8%E5%BF%83%E6%9E%B6%E6%9E%84-6%E6%9C%8823-24%E6%97%A5"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 第一阶段：核心架构 (6月23-24日)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E6%AD%A6%E5%99%A8%E7%B3%BB%E7%BB%9F%E9%87%8D%E6%9E%84-6%E6%9C%8824-27%E6%97%A5"><span class="toc-number">1.3.2.</span> <span class="toc-text"> 第二阶段：武器系统重构 (6月24-27日)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5%E5%8A%A8%E4%BD%9C%E8%BF%BD%E8%B8%AA-6%E6%9C%8827%E6%97%A5"><span class="toc-number">1.3.3.</span> <span class="toc-text"> 第三阶段：动作追踪 (6月27日)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%E4%B8%96%E7%95%8C%E7%94%9F%E6%88%90-6%E6%9C%8828-30%E6%97%A5"><span class="toc-number">1.3.4.</span> <span class="toc-text"> 第四阶段：世界生成 (6月28-30日)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5uiux-%E6%94%B9%E8%BF%9B-6%E6%9C%8830%E6%97%A5-7%E6%9C%884%E6%97%A5"><span class="toc-number">1.3.5.</span> <span class="toc-text"> 第五阶段：UI&#x2F;UX 改进 (6月30日-7月4日)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E9%98%B6%E6%AE%B5%E5%86%85%E5%AE%B9%E6%89%A9%E5%B1%95-7%E6%9C%883-6%E6%97%A5"><span class="toc-number">1.3.6.</span> <span class="toc-text"> 第六阶段：内容扩展 (7月3-6日)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84"><span class="toc-number">1.4.</span> <span class="toc-text"> 技术架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%B1%82%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 分层设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5"><span class="toc-number">1.4.2.</span> <span class="toc-text"> 测试策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%B2%E7%9F%A5%E9%97%AE%E9%A2%98%E4%B8%8E%E5%8F%8D%E6%80%9D"><span class="toc-number">1.5.</span> <span class="toc-text"> 已知问题与反思</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%B8%8F-%E8%AF%9A%E5%AE%9E%E5%9C%B0%E8%AF%B4"><span class="toc-number">1.5.1.</span> <span class="toc-text"> ⚠️ 诚实地说</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.5.1.1.</span> <span class="toc-text"> 核心系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%96%E7%95%8C%E7%94%9F%E6%88%90"><span class="toc-number">1.5.1.2.</span> <span class="toc-text"> 世界生成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#uiux"><span class="toc-number">1.5.1.3.</span> <span class="toc-text"> UI&#x2F;UX</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%A7%E8%83%BD"><span class="toc-number">1.5.1.4.</span> <span class="toc-text"> 性能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E9%87%8D%E6%9D%A5%E6%88%91%E4%BC%9A%E5%81%9A%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C"><span class="toc-number">1.5.2.</span> <span class="toc-text"> 如果重来，我会做什么不同？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E5%88%B0%E7%9A%84%E7%BB%8F%E9%AA%8C"><span class="toc-number">1.6.</span> <span class="toc-text"> 学到的经验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#godot-4-%E7%9A%84%E5%BC%BA%E5%A4%A7%E4%B9%8B%E5%A4%84"><span class="toc-number">1.6.1.</span> <span class="toc-text"> Godot 4 的强大之处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C"><span class="toc-number">1.6.2.</span> <span class="toc-text"> 团队协作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%9F%E8%AE%A1"><span class="toc-number">1.7.</span> <span class="toc-text"> 项目统计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%87%8F"><span class="toc-number">1.7.1.</span> <span class="toc-text"> 代码量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%88%90%E5%BA%A6"><span class="toc-number">1.7.2.</span> <span class="toc-text"> 功能完成度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B"><span class="toc-number">1.8.</span> <span class="toc-text"> 未来展望</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%AD%E6%9C%9F-1-2-%E4%B8%AA%E6%9C%88"><span class="toc-number">1.8.1.</span> <span class="toc-text"> 短期 (1-2 个月)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%9C%9F-3-6-%E4%B8%AA%E6%9C%88"><span class="toc-number">1.8.2.</span> <span class="toc-text"> 中期 (3-6 个月)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%95%BF%E6%9C%9F-6-12-%E4%B8%AA%E6%9C%88"><span class="toc-number">1.8.3.</span> <span class="toc-text"> 长期 (6-12 个月)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">1.9.</span> <span class="toc-text"> 结语</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%9A%82%E5%81%9C%E6%9B%B4%E6%96%B0"><span class="toc-number">1.9.1.</span> <span class="toc-text"> 关于暂停更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E6%94%B6%E8%8E%B7"><span class="toc-number">1.9.2.</span> <span class="toc-text"> 最重要的收获</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E4%B8%8E%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9C%8B%E5%8F%8B%E4%BB%AC"><span class="toc-number">1.10.</span> <span class="toc-text"> 参与项目的朋友们</span></a></li></ol></li></ol>
+      
+  </div>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="暗烨" class="lazyload">
+  <div class="sidebar-author-name">暗烨</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">30</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">10</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">34</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="Friend"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Friend</div>
+      </div>
+    
+  
+</div>
+</div>
+        
+      
+      
+        
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+        
+      
+    </div>
+  </div>
+
+  <div class="sidebar-widget">
+  
+  </div>
+  
+</aside>
+
+          <section id="main"><article id="post-GameJam/DNTB-Project-Review" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link" data-aos="zoom-in">
+    <time datetime="2026-07-05T16:00:00.000Z" itemprop="datePublished">2026-07-06</time>
+    <time style="display: none;" id="post-update-time">2026-09-07</time>
+  </span>
+</div>
+
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Game-Development/" data-aos="zoom-in">Game Development</a>
+  </div>
+
+
+    </div>
+    <div class="hr-line"></div>
+    
+
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <h1 id="dntb-地牢编排师-game-jam-开发回顾"><a class="markdownIt-Anchor" href="#dntb-地牢编排师-game-jam-开发回顾"></a> DNTB 地牢编排师 - Game Jam 开发回顾</h1>
+<h2 id="项目概述"><a class="markdownIt-Anchor" href="#项目概述"></a> 项目概述</h2>
+<p><strong>DNTB (Dungeon Arranger: Forbidden Keys / 地牢编排师)</strong> 是我在 2026 年 6 月参与开发的一个 Godot 4 战术 Roguelite 游戏原型。项目核心玩法围绕<strong>可编程方向键</strong>、<strong>派生武器技能</strong>、<strong>网格战斗</strong>和<strong>类遗物修改器</strong>系统。</p>
+<p>这是一次特别的开发经历 - 我们团队都是同一所学校的朋友，之前互相认识，但这是第一次一起合作开发游戏。两周的密集开发让我们从陌生的协作者变成了默契的开发伙伴。</p>
+<span id="more"></span>
+<h3 id="基本信息"><a class="markdownIt-Anchor" href="#基本信息"></a> 基本信息</h3>
+<ul>
+<li><strong>引擎</strong>: Godot 4.7</li>
+<li><strong>类型</strong>: 战术 Roguelite</li>
+<li><strong>开发周期</strong>: 2026-06-23 至 2026-07-06 (约 2 周)</li>
+<li><strong>团队背景</strong>: 同校朋友，首次游戏开发协作</li>
+<li><strong>我的贡献</strong>: 101 次提交 (占项目总提交的 41%)</li>
+<li><strong>主要贡献者</strong>: LiaoZiqi-GZFLS (128 commits), Chen Jianye / DarkButSpark (101 commits), unnameduser5000 (12 commits)</li>
+<li><strong>当前状态</strong>: 由于精力原因暂时停止更新</li>
+</ul>
+<hr />
+<h2 id="核心玩法创新"><a class="markdownIt-Anchor" href="#核心玩法创新"></a> 核心玩法创新</h2>
+<h3 id="可编程键位系统"><a class="markdownIt-Anchor" href="#可编程键位系统"></a> 可编程键位系统</h3>
+<p>游戏最大的创新是<strong>可编程键位系统</strong>。玩家可以自定义 12 个物理插槽（QWER / ASDF / ZXCV）的按键映射，将方向令牌（U/D/L/R）和特殊动作令牌组合成复杂的战斗序列。</p>
+<p>这不是简单的键位重绑定，而是一个<strong>可编程的战斗语言</strong>：</p>
+<ul>
+<li>方向链可以触发派生武器技能（如前前 = 冲锋刺击）</li>
+<li>动作追踪系统记录玩家的移动轨迹</li>
+<li>武器组合识别器实时分析动作序列</li>
+</ul>
+<h3 id="派生武器技能"><a class="markdownIt-Anchor" href="#派生武器技能"></a> 派生武器技能</h3>
+<p>武器技能不是固定的技能树，而是通过<strong>动作模式匹配</strong>动态触发：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">前前 (FF) + 冲击盾 = 冲锋刺击</span><br><span class="line">前左前 (FSL F) + 旋风斧 = 大扫掠</span><br></pre></td></tr></table></figure>
+<p>这创造了一个深度的战斗系统 - 玩家需要理解武器特性、记忆组合序列，并在战斗中流畅执行。</p>
+<hr />
+<h2 id="开发历程"><a class="markdownIt-Anchor" href="#开发历程"></a> 开发历程</h2>
+<h3 id="第一阶段核心架构-6月23-24日"><a class="markdownIt-Anchor" href="#第一阶段核心架构-6月23-24日"></a> 第一阶段：核心架构 (6月23-24日)</h3>
+<p><strong>任务</strong>: 建立可编程键位系统的基础架构</p>
+<p>完成的工作：</p>
+<ul>
+<li>实现 <code>ActionProgramController.gd</code> 键位编程状态管理</li>
+<li>创建 <code>ActionPreviewService.gd</code> 用于动作预览</li>
+<li>构建 <code>BattlePresentationController.gd</code> 战斗表现层</li>
+<li>实现可等待的动作播放系统（同步测试模式 + 异步表现模式）</li>
+</ul>
+<p><strong>技术挑战</strong>: 如何让键位编程既灵活又易于测试？我们选择了分层架构 - 核心逻辑与表现层完全分离，支持无头测试和有头表现两种执行路径。</p>
+<h3 id="第二阶段武器系统重构-6月24-27日"><a class="markdownIt-Anchor" href="#第二阶段武器系统重构-6月24-27日"></a> 第二阶段：武器系统重构 (6月24-27日)</h3>
+<p><strong>任务</strong>: 从固定技能改为派生武器技能系统</p>
+<p>完成的工作：</p>
+<ul>
+<li>创建武器组合实验室用于测试</li>
+<li>实现自定义角色视图（<code>PlayerActorView.tscn</code>, <code>EnemyActorView.tscn</code>）</li>
+<li>构建战斗效果系统（Hit/Miss/Impact/Death 效果）</li>
+<li>重构技能系统为方向链驱动的派生技能</li>
+</ul>
+<p><strong>设计决策</strong>: 最初 lunge/sweep 是可拖拽的令牌，但这限制了战斗的深度。改为派生技能后，玩家需要学习每个武器的&quot;语言&quot;，这大大提升了策略性。</p>
+<h3 id="第三阶段动作追踪-6月27日"><a class="markdownIt-Anchor" href="#第三阶段动作追踪-6月27日"></a> 第三阶段：动作追踪 (6月27日)</h3>
+<p><strong>任务</strong>: 实现组合识别的核心 - 动作追踪系统</p>
+<p>完成的工作：</p>
+<ul>
+<li>创建 <code>ActionTrace.gd</code> 和 <code>ActionTraceEntry.gd</code></li>
+<li>实现 <code>ActionTraceRecorder.gd</code> 追踪玩家动作</li>
+<li>构建 <code>WeaponComboResolver.gd</code> 武器组合识别器</li>
+<li>引入相对方向语义（F/B/SL/SR = 前/后/左侧/右侧）</li>
+</ul>
+<p><strong>技术亮点</strong>: 使用相对方向而非绝对方向，让组合识别与玩家朝向无关。这意味着无论你面向哪个方向，&quot;前前&quot;永远触发冲锋。</p>
+<h3 id="第四阶段世界生成-6月28-30日"><a class="markdownIt-Anchor" href="#第四阶段世界生成-6月28-30日"></a> 第四阶段：世界生成 (6月28-30日)</h3>
+<p><strong>任务</strong>: 从小战斗房间扩展到 256×256 大地图</p>
+<p>完成的工作：</p>
+<ul>
+<li>实现基于 FOV 的世界切片系统</li>
+<li>构建程序化地图生成器（山脉/河流/地形/建筑）</li>
+<li>创建建筑足迹系统和 POI 放置服务</li>
+<li>优化渲染性能（有界 FOV + 固定活动窗口）</li>
+</ul>
+<p><strong>性能优化</strong>: 最初的连通性检查需要 161 秒，通过打包掩码优化降至 23 秒。渲染从全地图绘制改为仅渲染当前视口，帧率提升 10 倍。</p>
+<h3 id="第五阶段uiux-改进-6月30日-7月4日"><a class="markdownIt-Anchor" href="#第五阶段uiux-改进-6月30日-7月4日"></a> 第五阶段：UI/UX 改进 (6月30日-7月4日)</h3>
+<p><strong>任务</strong>: 让复杂系统变得可用</p>
+<p>完成的工作：</p>
+<ul>
+<li>重做背包页面为实时键位编辑器</li>
+<li>实现固定网格布局（告别动态拉伸）</li>
+<li>添加设置菜单（音量滑块、键位绑定、地图缩放）</li>
+<li>切换到 Camera2D 居中的世界地图</li>
+</ul>
+<p><strong>UX 教训</strong>: 键位编程系统很酷，但如果玩家不理解如何使用它，就毫无意义。我们花了大量时间打磨背包 UI，让拖放操作直观、令牌悬停显示说明、战斗区域锁定编辑。</p>
+<h3 id="第六阶段内容扩展-7月3-6日"><a class="markdownIt-Anchor" href="#第六阶段内容扩展-7月3-6日"></a> 第六阶段：内容扩展 (7月3-6日)</h3>
+<p><strong>任务</strong>: 填充游戏循环 - 升级、奖励、内容</p>
+<p>完成的工作：</p>
+<ul>
+<li>实现首杀攻击令牌奖励</li>
+<li>添加 XP/升级系统和随机永久 buff 选择</li>
+<li>扩展动作令牌库（钩拉、盾击、锤击、旋风斧、穿刺线）</li>
+<li>升级 Boss 节点为大型地牢层</li>
+<li>实现 POI 交互和自动寻路</li>
+<li>完成保存/加载功能</li>
+</ul>
+<p><strong>内容设计</strong>: 我们添加了 10+ 种新动作令牌和永久修改器。每个修改器都是一个&quot;构建块&quot; - 玩家可以叠加它们创造独特的构建（如&quot;收割回生&quot; + “追电步” = 击杀治疗 + 移动电击）。</p>
+<hr />
+<h2 id="技术架构"><a class="markdownIt-Anchor" href="#技术架构"></a> 技术架构</h2>
+<h3 id="分层设计"><a class="markdownIt-Anchor" href="#分层设计"></a> 分层设计</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">游戏层次:</span><br><span class="line">├── 数据层 (scripts/data/)</span><br><span class="line">│   ├── ActorDef, WeaponDef, TechniqueDef</span><br><span class="line">│   └── MapData, MapCell, BuildingPattern</span><br><span class="line">├── 运行时层 (scripts/runtime/)</span><br><span class="line">│   ├── GameState, TurnController</span><br><span class="line">│   ├── ActionResolver, ActionTrace</span><br><span class="line">│   └── WeaponComboResolver</span><br><span class="line">├── 控制器层 (scripts/controller/)</span><br><span class="line">│   ├── ActionProgramController</span><br><span class="line">│   ├── BattlePresentationController</span><br><span class="line">│   └── WorldSliceController</span><br><span class="line">└── 表现层 (scripts/view/)</span><br><span class="line">    ├── ActorView, BoardView</span><br><span class="line">    └── BattleEffectController</span><br></pre></td></tr></table></figure>
+<h3 id="测试策略"><a class="markdownIt-Anchor" href="#测试策略"></a> 测试策略</h3>
+<p>项目包含 3 个自动化测试套件：</p>
+<ul>
+<li><code>SmokeTest.gd</code> - 核心战斗循环测试</li>
+<li><code>ActorPresentationSandboxSmoke.gd</code> - 表现层测试</li>
+<li><code>BattleEffectSandboxSmoke.gd</code> - 效果系统测试</li>
+</ul>
+<p>我们使用 GitHub Actions 运行无头测试，每次提交都会验证核心功能。这在快速迭代时至关重要 - 我们可以大胆重构，因为测试会捕获回归。</p>
+<hr />
+<h2 id="已知问题与反思"><a class="markdownIt-Anchor" href="#已知问题与反思"></a> 已知问题与反思</h2>
+<h3 id="️-诚实地说"><a class="markdownIt-Anchor" href="#️-诚实地说"></a> ⚠️ 诚实地说</h3>
+<p><strong>这个项目仍然有大量 bug</strong>。作为一个两周的原型，我们优先实现新功能而非打磨现有系统。以下是主要问题：</p>
+<h4 id="核心系统"><a class="markdownIt-Anchor" href="#核心系统"></a> 核心系统</h4>
+<ul>
+<li>武器组合识别在边缘情况下可能失效</li>
+<li>敌人 AI 在复杂地形中会做出不合理决策</li>
+<li>保存/加载系统无法完全持久化运行时状态</li>
+</ul>
+<h4 id="世界生成"><a class="markdownIt-Anchor" href="#世界生成"></a> 世界生成</h4>
+<ul>
+<li>偶尔生成无法到达的 POI</li>
+<li>建筑可能生成在不合理位置</li>
+<li>敌人流式生成密度不一致</li>
+</ul>
+<h4 id="uiux"><a class="markdownIt-Anchor" href="#uiux"></a> UI/UX</h4>
+<ul>
+<li>拖放操作在某些情况下响应不准确</li>
+<li>Camera2D 在地图边缘可能抖动</li>
+<li>快速连续输入可能导致动作丢失</li>
+</ul>
+<h4 id="性能"><a class="markdownIt-Anchor" href="#性能"></a> 性能</h4>
+<ul>
+<li>256×256 地图在低端设备上卡顿</li>
+<li>FOV 计算在密集战斗中造成帧率下降</li>
+<li>长时间游玩可能出现内存泄漏</li>
+</ul>
+<h3 id="如果重来我会做什么不同"><a class="markdownIt-Anchor" href="#如果重来我会做什么不同"></a> 如果重来，我会做什么不同？</h3>
+<ol>
+<li>
+<p><strong>更早关注核心循环</strong>: 我们在世界生成上花了太多时间。一个小但完善的战斗系统比一个大但粗糙的地图更重要。</p>
+</li>
+<li>
+<p><strong>简化键位系统</strong>: 12 个物理插槽太多了。8 个就足够，这会让新手入门曲线更平缓。</p>
+</li>
+<li>
+<p><strong>先打磨，后扩展</strong>: 我们添加了太多动作令牌，但每个都不够完善。5 个打磨好的技能胜过 15 个半成品。</p>
+</li>
+<li>
+<p><strong>更多时间在音频上</strong>: 我们几乎没有音效。战斗缺乏冲击感，这是个巨大的遗憾。</p>
+</li>
+</ol>
+<hr />
+<h2 id="学到的经验"><a class="markdownIt-Anchor" href="#学到的经验"></a> 学到的经验</h2>
+<h3 id="godot-4-的强大之处"><a class="markdownIt-Anchor" href="#godot-4-的强大之处"></a> Godot 4 的强大之处</h3>
+<ol>
+<li>
+<p><strong>GDScript 的迭代速度</strong>: 修改代码 → 按 F5 → 立即测试。这种快速反馈循环让实验变得轻松。</p>
+</li>
+<li>
+<p><strong>Scene 系统的模块化</strong>: 每个系统（战斗效果、角色视图、建筑足迹）都是独立的 Scene，可以单独测试和迭代。</p>
+</li>
+<li>
+<p><strong>信号系统</strong>: Godot 的信号让解耦变得自然。我们的战斗表现层完全通过信号驱动，无需硬编码依赖。</p>
+</li>
+</ol>
+<h3 id="团队协作"><a class="markdownIt-Anchor" href="#团队协作"></a> 团队协作</h3>
+<p>这是我第一次参与真正的游戏开发协作项目。学到的教训：</p>
+<ol>
+<li>
+<p><strong>频繁沟通</strong>: 当你重构核心系统时，告诉团队。否则会出现合并冲突。</p>
+</li>
+<li>
+<p><strong>测试先行</strong>: 在添加新功能前先写测试。这听起来慢，但长期来看节省了大量调试时间。</p>
+</li>
+<li>
+<p><strong>文档很重要</strong>: 我们维护了一个详细的 DEVELOP_LOG.md (10 万字节！)。这让新加入的开发者能快速理解系统。</p>
+</li>
+</ol>
+<hr />
+<h2 id="项目统计"><a class="markdownIt-Anchor" href="#项目统计"></a> 项目统计</h2>
+<h3 id="代码量"><a class="markdownIt-Anchor" href="#代码量"></a> 代码量</h3>
+<ul>
+<li><strong>开发日志</strong>: 101,681 字节</li>
+<li><strong>我的提交</strong>: 101 次</li>
+<li><strong>开发天数</strong>: 14 天密集开发</li>
+<li><strong>核心脚本</strong>: 30+ 个新系统脚本</li>
+</ul>
+<h3 id="功能完成度"><a class="markdownIt-Anchor" href="#功能完成度"></a> 功能完成度</h3>
+<ul>
+<li>✅ 可编程键位系统（12 物理插槽）</li>
+<li>✅ 派生武器技能系统</li>
+<li>✅ 动作追踪与组合识别</li>
+<li>✅ 256×256 世界生成</li>
+<li>✅ 建筑足迹与 POI 系统</li>
+<li>✅ 升级奖励循环</li>
+<li>✅ 保存/加载功能</li>
+<li>❌ 完整的 Boss 战机制</li>
+<li>❌ 音频和音乐集成</li>
+<li>❌ 最终艺术资产</li>
+</ul>
+<hr />
+<h2 id="未来展望"><a class="markdownIt-Anchor" href="#未来展望"></a> 未来展望</h2>
+<p>项目目前处于&quot;可玩的原型&quot;阶段。如果要推向完整游戏，需要：</p>
+<h3 id="短期-1-2-个月"><a class="markdownIt-Anchor" href="#短期-1-2-个月"></a> 短期 (1-2 个月)</h3>
+<ul>
+<li>修复高优先级 bug</li>
+<li>改进武器系统稳定性</li>
+<li>优化大地图性能</li>
+<li>完善 Boss 战机制</li>
+</ul>
+<h3 id="中期-3-6-个月"><a class="markdownIt-Anchor" href="#中期-3-6-个月"></a> 中期 (3-6 个月)</h3>
+<ul>
+<li>添加更多敌人类型和 AI 变体</li>
+<li>扩展令牌和技能库</li>
+<li>实现更多永久修改器</li>
+<li>集成完整音频系统</li>
+</ul>
+<h3 id="长期-6-12-个月"><a class="markdownIt-Anchor" href="#长期-6-12-个月"></a> 长期 (6-12 个月)</h3>
+<ul>
+<li>替换为最终艺术资产</li>
+<li>平衡调整和玩法打磨</li>
+<li>多语言支持</li>
+<li>Steam 发布准备</li>
+</ul>
+<hr />
+<h2 id="结语"><a class="markdownIt-Anchor" href="#结语"></a> 结语</h2>
+<p>DNTB 是一次疯狂的两周冲刺。我们从零开始构建了一个复杂的战术 Roguelite 系统，实现了一些我们自己都感到惊讶的功能（256×256 世界生成真的能跑！）。</p>
+<p>项目远未完成，但它证明了核心概念是可行的。可编程键位系统很有趣，派生技能创造了深度，网格战斗感觉不错。</p>
+<h3 id="关于暂停更新"><a class="markdownIt-Anchor" href="#关于暂停更新"></a> 关于暂停更新</h3>
+<p>由于学业和其他项目的精力分配，DNTB 项目目前暂时停止更新。这并不代表项目的结束，而是一个&quot;暂停键&quot; - 我们都希望有一天能回来继续完善它。</p>
+<p>对于一个首次合作的团队来说，能在两周内完成这样一个原型已经是很大的成就。更重要的是，这次经历让我们积累了宝贵的协作经验，为未来的项目打下了基础。</p>
+<h3 id="最重要的收获"><a class="markdownIt-Anchor" href="#最重要的收获"></a> 最重要的收获</h3>
+<p><strong>我学到了很多</strong>。关于 Godot，关于游戏设计，关于团队协作，关于在有限时间内做出取舍。但最大的收获是：<strong>和朋友一起做游戏真的很快乐</strong>，即使过程中有无数的 bug 和熬夜，即使最终项目没能完成，这段经历本身就很有价值。</p>
+<p>如果你对项目感兴趣，可以查看我们的 <a target="_blank" rel="noopener" href="https://github.com/unnameduser5000/dntb">GitHub 仓库</a>。代码是开源的（Apache 2.0 许可证），欢迎 fork 或参考！</p>
+<hr />
+<p><strong>项目链接</strong>: <a target="_blank" rel="noopener" href="https://github.com/unnameduser5000/dntb">GitHub Repository</a><br />
+<strong>许可证</strong>: Apache License 2.0<br />
+<strong>引擎</strong>: Godot 4.7</p>
+<h2 id="参与项目的朋友们"><a class="markdownIt-Anchor" href="#参与项目的朋友们"></a> 参与项目的朋友们</h2>
+<div class="friend-wrap" data-aos="zoom-in"><div class="friend-item-wrap">
+    <a href="https://github.com/LiaoZiqi-GZFLS" rel="noopener external nofollow noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+          <img data-src="https://avatars.githubusercontent.com/u/LiaoZiqi-GZFLS?v=4" data-sizes="auto" alt="LiaoZiqi-GZFLS" class="lazyload">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">
+          LiaoZiqi-GZFLS 
+      </div>
+      <div class="friend-desc">
+        大佬
+      </div>
+    </div>
+  </div><div class="friend-item-wrap">
+    <a href="https://github.com/unnameduser5000" rel="noopener external nofollow noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+          <img data-src="https://avatars.githubusercontent.com/u/unnameduser5000?v=4" data-sizes="auto" alt="unnameduser5000" class="lazyload">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">
+          unnameduser5000 
+      </div>
+      <div class="friend-desc">
+        大佬
+      </div>
+    </div>
+  </div><div class="friend-item-wrap">
+    <a href="https://github.com/dark-but-spark" rel="noopener external nofollow noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+          <img data-src="https://avatars.githubusercontent.com/u/dark-but-spark?v=4" data-sizes="auto" alt="DarkButSpark" class="lazyload">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">
+          DarkButSpark 
+      </div>
+      <div class="friend-desc">
+        喵喵喵
+      </div>
+    </div>
+  </div><div class="friend-item-wrap">
+    <a href="https://github.com/wentao-DAI" rel="noopener external nofollow noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+          <img data-src="https://avatars.githubusercontent.com/u/wentao-DAI?v=4" data-sizes="auto" alt="wentao DAI" class="lazyload">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">
+          wentao DAI 
+      </div>
+      <div class="friend-desc">
+        项目贡献者
+      </div>
+    </div>
+  </div><div class="friend-item-wrap">
+    <a href="https://github.com/Jaeger0624" rel="noopener external nofollow noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+          <img data-src="https://avatars.githubusercontent.com/u/Jaeger0624?v=4" data-sizes="auto" alt="Jaeger0624" class="lazyload">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">
+          Jaeger0624 
+      </div>
+      <div class="friend-desc">
+        项目贡献者
+      </div>
+    </div>
+  </div><div class="friend-item-wrap">
+    <a href="https://github.com/Crab-Dave" rel="noopener external nofollow noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+          <img data-src="https://avatars.githubusercontent.com/u/Crab-Dave?v=4" data-sizes="auto" alt="Crab-Dave" class="lazyload">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">
+          Crab-Dave 
+      </div>
+      <div class="friend-desc">
+        项目贡献者
+      </div>
+    </div>
+  </div><div class="friend-item-wrap">
+    <a href="https://github.com/unnameduser5000/dntb" rel="noopener external nofollow noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+          <img data-src="https://avatars.githubusercontent.com/u/9919?s=200&v=4" data-sizes="auto" alt="DNTB 项目仓库" class="lazyload">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">
+          DNTB 项目仓库 
+      </div>
+      <div class="friend-desc">
+        Godot 4 战术 Roguelite 原型
+      </div>
+    </div>
+  </div></div>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/DNTB/" rel="tag">DNTB</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Game-Jam/" rel="tag">Game Jam</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Godot/" rel="tag">Godot</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Roguelite/" rel="tag">Roguelite</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" rel="tag">游戏开发</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+  <nav id="article-nav" data-aos="fade-up">
+    
+      
+      
+      <div class="article-nav-link-wrap article-nav-link-left">
+        
+          
+          
+            <img data-src="/covers/a18.webp" data-sizes="auto" alt="Hello World" class="lazyload">
+          
+        
+        <a href="/2026/08/04/hello-world/"></a>
+        <div class="article-nav-caption">Newer</div>
+        <h3 class="article-nav-title">
+          Hello World
+        </h3>
+      </div>
+    
+    
+    
+    
+    <div class="article-nav-link-wrap article-nav-link-right">
+      
+        
+        
+          <img data-src="/covers/a11.png" data-sizes="auto" alt="高等数学 3.Derivatives" class="lazyload">
+        
+      
+      <a href="/2025/10/17/AdvancedMath/3/"></a>
+      <div class="article-nav-caption">Older</div>
+      <h3 class="article-nav-title">
+        高等数学 3.Derivatives
+      </h3>
+    </div>
+    
+  </nav>
+
+
+</article>
+
+
+
+
+
+
+
+
+
+
+</section>
+        </div>
+        <footer id="footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    
+    <div>
+      <span class="icon-copyright"></span>
+      
+      
+      
+        2025-2026
+      
+      <span class="footer-info-sep rotate"></span>
+      暗烨
+    </div>
+    
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener external nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+    
+    
+      <div>
+        <span class="icon-brush"></span>
+        57.2k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        04:20
+      </div>
+    
+    
+    
+    
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+    
+  </div>
+</footer>
+
+        
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav">
+  <div class="sidebar-wrap">
+    
+      
+        <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#dntb-%E5%9C%B0%E7%89%A2%E7%BC%96%E6%8E%92%E5%B8%88-game-jam-%E5%BC%80%E5%8F%91%E5%9B%9E%E9%A1%BE"><span class="toc-number">1.</span> <span class="toc-text"> DNTB 地牢编排师 - Game Jam 开发回顾</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text"> 项目概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 基本信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E7%8E%A9%E6%B3%95%E5%88%9B%E6%96%B0"><span class="toc-number">1.2.</span> <span class="toc-text"> 核心玩法创新</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E7%BC%96%E7%A8%8B%E9%94%AE%E4%BD%8D%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 可编程键位系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B4%BE%E7%94%9F%E6%AD%A6%E5%99%A8%E6%8A%80%E8%83%BD"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 派生武器技能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E5%8E%86%E7%A8%8B"><span class="toc-number">1.3.</span> <span class="toc-text"> 开发历程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E6%A0%B8%E5%BF%83%E6%9E%B6%E6%9E%84-6%E6%9C%8823-24%E6%97%A5"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 第一阶段：核心架构 (6月23-24日)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E6%AD%A6%E5%99%A8%E7%B3%BB%E7%BB%9F%E9%87%8D%E6%9E%84-6%E6%9C%8824-27%E6%97%A5"><span class="toc-number">1.3.2.</span> <span class="toc-text"> 第二阶段：武器系统重构 (6月24-27日)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5%E5%8A%A8%E4%BD%9C%E8%BF%BD%E8%B8%AA-6%E6%9C%8827%E6%97%A5"><span class="toc-number">1.3.3.</span> <span class="toc-text"> 第三阶段：动作追踪 (6月27日)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%E4%B8%96%E7%95%8C%E7%94%9F%E6%88%90-6%E6%9C%8828-30%E6%97%A5"><span class="toc-number">1.3.4.</span> <span class="toc-text"> 第四阶段：世界生成 (6月28-30日)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5uiux-%E6%94%B9%E8%BF%9B-6%E6%9C%8830%E6%97%A5-7%E6%9C%884%E6%97%A5"><span class="toc-number">1.3.5.</span> <span class="toc-text"> 第五阶段：UI&#x2F;UX 改进 (6月30日-7月4日)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E9%98%B6%E6%AE%B5%E5%86%85%E5%AE%B9%E6%89%A9%E5%B1%95-7%E6%9C%883-6%E6%97%A5"><span class="toc-number">1.3.6.</span> <span class="toc-text"> 第六阶段：内容扩展 (7月3-6日)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84"><span class="toc-number">1.4.</span> <span class="toc-text"> 技术架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%B1%82%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 分层设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5"><span class="toc-number">1.4.2.</span> <span class="toc-text"> 测试策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%B2%E7%9F%A5%E9%97%AE%E9%A2%98%E4%B8%8E%E5%8F%8D%E6%80%9D"><span class="toc-number">1.5.</span> <span class="toc-text"> 已知问题与反思</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%B8%8F-%E8%AF%9A%E5%AE%9E%E5%9C%B0%E8%AF%B4"><span class="toc-number">1.5.1.</span> <span class="toc-text"> ⚠️ 诚实地说</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.5.1.1.</span> <span class="toc-text"> 核心系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%96%E7%95%8C%E7%94%9F%E6%88%90"><span class="toc-number">1.5.1.2.</span> <span class="toc-text"> 世界生成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#uiux"><span class="toc-number">1.5.1.3.</span> <span class="toc-text"> UI&#x2F;UX</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%A7%E8%83%BD"><span class="toc-number">1.5.1.4.</span> <span class="toc-text"> 性能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E9%87%8D%E6%9D%A5%E6%88%91%E4%BC%9A%E5%81%9A%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C"><span class="toc-number">1.5.2.</span> <span class="toc-text"> 如果重来，我会做什么不同？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E5%88%B0%E7%9A%84%E7%BB%8F%E9%AA%8C"><span class="toc-number">1.6.</span> <span class="toc-text"> 学到的经验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#godot-4-%E7%9A%84%E5%BC%BA%E5%A4%A7%E4%B9%8B%E5%A4%84"><span class="toc-number">1.6.1.</span> <span class="toc-text"> Godot 4 的强大之处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C"><span class="toc-number">1.6.2.</span> <span class="toc-text"> 团队协作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%9F%E8%AE%A1"><span class="toc-number">1.7.</span> <span class="toc-text"> 项目统计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%87%8F"><span class="toc-number">1.7.1.</span> <span class="toc-text"> 代码量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%88%90%E5%BA%A6"><span class="toc-number">1.7.2.</span> <span class="toc-text"> 功能完成度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B"><span class="toc-number">1.8.</span> <span class="toc-text"> 未来展望</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%AD%E6%9C%9F-1-2-%E4%B8%AA%E6%9C%88"><span class="toc-number">1.8.1.</span> <span class="toc-text"> 短期 (1-2 个月)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%9C%9F-3-6-%E4%B8%AA%E6%9C%88"><span class="toc-number">1.8.2.</span> <span class="toc-text"> 中期 (3-6 个月)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%95%BF%E6%9C%9F-6-12-%E4%B8%AA%E6%9C%88"><span class="toc-number">1.8.3.</span> <span class="toc-text"> 长期 (6-12 个月)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">1.9.</span> <span class="toc-text"> 结语</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%9A%82%E5%81%9C%E6%9B%B4%E6%96%B0"><span class="toc-number">1.9.1.</span> <span class="toc-text"> 关于暂停更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E6%94%B6%E8%8E%B7"><span class="toc-number">1.9.2.</span> <span class="toc-text"> 最重要的收获</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E4%B8%8E%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9C%8B%E5%8F%8B%E4%BB%AC"><span class="toc-number">1.10.</span> <span class="toc-text"> 参与项目的朋友们</span></a></li></ol></li></ol>
+      
+  </div>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="暗烨" class="lazyload">
+  <div class="sidebar-author-name">暗烨</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">30</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">10</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">34</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="Friend"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          
+            &#xe62b;
+          
+        </div>
+        <div class="sidebar-menu-link">Friend</div>
+      </div>
+    
+  
+</div>
+</div>
+      
+    
+  </div>
+  
+    
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+    
+  
+</nav>
+
+    </div>
+    
+    
+    
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+  
+<script src="https://npm.webcache.cn/material-theme@1.0.0/dist/material-theme.umd.js" integrity="sha384-vLev0II0HKFaxkcm+&#x2F;7kX5IGwVFBASkGchU311wmU&#x2F;veIj2bB0UcBkQbW6yw2asK" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+
+
+
+
+
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.1.1/dist/index.umd.js" integrity="sha384-8LyaidD9GPxQQgLJO&#x2F;WRw&#x2F;O2h3BoNq&#x2F;ApI&#x2F;ecpvM6RsrCz2qP2ppBXUKihP4V&#x2F;2d" crossorigin="anonymous"></script>
+
+  <script>
+    window.firework && window.firework(JSON.parse('{"excludeElements":["a"],"particles":[{"shape":"circle","move":"emit","easing":"easeOutExpo","colors":["rgba(255,182,185,.9)","rgba(250,227,217,.9)","rgba(187,222,214,.9)","rgba(138,198,209,.9)"],"number":30,"duration":[1200,1800],"shapeOptions":{"radius":[16,32]}}]}'))
+  </script>
+
+
+
+
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+    
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "暗烨",
+          title: "DNTB 地牢编排师 - Game Jam 开发回顾",
+          url: "http://example.com/2026/07/06/GameJam/DNTB-Project-Review/",
+          excerpt: " DNTB 地牢编排师 - Game Jam 开发回顾  项目概述 DNTB (Dungeon Arranger: Forbidden Keys / 地牢编排师) 是我在 2026 年 6 月参与开发的一个 Godot 4 战术 Roguelite 游戏原型。项目核心玩法围绕可编程方向键、派生武器技能、网格战斗和类遗物修改器系统。 这是一次特别的开发经历 - 我们团队都是同一所学校的朋友，之前互相认识，但这是第一次一起合作开发游戏。两周的密集开发让我们从陌生的协作者变成了默契的开发伙伴。",
+          description: "记录 DNTB (Dungeon Arranger - Forbidden Keys) 项目两周开发历程，一个基于 Godot 4 的战术 Roguelite 原型",
+          stripContent: " DNTB 地牢编排师 - Game Jam 开发回顾  项目概述 DNTB (Dungeon Arranger: Forbidden Keys / 地牢编排师) 是我在 2026 年 6 月参与开发的一个 Godot 4 战术 Roguelite 游戏原型。项目核心玩法围绕可编程方向键、派生武器技能、网格战斗和类遗物修改器系统。 这是一次特别的开发经历 - 我们团队都是同一所学校的朋友，之前互相认识，但这是第一次一起合作开发游戏。两周的密集开发让我们从陌生的协作者变成了默契的开发伙伴。   基",
+          date: "Mon Jul 06 2026 00:00:00 GMT+0800",
+          updated: "Mon Sep 07 2026 00:00:00 GMT+0800",
+          cover: "/covers/a10.webp",
+        };
+      </script>
+       
+    
+    
+      
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+        
+      
+    
+    
+      <script type="module" data-pjax>
+        const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+        
+        const pswp = () => {
+          if (_$$('.article-entry a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-entry',
+              children: 'a.article-gallery-item',
+              pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+            }).init();
+          }
+          if(_$$('.article-gallery a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-gallery',
+              children: 'a.article-gallery-item',
+              pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+            }).init();
+          }
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script>
+      
+        
+
+
+
+
+
+
+
+
+      
+    
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.9.0' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+  
+
+
+
+  
+<script src="https://npm.webcache.cn/aplayer@1.10.1/dist/APlayer.min.js" integrity="sha384-gdGYZwHnfJM54evoZhpO0s6ZF5BQiybkiyW7VXr+h5UfruuRL&#x2F;aORyw+5+HZoU6e" crossorigin="anonymous"></script>
+
+  
+
+
+
+  
+  <script>
+    var isMobile = window.matchMedia('(max-width: 959px)').matches;
+    if (isMobile) {
+      const meting = _$('meting-js');
+      if (meting) {
+        meting.setAttribute('fixed', 'true');
+        const aside = meting.parentNode;
+        if (aside?.tagName === 'ASIDE') {
+          aside.removeChild(meting);
+          document.body.appendChild(meting);
+        }
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/meting@2.0.1/dist/Meting.min.js" integrity="sha384-ASVlpKF80A22OXTK3tfEjZm1EL6uFMKIC4p8+0maanw1S&#x2F;IyB+Y4JG+ZDU7GpKE8" crossorigin="anonymous"></script>
+
+
+
+
+
+<!-- Random Cover Script - Only for posts without fixed cover -->
+<script data-pjax>
+  (function() {
+    'use strict';
+    var covers = ["/covers/a1.png","/covers/a10.webp","/covers/a11.png","/covers/a12.webp","/covers/a13.webp","/covers/a14.webp","/covers/a15.png","/covers/a16.webp","/covers/a17.webp","/covers/a18.webp","/covers/a19.webp","/covers/a2.webp","/covers/a20.webp","/covers/a22.webp","/covers/a23.png","/covers/a24.webp","/covers/a25.png","/covers/a26.webp","/covers/a27.png","/covers/a28.webp","/covers/a3.png","/covers/a4.webp","/covers/a5.png","/covers/a6.webp","/covers/a7.png","/covers/a8.webp","/covers/a9.webp"];
+    if (!covers || covers.length === 0) return;
+
+    function randomizeCover(img) {
+      // Only randomize if the image doesn't have a data-fixed-cover attribute
+      if (img.hasAttribute('data-fixed-cover')) return;
+
+      var randomIndex = Math.floor(Math.random() * covers.length);
+      var randomCover = covers[randomIndex];
+
+      if (img.hasAttribute('data-src')) {
+        img.setAttribute('data-src', randomCover);
+      }
+      if (img.hasAttribute('src') && img.src) {
+        img.src = randomCover;
+      }
+    }
+
+    function randomizeAllCovers() {
+      // Post list covers (only those without fixed cover)
+      var postCovers = document.querySelectorAll('.post-cover-left img.lazyload:not([data-fixed-cover]), .post-cover-right img.lazyload:not([data-fixed-cover])');
+      postCovers.forEach(randomizeCover);
+
+      // Navigation covers (only those without fixed cover)
+      var navCovers = document.querySelectorAll('.article-nav-link-wrap img.lazyload:not([data-fixed-cover])');
+      navCovers.forEach(randomizeCover);
+
+      // Category covers (only those without fixed cover)
+      var categoryCovers = document.querySelectorAll('.post-categories-cover img.lazyload:not([data-fixed-cover])');
+      categoryCovers.forEach(randomizeCover);
+    }
+
+    // Run on page load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', randomizeAllCovers);
+    } else {
+      randomizeAllCovers();
+    }
+
+    // Run on pjax navigation
+    document.addEventListener('pjax:complete', randomizeAllCovers);
+  })();
+</script>
+    
+  </body>
+  </html>
+
